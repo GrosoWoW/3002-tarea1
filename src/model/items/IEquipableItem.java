@@ -45,4 +45,23 @@ public interface IEquipableItem {
    * @return the maximum range of the item
    */
   int getMaxRange();
+
+  /**
+   *
+   * @return if the item is magic
+   */
+  boolean isMagic();
+
+  /**
+   *
+   * @return the strong item
+   */
+  String getStrong();
+
+  /**
+   *
+   * @return the weak item
+   */
+
+  String getWeak();
 }

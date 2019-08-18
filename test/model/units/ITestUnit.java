@@ -2,6 +2,7 @@ package model.units;
 
 
 import model.items.*;
+import model.items.normal.*;
 import model.map.Field;
 import org.junit.jupiter.api.Test;
 

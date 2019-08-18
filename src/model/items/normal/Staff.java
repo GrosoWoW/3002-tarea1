@@ -1,4 +1,6 @@
-package model.items;
+package model.items.normal;
+
+import model.items.normal.AbstractItem;
 
 /**
  * This class represents a <i>Staff</i> type item.
@@ -24,5 +26,6 @@ public class Staff extends AbstractItem {
    */
   public Staff(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
+
   }
 }

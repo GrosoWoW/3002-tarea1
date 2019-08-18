@@ -1,5 +1,6 @@
-package model.items;
+package model.items.normal;
 
+import model.items.IEquipableItem;
 import model.units.IUnit;
 
 /**
@@ -15,6 +16,10 @@ public abstract class AbstractItem implements IEquipableItem {
   protected int maxRange;
   protected int minRange;
   private IUnit owner;
+  protected boolean magic;
+  protected String weak;
+  protected String strong;
+
 
   /**
    * Constructor for a default item without any special behaviour.
@@ -33,36 +38,47 @@ public abstract class AbstractItem implements IEquipableItem {
     this.power = power;
     this.minRange = Math.max(minRange, 1);
     this.maxRange = Math.max(maxRange, this.minRange);
+    this.magic = false;
+    this.strong = null;
+    this.weak = null;
   }
 
-  @Override
+
   public void equipTo(final IUnit unit) {
     unit.setEquippedItem(this);
     owner = unit;
   }
 
-  @Override
   public IUnit getOwner() {
     return owner;
   }
 
-  @Override
   public String getName() {
     return name;
   }
 
-  @Override
   public int getPower() {
     return power;
   }
 
-  @Override
   public int getMinRange() {
     return minRange;
   }
 
-  @Override
   public int getMaxRange() {
     return maxRange;
   }
+
+  public boolean isMagic() {
+    return magic;
+  }
+
+  public String getStrong(){
+    return strong;
+  }
+
+  public String getWeak(){
+    return weak;
+  }
+
 }

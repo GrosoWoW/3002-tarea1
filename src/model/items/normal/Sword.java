@@ -1,4 +1,6 @@
-package model.items;
+package model.items.normal;
+
+import model.items.normal.AbstractItem;
 
 /**
  * This class represents a sword type item.
@@ -24,5 +26,7 @@ public class Sword extends AbstractItem {
    */
   public Sword(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
+    this.strong = "Axe";
+    this.weak = "Spear";
   }
 }

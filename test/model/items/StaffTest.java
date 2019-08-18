@@ -1,5 +1,6 @@
 package model.items;
 
+import model.items.normal.Staff;
 import model.map.Location;
 import model.units.Cleric;
 import model.units.IUnit;

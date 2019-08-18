@@ -1,5 +1,6 @@
 package model.items;
 
+import model.items.normal.Sword;
 import model.map.Location;
 import model.units.IUnit;
 import model.units.SwordMaster;

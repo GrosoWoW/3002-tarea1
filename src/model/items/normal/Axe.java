@@ -1,14 +1,17 @@
-package model.items;
+package model.items.normal;
+
+import model.items.normal.AbstractItem;
 
 /**
- * This class represents a <i>spear</i>.
+ * This class represents an Axe.
  * <p>
- * Spears are strong against swords and weak against axes
+ * Axes are strong against spears but weak agains swords.
  *
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Spear extends AbstractItem {
+public class Axe extends AbstractItem {
+
 
   /**
    * Creates a new Axe item
@@ -22,7 +25,9 @@ public class Spear extends AbstractItem {
    * @param maxRange
    *     the maximum range of the axe
    */
-  public Spear(final String name, final int power, final int minRange, final int maxRange) {
+  public Axe(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
+    this.strong = "Spear";
+    this.weak = "Sword";
   }
 }

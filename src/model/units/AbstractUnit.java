@@ -46,46 +46,48 @@ public abstract class AbstractUnit implements IUnit {
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
   }
 
-  @Override
+
   public int getCurrentHitPoints() {
+
     return currentHitPoints;
   }
 
-  @Override
   public List<IEquipableItem> getItems() {
+
     return List.copyOf(items);
   }
 
-  @Override
   public IEquipableItem getEquippedItem() {
+
     return equippedItem;
   }
 
-  @Override
   public void setEquippedItem(final IEquipableItem item) {
+
     this.equippedItem = item;
   }
 
-  @Override
   public Location getLocation() {
+
     return location;
   }
 
-  @Override
   public void setLocation(final Location location) {
+
     this.location = location;
   }
 
-  @Override
   public int getMovement() {
+
     return movement;
   }
 
-  @Override
+
   public void moveTo(final Location targetLocation) {
     if (getLocation().distanceTo(targetLocation) <= getMovement()
         && targetLocation.getUnit() == null) {
       setLocation(targetLocation);
     }
   }
+
 }

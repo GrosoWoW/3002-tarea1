@@ -1,4 +1,6 @@
-package model.items;
+package model.items.normal;
+
+import model.items.normal.AbstractItem;
 
 /**
  * @author Ignacio Slater Muñoz
