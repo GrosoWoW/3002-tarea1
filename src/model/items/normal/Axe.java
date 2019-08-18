@@ -30,4 +30,5 @@ public class Axe extends AbstractItem {
     this.strong = "Spear";
     this.weak = "Sword";
   }
+
 }

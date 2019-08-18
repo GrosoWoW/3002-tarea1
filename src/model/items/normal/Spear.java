@@ -37,4 +37,6 @@ public class Spear extends AbstractItem {
   public void equipTo(IUnit unit) {
     super.equipTo(unit);
   }
+
+
 }

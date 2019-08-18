@@ -28,4 +28,5 @@ public class Staff extends AbstractItem {
     super(name, power, minRange, maxRange);
 
   }
+
 }

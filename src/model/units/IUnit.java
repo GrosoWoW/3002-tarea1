@@ -64,7 +64,45 @@ public interface IUnit {
    * <p>
    * If the other location is out of this unit's movement range, the unit doesn't move.
    */
+
   void moveTo(Location targetLocation);
+
+  /**
+   *
+   * @return the maximum number of items
+   */
+
+  int getMaxItems();
+
+  /**
+   *
+   * @param unit
+   * @param received
+   * @param delivered
+   */
+
+
+
+  void trade(AbstractUnit unit, IEquipableItem received, IEquipableItem delivered);
+
+  /**
+   *
+   * @param unit
+   * @param gift
+   */
+
+  void giveAway(AbstractUnit unit, IEquipableItem gift);
+
+  /**
+   *
+   * @param unit
+   * @param gift
+   */
+
+  void receive(AbstractUnit unit, IEquipableItem received);
+
+
+  void combat(IUnit unit);
 
 
 }

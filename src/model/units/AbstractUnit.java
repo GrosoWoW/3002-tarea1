@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import model.items.IEquipableItem;
+import model.items.normal.AbstractItem;
 import model.map.Location;
 
 /**
@@ -25,6 +26,7 @@ public abstract class AbstractUnit implements IUnit {
   private final int movement;
   protected IEquipableItem equippedItem;
   private Location location;
+  int maxItems;
 
   /**
    * Creates a new Unit.
@@ -44,6 +46,7 @@ public abstract class AbstractUnit implements IUnit {
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
+    this.maxItems = maxItems;
   }
 
 
@@ -82,12 +85,70 @@ public abstract class AbstractUnit implements IUnit {
     return movement;
   }
 
+  public int getMaxItems(){
+
+    return maxItems;
+  }
+
 
   public void moveTo(final Location targetLocation) {
     if (getLocation().distanceTo(targetLocation) <= getMovement()
         && targetLocation.getUnit() == null) {
       setLocation(targetLocation);
     }
+  }
+  public void trade(AbstractUnit unit, IEquipableItem received, IEquipableItem delivered){
+
+    int distanceX = this.location.getRow() - unit.location.getRow();
+    int distanceY = this.location.getColumn() - unit.location.getColumn();
+
+    if(Math.pow(distanceX,2) <= 1 && Math.pow(distanceY,2) <= 1){
+
+      if(this.items.contains(delivered) && unit.items.contains(received)){
+
+      }
+    }
+
+  }
+
+  public void giveAway(AbstractUnit unit, IEquipableItem gift) {
+
+    int distanceX = this.location.getRow() - unit.location.getRow();
+    int distanceY = this.location.getColumn() - unit.location.getColumn();
+
+    if (Math.pow(distanceX, 2) <= 1 && Math.pow(distanceY, 2) <= 1) {
+
+      if(unit.items.size() < unit.maxItems){
+
+        unit.items.add(gift);
+        this.items.remove(gift);
+      }
+    }
+  }
+
+  public void receive(AbstractUnit unit, IEquipableItem received) {
+
+      int distanceX = this.location.getRow() - unit.location.getRow();
+      int distanceY = this.location.getColumn() - unit.location.getColumn();
+
+      if(Math.pow(distanceX,2) <= 1 && Math.pow(distanceY,2) <= 1){
+
+        if(this.items.size() < this.maxItems){
+
+          this.items.add(received);
+          unit.items.remove(received);
+        }
+    }
+
+
+
+  }
+
+  public void combat(IUnit unit){
+
+
+
+
   }
 
 }

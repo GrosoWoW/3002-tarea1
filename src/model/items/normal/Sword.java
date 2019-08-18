@@ -29,4 +29,21 @@ public class Sword extends AbstractItem {
     this.strong = "Axe";
     this.weak = "Spear";
   }
+  @Override
+  public boolean Strong(String item){
+
+    if(this.getName() == item){
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean Weak(String item){
+
+    if(this.getName() == item){
+      return true;
+    }
+    return false;
+  }
 }

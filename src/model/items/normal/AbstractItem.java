@@ -81,4 +81,20 @@ public abstract class AbstractItem implements IEquipableItem {
     return weak;
   }
 
+  public boolean Strong(String item){
+
+    if(this.getStrong() == item){
+      return true;
+    }
+    return false;
+  }
+
+  public boolean Weak(String item){
+
+    if(this.getWeak() == item){
+      return true;
+    }
+    return false;
+  }
+
 }

@@ -22,7 +22,7 @@ public abstract class AbstractBook implements IEquipableItem {
 
 
     /**
-     * Constructor for a default item without any special behaviour.
+     * Constructor for a default book without any special behaviour.
      *
      * @param name
      *     the name of the item
@@ -76,5 +76,21 @@ public abstract class AbstractBook implements IEquipableItem {
 
     public String getWeak(){
         return weak;
+    }
+
+    public boolean Strong(String item){
+
+        if(this.getStrong() == item){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean Weak(String item){
+
+        if(this.getWeak() == item){
+            return true;
+        }
+        return false;
     }
 }

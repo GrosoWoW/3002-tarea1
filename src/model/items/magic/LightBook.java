@@ -27,8 +27,8 @@ public class LightBook extends AbstractBook {
     public LightBook(final String name, final int power, final int minRange, final int maxRange){
 
         super(name, power, minRange, maxRange);
-        this.strong = "Dark";
-        this.weak = "Anima";
+        this.strong = "DarkBook";
+        this.weak = "AnimaBook";
     }
 
 
