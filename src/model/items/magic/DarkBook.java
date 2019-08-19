@@ -29,6 +29,7 @@ public class DarkBook extends AbstractBook {
         super(name, power, minRange, maxRange);
         this.strong = "AnimaBook";
         this.weak = "LightBook";
+        this.attack = true;
     }
 
 

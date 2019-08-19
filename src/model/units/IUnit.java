@@ -81,8 +81,6 @@ public interface IUnit {
    * @param delivered
    */
 
-
-
   void trade(AbstractUnit unit, IEquipableItem received, IEquipableItem delivered);
 
   /**
@@ -96,13 +94,24 @@ public interface IUnit {
   /**
    *
    * @param unit
-   * @param gift
+   * @param received
    */
 
   void receive(AbstractUnit unit, IEquipableItem received);
 
+  /**
+   *
+   */
 
-  void combat(IUnit unit);
+  void attack(AbstractUnit unit);
+
+  /**
+   *
+   * @param damage
+   */
+
+  void takeDamage(AbstractUnit attacker, int damage);
+
 
 
 }

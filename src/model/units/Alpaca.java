@@ -14,8 +14,6 @@ import model.map.Location;
  */
 public class Alpaca extends AbstractUnit {
 
-
-
   /**
    * Creates a new Alpaca.
    *
@@ -41,4 +39,8 @@ public class Alpaca extends AbstractUnit {
     // Method body intentionally left empty
   }
 
+  @Override
+  public void attack(AbstractUnit unit) {
+
+  }
 }

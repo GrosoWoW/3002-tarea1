@@ -27,6 +27,7 @@ public class Bow extends AbstractItem {
     super(name, power, minRange, maxRange);
     this.minRange = Math.max(minRange, 2);
     this.maxRange = Math.max(maxRange, this.minRange);
+    this.attack = true;
   }
 
 

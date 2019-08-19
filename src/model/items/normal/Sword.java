@@ -28,6 +28,7 @@ public class Sword extends AbstractItem {
     super(name, power, minRange, maxRange);
     this.strong = "Axe";
     this.weak = "Spear";
+    this.attack = true;
   }
   @Override
   public boolean Strong(String item){

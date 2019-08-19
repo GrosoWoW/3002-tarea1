@@ -4,9 +4,9 @@ import model.items.IEquipableItem;
 import model.units.IUnit;
 
     /**
-     * Abstract class that defines some common information and behaviour between all items.
+     * Abstract class that defines some common information and behaviour between all books.
      *
-     * @author Ignacio Slater Muñoz
+     * @author Cristobal Jaramillo
      * @since 1.0
      */
 public abstract class AbstractBook implements IEquipableItem {
@@ -19,6 +19,7 @@ public abstract class AbstractBook implements IEquipableItem {
     protected boolean magic;
     protected String weak;
     protected String strong;
+    protected boolean attack;
 
 
     /**
@@ -76,6 +77,10 @@ public abstract class AbstractBook implements IEquipableItem {
 
     public String getWeak(){
         return weak;
+    }
+
+    public boolean isAttack(){
+        return attack;
     }
 
     public boolean Strong(String item){

@@ -2,9 +2,7 @@ package model.units;
 
 import model.items.IEquipableItem;
 import model.items.magic.AbstractBook;
-import model.items.magic.AnimaBook;
 import model.map.Location;
-import model.items.normal.Axe;
 
 /**
  * This class represents a sorcerer type unit.

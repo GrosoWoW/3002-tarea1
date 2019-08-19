@@ -29,6 +29,7 @@ public class Axe extends AbstractItem {
     super(name, power, minRange, maxRange);
     this.strong = "Spear";
     this.weak = "Sword";
+    this.attack = true;
   }
 
 }

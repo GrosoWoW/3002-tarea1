@@ -65,6 +65,7 @@ public interface IEquipableItem {
   /**
    *
    * @param item
+   *       item to analyze
    * @return true if the item is strong against the entered parameter
    */
 
@@ -73,8 +74,11 @@ public interface IEquipableItem {
   /**
    *
    * @param item
+   *      item to analyze
    * @return true if the item is worse against the entered parameter
    */
 
   boolean Weak(String item);
+
+  boolean isAttack();
 }

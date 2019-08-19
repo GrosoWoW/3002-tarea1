@@ -5,7 +5,7 @@ import model.items.magic.AbstractBook;
 /**
  *
  * This class represents a AnimaBook of the magic type
- *
+ * This item
  *
  *
  */
@@ -29,7 +29,8 @@ public class AnimaBook extends AbstractBook {
 
         super(name, power, minRange, maxRange);
         this.strong = "LightBook";
-        this.weak = "DarkBook";
+
+        this.attack = true;
     }
 
 

@@ -31,6 +31,7 @@ public class Spear extends AbstractItem {
     super(name, power, minRange, maxRange);
     this.strong = "Sword";
     this.weak = "Axe";
+    this.attack = true;
   }
 
   @Override

@@ -22,7 +22,8 @@ import model.map.Location;
 public abstract class AbstractUnit implements IUnit {
 
   protected final List<IEquipableItem> items = new ArrayList<>();
-  private final int currentHitPoints;
+  protected int currentHitPoints;
+  private final int maxHitPoints;
   private final int movement;
   protected IEquipableItem equippedItem;
   private Location location;
@@ -42,6 +43,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   protected AbstractUnit(final int hitPoints, final int movement,
       final Location location, final int maxItems, final IEquipableItem... items) {
+    this.maxHitPoints = hitPoints;
     this.currentHitPoints = hitPoints;
     this.movement = movement;
     this.location = location;
@@ -53,6 +55,11 @@ public abstract class AbstractUnit implements IUnit {
   public int getCurrentHitPoints() {
 
     return currentHitPoints;
+  }
+
+  public int getMaxHitPoints(){
+
+    return maxHitPoints;
   }
 
   public List<IEquipableItem> getItems() {
@@ -97,6 +104,7 @@ public abstract class AbstractUnit implements IUnit {
       setLocation(targetLocation);
     }
   }
+
   public void trade(AbstractUnit unit, IEquipableItem received, IEquipableItem delivered){
 
     int distanceX = this.location.getRow() - unit.location.getRow();
@@ -108,7 +116,6 @@ public abstract class AbstractUnit implements IUnit {
 
       }
     }
-
   }
 
   public void giveAway(AbstractUnit unit, IEquipableItem gift) {
@@ -139,16 +146,58 @@ public abstract class AbstractUnit implements IUnit {
           unit.items.remove(received);
         }
     }
-
-
-
   }
 
-  public void combat(IUnit unit){
+  public void attack(AbstractUnit unit){
+
+    if(this.equippedItem == null){}
+
+    if(!this.equippedItem.isAttack()){}
+
+    else if(!unit.getEquippedItem().isMagic() && !this.getEquippedItem().isMagic()){   // Ninguno tiene armas magicas
 
 
+      if(this.getEquippedItem().Strong(unit.getEquippedItem().getName())){
+        int damage = (this.getEquippedItem().getPower())*2;
+        unit.takeDamage(this, damage);
+      }
+      else {
+        int damage = (this.getEquippedItem().getPower());
+        unit.takeDamage(this, damage);
+      }
+    }
 
+    else if(unit.getEquippedItem().isMagic() && this.getEquippedItem().isMagic()) {
 
+      if (this.getEquippedItem().Strong(unit.getEquippedItem().getName())) {
+        int damage = (this.getEquippedItem().getPower()) * 2;
+        unit.takeDamage(this, damage);
+      }
+      else{
+        int damage = (this.getEquippedItem().getPower());
+        unit.takeDamage(this, damage);
+      }
+    }
+
+    else{
+
+      int damage = (this.getEquippedItem().getPower()) * 2;
+      unit.takeDamage(this, damage);
+    }
+  }
+
+  public void takeDamage(AbstractUnit attacker, int damage){
+
+    this.currentHitPoints -= damage;
+    if(currentHitPoints <= 0){
+
+      //muere
+    }
+    else{
+
+      this.attack(attacker);
+
+    }
   }
 
 }

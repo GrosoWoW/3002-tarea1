@@ -19,6 +19,7 @@ public abstract class AbstractItem implements IEquipableItem {
   protected boolean magic;
   protected String weak;
   protected String strong;
+  protected boolean attack;
 
 
   /**
@@ -41,6 +42,7 @@ public abstract class AbstractItem implements IEquipableItem {
     this.magic = false;
     this.strong = null;
     this.weak = null;
+    this.attack = false;
   }
 
 
@@ -79,6 +81,10 @@ public abstract class AbstractItem implements IEquipableItem {
 
   public String getWeak(){
     return weak;
+  }
+
+  public boolean isAttack(){
+    return attack;
   }
 
   public boolean Strong(String item){
