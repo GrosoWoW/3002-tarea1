@@ -1,6 +1,6 @@
 package model.items.normal;
 
-import model.items.normal.AbstractItem;
+import model.items.IEquipableItem;
 
 /**
  * This class represents an Axe.
@@ -30,6 +30,19 @@ public class Axe extends AbstractItem {
     this.strong = "Spear";
     this.weak = "Sword";
     this.attack = true;
+  }
+
+  @Override
+  public void attack(IEquipableItem item){
+
+    item.counterAxe(this);
+
+  }
+
+  @Override
+  public double counterSword(IEquipableItem item){
+
+    return item.getPower()*1.5;
   }
 
 }

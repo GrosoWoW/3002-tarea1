@@ -26,7 +26,9 @@ public interface IUnit {
   /**
    * @return hit points of the unit
    */
-  int getCurrentHitPoints();
+  double getCurrentHitPoints();
+
+
 
   /**
    * @return the items carried by this unit
@@ -74,6 +76,10 @@ public interface IUnit {
 
   int getMaxItems();
 
+  void addItem(IEquipableItem item);
+
+  void removeItem(IEquipableItem item);
+
   /**
    *
    * @param unit
@@ -89,7 +95,7 @@ public interface IUnit {
    * @param gift
    */
 
-  void giveAway(AbstractUnit unit, IEquipableItem gift);
+  void giveAway(IUnit unit, IEquipableItem gift);
 
   /**
    *
@@ -97,7 +103,7 @@ public interface IUnit {
    * @param received
    */
 
-  void receive(AbstractUnit unit, IEquipableItem received);
+  void receive(IUnit unit, IEquipableItem received);
 
   /**
    *
@@ -110,7 +116,7 @@ public interface IUnit {
    * @param damage
    */
 
-  void takeDamage(AbstractUnit attacker, int damage);
+  void takeDamage(AbstractUnit attacker, double damage);
 
 
 

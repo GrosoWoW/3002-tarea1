@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import model.items.IEquipableItem;
-import model.items.normal.AbstractItem;
 import model.map.Location;
 
 /**
@@ -22,7 +21,7 @@ import model.map.Location;
 public abstract class AbstractUnit implements IUnit {
 
   protected final List<IEquipableItem> items = new ArrayList<>();
-  protected int currentHitPoints;
+  protected double currentHitPoints;
   private final int maxHitPoints;
   private final int movement;
   protected IEquipableItem equippedItem;
@@ -52,7 +51,7 @@ public abstract class AbstractUnit implements IUnit {
   }
 
 
-  public int getCurrentHitPoints() {
+  public double getCurrentHitPoints() {
 
     return currentHitPoints;
   }
@@ -97,6 +96,16 @@ public abstract class AbstractUnit implements IUnit {
     return maxItems;
   }
 
+  public void addItem(IEquipableItem item){
+
+    items.add(item);
+  }
+
+  public void removeItem(IEquipableItem item){
+
+    items.remove(item);
+  }
+
 
   public void moveTo(final Location targetLocation) {
     if (getLocation().distanceTo(targetLocation) <= getMovement()
@@ -118,32 +127,32 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
-  public void giveAway(AbstractUnit unit, IEquipableItem gift) {
+  public void giveAway(IUnit unit, IEquipableItem gift) {
 
-    int distanceX = this.location.getRow() - unit.location.getRow();
-    int distanceY = this.location.getColumn() - unit.location.getColumn();
+    int distanceX = this.getLocation().getRow() - unit.getLocation().getRow();
+    int distanceY = this.getLocation().getColumn() - unit.getLocation().getColumn();
 
     if (Math.pow(distanceX, 2) <= 1 && Math.pow(distanceY, 2) <= 1) {
 
-      if(unit.items.size() < unit.maxItems){
+      if(unit.getItems().size() < unit.getMaxItems()){
 
-        unit.items.add(gift);
-        this.items.remove(gift);
+        unit.addItem(gift);
+        this.removeItem(gift);
       }
     }
   }
 
-  public void receive(AbstractUnit unit, IEquipableItem received) {
+  public void receive(IUnit unit, IEquipableItem received) {
 
-      int distanceX = this.location.getRow() - unit.location.getRow();
-      int distanceY = this.location.getColumn() - unit.location.getColumn();
+      int distanceX = this.location.getRow() - unit.getLocation().getRow();
+      int distanceY = this.location.getColumn() - unit.getLocation().getColumn();
 
       if(Math.pow(distanceX,2) <= 1 && Math.pow(distanceY,2) <= 1){
 
         if(this.items.size() < this.maxItems){
 
-          this.items.add(received);
-          unit.items.remove(received);
+          this.addItem(received);
+          unit.removeItem(received);
         }
     }
   }
@@ -158,11 +167,11 @@ public abstract class AbstractUnit implements IUnit {
 
 
       if(this.getEquippedItem().Strong(unit.getEquippedItem().getName())){
-        int damage = (this.getEquippedItem().getPower())*2;
+        double damage = (this.getEquippedItem().getPower())*2;
         unit.takeDamage(this, damage);
       }
       else {
-        int damage = (this.getEquippedItem().getPower());
+        double damage = (this.getEquippedItem().getPower());
         unit.takeDamage(this, damage);
       }
     }
@@ -170,23 +179,23 @@ public abstract class AbstractUnit implements IUnit {
     else if(unit.getEquippedItem().isMagic() && this.getEquippedItem().isMagic()) {
 
       if (this.getEquippedItem().Strong(unit.getEquippedItem().getName())) {
-        int damage = (this.getEquippedItem().getPower()) * 2;
+        double damage = (this.getEquippedItem().getPower()) * 2;
         unit.takeDamage(this, damage);
       }
       else{
-        int damage = (this.getEquippedItem().getPower());
+        double damage = (this.getEquippedItem().getPower());
         unit.takeDamage(this, damage);
       }
     }
 
     else{
 
-      int damage = (this.getEquippedItem().getPower()) * 2;
+      double damage = (this.getEquippedItem().getPower()) * 2;
       unit.takeDamage(this, damage);
     }
   }
 
-  public void takeDamage(AbstractUnit attacker, int damage){
+  public void takeDamage(AbstractUnit attacker, double damage){
 
     this.currentHitPoints -= damage;
     if(currentHitPoints <= 0){

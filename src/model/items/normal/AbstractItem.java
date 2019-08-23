@@ -12,7 +12,7 @@ import model.units.IUnit;
 public abstract class AbstractItem implements IEquipableItem {
 
   private final String name;
-  private final int power;
+  private final double power;
   protected int maxRange;
   protected int minRange;
   private IUnit owner;
@@ -59,7 +59,7 @@ public abstract class AbstractItem implements IEquipableItem {
     return name;
   }
 
-  public int getPower() {
+  public double getPower() {
     return power;
   }
 
@@ -102,5 +102,47 @@ public abstract class AbstractItem implements IEquipableItem {
     }
     return false;
   }
+
+  public void attack(IEquipableItem item){
+
+  }
+
+  public double counterSword(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+  public double counterAxe(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+  public double counterSpear(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+  public double counterBow(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+  public double counterAnima(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+  public double counterDark(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+  public double counterLight(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+
+
 
 }

@@ -1,6 +1,6 @@
 package model.items.normal;
 
-import model.items.normal.AbstractItem;
+import model.items.IEquipableItem;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -28,6 +28,16 @@ public class Bow extends AbstractItem {
     this.minRange = Math.max(minRange, 2);
     this.maxRange = Math.max(maxRange, this.minRange);
     this.attack = true;
+  }
+
+  public void attack(IEquipableItem item){
+
+    item.counterBow(this);
+  }
+
+  public double counterBow(IEquipableItem item){
+
+    return item.getPower();
   }
 
 

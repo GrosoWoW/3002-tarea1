@@ -1,15 +1,16 @@
 package model.units;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import model.items.*;
+import model.items.magic.AnimaBook;
+import model.items.magic.DarkBook;
+import model.items.magic.LightBook;
 import model.items.normal.*;
 import model.map.Field;
 import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -24,6 +25,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
   protected Sword sword;
   protected Staff staff;
   protected Spear spear;
+  protected AnimaBook anima;
+  protected DarkBook dark;
+  protected LightBook light;
 
   @Override
   public void setTargetAlpaca() {
@@ -68,6 +72,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.spear = new Spear("Spear", 10, 1, 2);
     this.staff = new Staff("Staff", 10, 1, 2);
     this.bow = new Bow("Bow", 10, 2, 3);
+    this.anima = new AnimaBook("Anima", 10,1,2);
+    this.dark = new DarkBook("Dark", 10, 1, 2);
+    this.light = new LightBook("Light", 10, 1 ,2);
   }
 
   /**
@@ -207,4 +214,37 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Alpaca getTargetAlpaca() {
     return targetAlpaca;
   }
-}
+
+  @Override
+  @Test
+  public void testGift(){
+
+    IUnit primero= getTestUnit();
+    IUnit segundo = getTestUnit();
+    IEquipableItem item = getAxe();
+    assertFalse(segundo.getItems().contains(item));
+    primero.addItem(item);
+    primero.giveAway(segundo, item);
+    assertTrue(segundo.getItems().contains(item));
+    assertFalse(primero.getItems().contains(item));
+    }
+
+  @Override
+  @Test
+  public void testReceived(){
+
+    IUnit primero= getTestUnit();
+    IUnit segundo = getTestUnit();
+    IEquipableItem item = getAxe();
+    primero.addItem(item);
+    segundo.receive(primero, item);
+    assertTrue(segundo.getItems().contains(item));
+    assertFalse(primero.getItems().contains(item));
+  }
+
+
+
+  }
+
+
+

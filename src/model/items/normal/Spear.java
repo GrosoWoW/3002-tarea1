@@ -1,5 +1,6 @@
 package model.items.normal;
 
+import model.items.IEquipableItem;
 import model.items.normal.AbstractItem;
 import model.units.IUnit;
 
@@ -37,6 +38,19 @@ public class Spear extends AbstractItem {
   @Override
   public void equipTo(IUnit unit) {
     super.equipTo(unit);
+  }
+
+  @Override
+  public void attack(IEquipableItem item){
+
+    item.counterSpear(this);
+
+  }
+
+  @Override
+  public double counterAxe(IEquipableItem item){
+
+    return item.getPower()*1.5;
   }
 
 

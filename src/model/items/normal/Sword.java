@@ -1,5 +1,6 @@
 package model.items.normal;
 
+import model.items.IEquipableItem;
 import model.items.normal.AbstractItem;
 
 /**
@@ -46,5 +47,18 @@ public class Sword extends AbstractItem {
       return true;
     }
     return false;
+  }
+
+  @Override
+  public void attack(IEquipableItem item){
+
+    item.counterSword(this);
+
+  }
+
+  @Override
+  public double counterSpear(IEquipableItem item){
+
+    return item.getPower()*1.5;
   }
 }

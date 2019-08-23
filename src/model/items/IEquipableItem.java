@@ -34,7 +34,7 @@ public interface IEquipableItem {
   /**
    * @return the power of the item
    */
-  int getPower();
+  double getPower();
 
   /**
    * @return the minimum range of the item
@@ -81,4 +81,23 @@ public interface IEquipableItem {
   boolean Weak(String item);
 
   boolean isAttack();
+
+  void attack(IEquipableItem item);
+
+  double counterAxe(IEquipableItem item);
+
+
+  double counterSpear(IEquipableItem item);
+
+  double counterSword(IEquipableItem item);
+
+  double counterBow(IEquipableItem item);
+
+  double counterAnima(IEquipableItem item);
+
+  double counterDark(IEquipableItem item);
+
+  double counterLight(IEquipableItem item);
+
+
 }
