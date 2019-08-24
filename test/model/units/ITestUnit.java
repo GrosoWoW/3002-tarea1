@@ -109,7 +109,12 @@ public interface ITestUnit {
    */
   Alpaca getTargetAlpaca();
 
+  @Test
+  void testTrade();
+
+  @Test
   void testGift();
 
+  @Test
   void testReceived();
 }

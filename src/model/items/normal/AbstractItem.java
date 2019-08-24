@@ -40,8 +40,6 @@ public abstract class AbstractItem implements IEquipableItem {
     this.minRange = Math.max(minRange, 1);
     this.maxRange = Math.max(maxRange, this.minRange);
     this.magic = false;
-    this.strong = null;
-    this.weak = null;
     this.attack = false;
   }
 
@@ -103,8 +101,9 @@ public abstract class AbstractItem implements IEquipableItem {
     return false;
   }
 
-  public void attack(IEquipableItem item){
+  public double attack(IEquipableItem item){
 
+    return 0;
   }
 
   public double counterSword(IEquipableItem item){

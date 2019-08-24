@@ -217,14 +217,33 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
   @Override
   @Test
+  public void testTrade(){
+
+    IUnit unit1 = getTestUnit();
+    IUnit unit2 = getTargetAlpaca();
+    unit1.addItem(getAxe());
+    unit2.addItem(getSpear());
+    unit1.trade(unit2,getSpear(),getAxe());
+    assertTrue(unit1.getItems().contains(getSpear()));
+    assertTrue(unit2.getItems().contains(getAxe()));
+    assertFalse(unit1.getItems().contains(getAxe()));
+
+
+
+  }
+
+  @Override
+  @Test
   public void testGift(){
 
     IUnit primero= getTestUnit();
-    IUnit segundo = getTestUnit();
+    IUnit segundo = getTargetAlpaca();
     IEquipableItem item = getAxe();
     assertFalse(segundo.getItems().contains(item));
     primero.addItem(item);
+    assertTrue(primero.getItems().contains(item));
     primero.giveAway(segundo, item);
+    assertNotEquals(primero.getItems(), segundo.getItems());
     assertTrue(segundo.getItems().contains(item));
     assertFalse(primero.getItems().contains(item));
     }

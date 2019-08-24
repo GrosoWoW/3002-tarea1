@@ -1,6 +1,6 @@
 package model.items.magic;
 
-import model.items.magic.AbstractBook;
+import model.items.IEquipableItem;
 
 /**
  *
@@ -28,9 +28,45 @@ public class AnimaBook extends AbstractBook {
     public AnimaBook(final String name, final int power, final int minRange, final int maxRange){
 
         super(name, power, minRange, maxRange);
-        this.strong = "LightBook";
-
         this.attack = true;
+    }
+
+    @Override
+    public double attack(IEquipableItem item){
+
+        item.counterAnima(this);
+
+        return 0;
+    }
+
+    @Override
+    public double counterDark(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterAxe(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterBow(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterSpear(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterSword(IEquipableItem item){
+
+        return item.getPower()*1.5;
     }
 
 

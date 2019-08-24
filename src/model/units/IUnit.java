@@ -87,7 +87,7 @@ public interface IUnit {
    * @param delivered
    */
 
-  void trade(AbstractUnit unit, IEquipableItem received, IEquipableItem delivered);
+  void trade(IUnit unit, IEquipableItem received, IEquipableItem delivered);
 
   /**
    *
@@ -107,9 +107,10 @@ public interface IUnit {
 
   /**
    *
+   * @return
    */
 
-  void attack(AbstractUnit unit);
+  void attackEnemy(AbstractUnit unit);
 
   /**
    *

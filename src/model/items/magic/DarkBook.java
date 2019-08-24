@@ -1,6 +1,6 @@
 package model.items.magic;
 
-import model.items.magic.AbstractBook;
+import model.items.IEquipableItem;
 
 /**
  *  * This class represents a DarkBook of the magic type
@@ -27,10 +27,49 @@ public class DarkBook extends AbstractBook {
     public DarkBook(final String name, final int power, final int minRange, final int maxRange){
 
         super(name, power, minRange, maxRange);
-        this.strong = "AnimaBook";
-        this.weak = "LightBook";
         this.attack = true;
     }
+
+    @Override
+    public double attack(IEquipableItem item){
+
+        item.counterDark(this);
+
+        return 0;
+    }
+
+    @Override
+    public double counterLight(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterAxe(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterBow(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterSpear(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+    @Override
+    public double counterSword(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+
+
+
 
 
 }

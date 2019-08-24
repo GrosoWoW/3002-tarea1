@@ -1,7 +1,6 @@
 package model.items.normal;
 
 import model.items.IEquipableItem;
-import model.items.normal.AbstractItem;
 
 /**
  * This class represents a sword type item.
@@ -27,8 +26,6 @@ public class Sword extends AbstractItem {
    */
   public Sword(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
-    this.strong = "Axe";
-    this.weak = "Spear";
     this.attack = true;
   }
   @Override
@@ -50,14 +47,32 @@ public class Sword extends AbstractItem {
   }
 
   @Override
-  public void attack(IEquipableItem item){
+  public double attack(IEquipableItem item){
 
-    item.counterSword(this);
+    return item.counterSword(this);
 
   }
 
   @Override
   public double counterSpear(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterAnima(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterDark(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterLight(IEquipableItem item){
 
     return item.getPower()*1.5;
   }

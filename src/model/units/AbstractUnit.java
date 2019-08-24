@@ -103,7 +103,15 @@ public abstract class AbstractUnit implements IUnit {
 
   public void removeItem(IEquipableItem item){
 
-    items.remove(item);
+
+    this.items.remove(item);
+  }
+
+  public boolean canAttack(IUnit unit){
+
+    return (this.getEquippedItem() != null) &&
+            (this.getLocation().distanceTo(unit.getLocation()) <=this.getEquippedItem().getMaxRange()) &&
+            (this.getLocation().distanceTo(unit.getLocation()) > this.getEquippedItem().getMinRange());
   }
 
 
@@ -114,14 +122,19 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
-  public void trade(AbstractUnit unit, IEquipableItem received, IEquipableItem delivered){
+  public void trade(IUnit unit, IEquipableItem received, IEquipableItem delivered){
 
-    int distanceX = this.location.getRow() - unit.location.getRow();
-    int distanceY = this.location.getColumn() - unit.location.getColumn();
+    int distanceX = this.getLocation().getRow() - unit.getLocation().getRow();
+    int distanceY = this.getLocation().getColumn() - unit.getLocation().getColumn();
 
     if(Math.pow(distanceX,2) <= 1 && Math.pow(distanceY,2) <= 1){
 
-      if(this.items.contains(delivered) && unit.items.contains(received)){
+      if(this.getItems().contains(delivered) && unit.getItems().contains(received)){
+
+        this.removeItem(delivered);
+        unit.removeItem(received);
+        this.addItem(received);
+        unit.addItem(delivered);
 
       }
     }
@@ -136,8 +149,9 @@ public abstract class AbstractUnit implements IUnit {
 
       if(unit.getItems().size() < unit.getMaxItems()){
 
+        this.items.remove(gift);
         unit.addItem(gift);
-        this.removeItem(gift);
+
       }
     }
   }
@@ -151,47 +165,18 @@ public abstract class AbstractUnit implements IUnit {
 
         if(this.items.size() < this.maxItems){
 
-          this.addItem(received);
-          unit.removeItem(received);
+          this.getItems().add(received);
+          unit.getItems().remove(received);
         }
     }
   }
 
-  public void attack(AbstractUnit unit){
+  public void attackEnemy(AbstractUnit unit) {
 
-    if(this.equippedItem == null){}
+    if (this.canAttack(unit)) {
 
-    if(!this.equippedItem.isAttack()){}
-
-    else if(!unit.getEquippedItem().isMagic() && !this.getEquippedItem().isMagic()){   // Ninguno tiene armas magicas
-
-
-      if(this.getEquippedItem().Strong(unit.getEquippedItem().getName())){
-        double damage = (this.getEquippedItem().getPower())*2;
-        unit.takeDamage(this, damage);
-      }
-      else {
-        double damage = (this.getEquippedItem().getPower());
-        unit.takeDamage(this, damage);
-      }
-    }
-
-    else if(unit.getEquippedItem().isMagic() && this.getEquippedItem().isMagic()) {
-
-      if (this.getEquippedItem().Strong(unit.getEquippedItem().getName())) {
-        double damage = (this.getEquippedItem().getPower()) * 2;
-        unit.takeDamage(this, damage);
-      }
-      else{
-        double damage = (this.getEquippedItem().getPower());
-        unit.takeDamage(this, damage);
-      }
-    }
-
-    else{
-
-      double damage = (this.getEquippedItem().getPower()) * 2;
-      unit.takeDamage(this, damage);
+      double damage = this.getEquippedItem().attack(unit.getEquippedItem());
+      takeDamage(unit, damage);
     }
   }
 
@@ -204,9 +189,10 @@ public abstract class AbstractUnit implements IUnit {
     }
     else{
 
-      this.attack(attacker);
+      this.attackEnemy(attacker);
 
     }
   }
+
 
 }

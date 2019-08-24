@@ -30,15 +30,35 @@ public class Bow extends AbstractItem {
     this.attack = true;
   }
 
-  public void attack(IEquipableItem item){
+  public double attack(IEquipableItem item){
 
-    item.counterBow(this);
+    return item.counterBow(this);
+
   }
 
   public double counterBow(IEquipableItem item){
 
     return item.getPower();
   }
+
+  @Override
+  public double counterAnima(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterDark(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterLight(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
 
 
 }

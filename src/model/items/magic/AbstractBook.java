@@ -83,23 +83,10 @@ public abstract class AbstractBook implements IEquipableItem {
         return attack;
     }
 
-    public boolean Strong(String item){
 
-        if(this.getStrong() == item){
-            return true;
-        }
-        return false;
+    public double attack(IEquipableItem item){
+        return 0;
     }
-
-    public boolean Weak(String item){
-
-        if(this.getWeak() == item){
-            return true;
-        }
-        return false;
-    }
-
-    public void attack(IEquipableItem item){}
 
     public double counterAnima(IEquipableItem item){
 

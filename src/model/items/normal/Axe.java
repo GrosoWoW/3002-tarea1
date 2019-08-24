@@ -27,20 +27,36 @@ public class Axe extends AbstractItem {
    */
   public Axe(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
-    this.strong = "Spear";
-    this.weak = "Sword";
     this.attack = true;
   }
 
   @Override
-  public void attack(IEquipableItem item){
+  public double attack(IEquipableItem item){
 
-    item.counterAxe(this);
+    return item.counterAxe(this);
 
   }
 
   @Override
   public double counterSword(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterAnima(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterDark(IEquipableItem item){
+
+    return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterLight(IEquipableItem item){
 
     return item.getPower()*1.5;
   }

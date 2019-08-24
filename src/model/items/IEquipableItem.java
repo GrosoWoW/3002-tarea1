@@ -51,25 +51,7 @@ public interface IEquipableItem {
    */
   boolean isMagic();
 
-  /**
-   * @return the item against who is strong
-   */
-  String getStrong();
 
-  /**
-   * @return the item against who is worse
-   */
-
-  String getWeak();
-
-  /**
-   *
-   * @param item
-   *       item to analyze
-   * @return true if the item is strong against the entered parameter
-   */
-
-  boolean Strong(String item);
 
   /**
    *
@@ -78,11 +60,10 @@ public interface IEquipableItem {
    * @return true if the item is worse against the entered parameter
    */
 
-  boolean Weak(String item);
 
   boolean isAttack();
 
-  void attack(IEquipableItem item);
+  double attack(IEquipableItem item);
 
   double counterAxe(IEquipableItem item);
 
