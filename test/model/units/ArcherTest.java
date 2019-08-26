@@ -1,9 +1,8 @@
 package model.units;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test set for the Archer unit.
@@ -37,8 +36,18 @@ public class ArcherTest extends AbstractTestUnit {
   @Test
   @Override
   public void equipBowTest() {
-    assertNull(archer.getEquippedItem());
-    archer.equipItem(bow);
-    assertEquals(bow, archer.getEquippedItem());
+    assertNull(getTestUnit().getEquippedItem());
+    getTestUnit().equipItem(getBow());
+    assertEquals(getBow(), getTestUnit().getEquippedItem());
+
+
+    getTestUnit().equipItem(getAxe());
+    assertNotEquals(getTestUnit().getEquippedItem(), getAxe());
+    getTestUnit().equipItem(getSword());
+    assertNotEquals(getTestUnit().getEquippedItem(), getSword());
+    getTestUnit().equipItem(getStaff());
+    assertNotEquals(getTestUnit().getEquippedItem(), getStaff());
+
+
   }
 }

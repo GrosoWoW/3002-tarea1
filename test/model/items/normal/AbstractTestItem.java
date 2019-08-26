@@ -1,9 +1,11 @@
-package model.items;
+package model.items.normal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import model.items.IEquipableItem;
+import model.items.ITestEquipableItem;
 import model.units.IUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +16,7 @@ import org.junit.jupiter.api.Test;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public abstract class AbstractTestItem {
+public abstract class AbstractTestItem implements ITestEquipableItem {
 
   protected String expectedName;
   protected int expectedPower;
@@ -116,4 +118,9 @@ public abstract class AbstractTestItem {
    * @return a unit that can equip the item being tested
    */
   public abstract IUnit getTestUnit();
+
+  public void damageTest(){
+
+
+  }
 }

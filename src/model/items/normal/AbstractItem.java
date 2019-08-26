@@ -17,8 +17,6 @@ public abstract class AbstractItem implements IEquipableItem {
   protected int minRange;
   private IUnit owner;
   protected boolean magic;
-  protected String weak;
-  protected String strong;
   protected boolean attack;
 
 
@@ -73,33 +71,11 @@ public abstract class AbstractItem implements IEquipableItem {
     return magic;
   }
 
-  public String getStrong(){
-    return strong;
-  }
-
-  public String getWeak(){
-    return weak;
-  }
 
   public boolean isAttack(){
     return attack;
   }
 
-  public boolean Strong(String item){
-
-    if(this.getStrong() == item){
-      return true;
-    }
-    return false;
-  }
-
-  public boolean Weak(String item){
-
-    if(this.getWeak() == item){
-      return true;
-    }
-    return false;
-  }
 
   public double attack(IEquipableItem item){
 

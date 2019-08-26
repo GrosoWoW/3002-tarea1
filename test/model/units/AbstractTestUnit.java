@@ -45,6 +45,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
     setWeapons();
   }
 
+
   /**
    * Set up the game field
    */
@@ -55,6 +56,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
         new Location(1, 0), new Location(1, 1), new Location(1, 2), new Location(2, 0),
         new Location(2, 1), new Location(2, 2));
   }
+
 
   /**
    * Set up the main unit that's going to be tested in the test set
@@ -234,6 +236,20 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
   @Override
   @Test
+  public void testFailTrade(){
+
+    IUnit unit1 = getTestUnit();
+    IUnit unit2 = getTargetAlpaca();
+    unit1.addItem(getAxe());
+    unit2.addItem(getSword());
+    unit1.trade(unit2, getAxe(), getSword());
+    assertFalse(unit1.getItems().contains(getSword()));
+
+
+  }
+
+  @Override
+  @Test
   public void testGift(){
 
     IUnit primero= getTestUnit();
@@ -246,19 +262,76 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertNotEquals(primero.getItems(), segundo.getItems());
     assertTrue(segundo.getItems().contains(item));
     assertFalse(primero.getItems().contains(item));
+
+
+
     }
+
+  @Override
+  @Test
+
+  public void testFailGift(){
+
+
+  }
 
   @Override
   @Test
   public void testReceived(){
 
     IUnit primero= getTestUnit();
-    IUnit segundo = getTestUnit();
+    IUnit segundo = getTargetAlpaca();
     IEquipableItem item = getAxe();
     primero.addItem(item);
     segundo.receive(primero, item);
     assertTrue(segundo.getItems().contains(item));
     assertFalse(primero.getItems().contains(item));
+  }
+
+  @Override
+  @Test
+  public void testFailReceived(){
+
+    IUnit primero= getTestUnit();
+    IUnit segundo = getTargetAlpaca();
+    primero.addItem(getSword());
+    primero.addItem(getSpear());
+    primero.addItem(getAxe());
+    segundo.addItem(getStaff());
+    primero.receive(segundo, getStaff());
+    assertTrue(segundo.getItems().contains(getStaff()));
+    assertFalse(primero.getItems().contains(getStaff()));
+
+
+  }
+
+  @Override
+  @Test
+  public void testCombat(){
+
+    IUnit primero = new Hero(10,2,field.getCell(0, 0));
+    IUnit segundo = new Fighter(50, 2, field.getCell(1, 1));
+    primero.equipItem(getSpear());
+    segundo.equipItem(getAxe());
+    primero.attackEnemy(segundo);
+    assertTrue(segundo.getLive());
+    assertFalse(primero.getLive());
+    assertEquals(getSpear(), primero.getEquippedItem());
+    assertTrue(primero.canAttack(segundo));
+    assertEquals(50, segundo.getCurrentHitPoints(), "no");
+    assertTrue(segundo.getLive());
+
+
+    IUnit tercero = new SwordMaster(50, 2, field.getCell(2, 2));
+    IUnit cuarto = new Hero(50, 2, field.getCell(0, 0));
+    tercero.equipItem(getSword());
+    cuarto.equipItem(getSpear());
+    cuarto.attackEnemy(tercero);
+    assertTrue(cuarto.getLive());
+    assertTrue(tercero.getLive());
+
+
+
   }
 
 

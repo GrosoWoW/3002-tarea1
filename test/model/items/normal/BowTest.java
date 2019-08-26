@@ -1,8 +1,8 @@
-package model.items;
+package model.items.normal;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import model.items.normal.Bow;
+import model.items.IEquipableItem;
 import model.map.Location;
 import model.units.Archer;
 import model.units.IUnit;
@@ -77,5 +77,12 @@ public class BowTest extends AbstractTestItem {
   @Override
   public IUnit getTestUnit() {
     return archer;
+  }
+
+  @Override
+  @Test
+  public void damageTest(){
+
+
   }
 }

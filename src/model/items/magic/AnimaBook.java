@@ -34,9 +34,8 @@ public class AnimaBook extends AbstractBook {
     @Override
     public double attack(IEquipableItem item){
 
-        item.counterAnima(this);
+        return item.counterAnima(this);
 
-        return 0;
     }
 
     @Override

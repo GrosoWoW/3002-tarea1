@@ -1,6 +1,6 @@
-package model.items;
+package model.items.normal;
 
-import model.items.normal.Staff;
+import model.items.IEquipableItem;
 import model.map.Location;
 import model.units.Cleric;
 import model.units.IUnit;

@@ -33,9 +33,9 @@ public class DarkBook extends AbstractBook {
     @Override
     public double attack(IEquipableItem item){
 
-        item.counterDark(this);
+        return item.counterDark(this);
 
-        return 0;
+
     }
 
     @Override

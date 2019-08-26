@@ -17,8 +17,6 @@ public abstract class AbstractBook implements IEquipableItem {
     protected int minRange;
     private IUnit owner;
     protected boolean magic;
-    protected String weak;
-    protected String strong;
     protected boolean attack;
 
 
@@ -70,14 +68,6 @@ public abstract class AbstractBook implements IEquipableItem {
 
     public boolean isMagic() {
         return magic;}
-
-    public String getStrong(){
-        return strong;
-    }
-
-    public String getWeak(){
-        return weak;
-    }
 
     public boolean isAttack(){
         return attack;

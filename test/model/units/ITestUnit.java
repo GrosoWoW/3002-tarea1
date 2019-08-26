@@ -113,8 +113,21 @@ public interface ITestUnit {
   void testTrade();
 
   @Test
+  void testFailTrade();
+
+  @Test
   void testGift();
 
   @Test
+  void testFailGift();
+
+  @Test
   void testReceived();
+
+  @Test
+  void testFailReceived();
+
+  @Test
+  void testCombat();
+
 }

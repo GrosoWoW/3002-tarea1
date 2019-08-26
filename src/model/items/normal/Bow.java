@@ -30,6 +30,7 @@ public class Bow extends AbstractItem {
     this.attack = true;
   }
 
+  @Override
   public double attack(IEquipableItem item){
 
     return item.counterBow(this);

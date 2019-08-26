@@ -28,8 +28,6 @@ public interface IUnit {
    */
   double getCurrentHitPoints();
 
-
-
   /**
    * @return the items carried by this unit
    */
@@ -76,48 +74,95 @@ public interface IUnit {
 
   int getMaxItems();
 
+  /**
+   * add an item to the inventory
+   *
+   * @param item
+   *        the item to add
+   */
+
   void addItem(IEquipableItem item);
+
+  /**
+   * Remove an item from the inventory
+   *
+   * @param item
+   *       the item to be removed
+   */
 
   void removeItem(IEquipableItem item);
 
   /**
+   * is responsible for an exchange
    *
    * @param unit
+   *      the unit with whom it will trade
    * @param received
+   *      the item that will be received
    * @param delivered
+   *      the item that will be delivered
    */
 
   void trade(IUnit unit, IEquipableItem received, IEquipableItem delivered);
 
   /**
+   * allows to give an item
    *
    * @param unit
+   *      the unit to which it will be given
    * @param gift
+   *      the item that will be given
    */
 
   void giveAway(IUnit unit, IEquipableItem gift);
 
   /**
+   * allows to receive an item from another unit
    *
    * @param unit
+   *      the unit that will deliver the item
    * @param received
+   *      the item that will be received
+   *
    */
 
   void receive(IUnit unit, IEquipableItem received);
 
   /**
+   * allows to generate a combat between units
    *
-   * @return
+   * @param unit
+   *      the unit to which it would attack
    */
 
-  void attackEnemy(AbstractUnit unit);
+  void attackEnemy(IUnit unit);
+
+  /**
+   * allow one unit to attack another
+   *
+   * @param attacker
+   *      the unit that will cause damage
+   * @param damage
+   *      the damage that will occur
+   */
+
+  void takeDamage(IUnit attacker, double damage);
 
   /**
    *
-   * @param damage
+   * @return if a unit is alive
    */
 
-  void takeDamage(AbstractUnit attacker, double damage);
+  boolean getLive();
+
+  /**
+   *
+   * @param unit
+   *      unit that you want to attack
+   * @return if you can attack the unit
+   */
+
+  boolean canAttack(IUnit unit);
 
 
 

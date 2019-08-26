@@ -1,9 +1,14 @@
-package model.items;
+package model.items.normal;
 
-import model.items.normal.Axe;
+import model.items.IEquipableItem;
 import model.map.Location;
 import model.units.Fighter;
 import model.units.IUnit;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Test set for Axes
@@ -58,5 +63,17 @@ class AxeTest extends AbstractTestItem {
   @Override
   public IUnit getTestUnit() {
     return fighter;
+  }
+
+  @Override
+  @Test
+  public void damageTest(){
+
+    double dañoFuerte = getTestItem().attack(new Spear("Spear", 10, 0, 10) );
+    double dañoDebil = getTestItem().attack(new Sword("Sword", 10, 0, 10));
+    assertEquals(dañoFuerte, 10*1.5);
+    assertEquals(dañoDebil, 10*1);
+
+
   }
 }

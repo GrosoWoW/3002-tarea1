@@ -1,9 +1,12 @@
-package model.items;
+package model.items.normal;
 
-import model.items.normal.Spear;
+import model.items.IEquipableItem;
 import model.map.Location;
 import model.units.Hero;
 import model.units.IUnit;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test set for spears
@@ -64,5 +67,18 @@ public class SpearTest extends AbstractTestItem {
   @Override
   public IUnit getTestUnit() {
     return hero;
+  }
+
+
+  @Override
+  @Test
+  public void damageTest(){
+
+    double dañoFuerte = getTestItem().attack(new Sword("Sword", 10, 0, 10) );
+    double dañoDebil = getTestItem().attack(new Axe("Axe", 10, 0, 10));
+    assertEquals(dañoFuerte, 10*1.5);
+    assertEquals(dañoDebil, 10*1);
+
+
   }
 }

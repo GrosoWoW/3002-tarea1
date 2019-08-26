@@ -51,22 +51,11 @@ public interface IEquipableItem {
    */
   boolean isMagic();
 
-
-
-  /**
-   *
-   * @param item
-   *      item to analyze
-   * @return true if the item is worse against the entered parameter
-   */
-
-
   boolean isAttack();
 
   double attack(IEquipableItem item);
 
   double counterAxe(IEquipableItem item);
-
 
   double counterSpear(IEquipableItem item);
 

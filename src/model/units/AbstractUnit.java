@@ -27,6 +27,7 @@ public abstract class AbstractUnit implements IUnit {
   protected IEquipableItem equippedItem;
   private Location location;
   int maxItems;
+  boolean life;
 
   /**
    * Creates a new Unit.
@@ -48,6 +49,7 @@ public abstract class AbstractUnit implements IUnit {
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
     this.maxItems = maxItems;
+    this.life = true;
   }
 
 
@@ -107,6 +109,17 @@ public abstract class AbstractUnit implements IUnit {
     this.items.remove(item);
   }
 
+  public boolean getLive(){
+
+    return life;
+  }
+
+  public void takeDamage(double damage){
+
+    this.currentHitPoints -= damage;
+
+  }
+
   public boolean canAttack(IUnit unit){
 
     return (this.getEquippedItem() != null) &&
@@ -124,10 +137,8 @@ public abstract class AbstractUnit implements IUnit {
 
   public void trade(IUnit unit, IEquipableItem received, IEquipableItem delivered){
 
-    int distanceX = this.getLocation().getRow() - unit.getLocation().getRow();
-    int distanceY = this.getLocation().getColumn() - unit.getLocation().getColumn();
 
-    if(Math.pow(distanceX,2) <= 1 && Math.pow(distanceY,2) <= 1){
+    if(this.getLocation().distanceTo(unit.getLocation()) <= 1){
 
       if(this.getItems().contains(delivered) && unit.getItems().contains(received)){
 
@@ -142,14 +153,11 @@ public abstract class AbstractUnit implements IUnit {
 
   public void giveAway(IUnit unit, IEquipableItem gift) {
 
-    int distanceX = this.getLocation().getRow() - unit.getLocation().getRow();
-    int distanceY = this.getLocation().getColumn() - unit.getLocation().getColumn();
-
-    if (Math.pow(distanceX, 2) <= 1 && Math.pow(distanceY, 2) <= 1) {
+    if(this.getLocation().distanceTo(unit.getLocation()) <= 1){
 
       if(unit.getItems().size() < unit.getMaxItems()){
 
-        this.items.remove(gift);
+        this.removeItem(gift);
         unit.addItem(gift);
 
       }
@@ -158,20 +166,17 @@ public abstract class AbstractUnit implements IUnit {
 
   public void receive(IUnit unit, IEquipableItem received) {
 
-      int distanceX = this.location.getRow() - unit.getLocation().getRow();
-      int distanceY = this.location.getColumn() - unit.getLocation().getColumn();
+    if(this.getLocation().distanceTo(unit.getLocation()) <= 1){
 
-      if(Math.pow(distanceX,2) <= 1 && Math.pow(distanceY,2) <= 1){
+        if(this.getItems().size() < this.getMaxItems()){
 
-        if(this.items.size() < this.maxItems){
-
-          this.getItems().add(received);
-          unit.getItems().remove(received);
+          this.addItem(received);
+          unit.removeItem(received);
         }
     }
   }
 
-  public void attackEnemy(AbstractUnit unit) {
+  public void attackEnemy(IUnit unit) {
 
     if (this.canAttack(unit)) {
 
@@ -180,18 +185,25 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
-  public void takeDamage(AbstractUnit attacker, double damage){
+  public void takeDamage(IUnit attacker, double damage){
 
-    this.currentHitPoints -= damage;
-    if(currentHitPoints <= 0){
+    this.takeDamage(damage);
+    if(this.getCurrentHitPoints() <= 0){
 
-      //muere
+      this.life = false;
+
     }
     else{
 
       this.attackEnemy(attacker);
-
     }
+  }
+
+  public void healUnit(IUnit unit){
+
+    double remainingLife = unit.getMaxItems() - unit.getCurrentHitPoints();
+
+
   }
 
 

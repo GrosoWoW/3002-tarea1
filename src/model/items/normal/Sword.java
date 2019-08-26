@@ -28,23 +28,7 @@ public class Sword extends AbstractItem {
     super(name, power, minRange, maxRange);
     this.attack = true;
   }
-  @Override
-  public boolean Strong(String item){
 
-    if(this.getName() == item){
-      return true;
-    }
-    return false;
-  }
-
-  @Override
-  public boolean Weak(String item){
-
-    if(this.getName() == item){
-      return true;
-    }
-    return false;
-  }
 
   @Override
   public double attack(IEquipableItem item){

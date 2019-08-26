@@ -33,9 +33,9 @@ public class LightBook extends AbstractBook {
     @Override
     public double attack(IEquipableItem item){
 
-        item.counterLight(this);
+        return item.counterLight(this);
 
-        return 0;
+
     }
 
     @Override
