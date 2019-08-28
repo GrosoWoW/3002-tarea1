@@ -62,5 +62,4 @@ public interface IEquipableItem {
   double counterBow(IEquipableItem item);
 
 
-  double attack(IEquipableItem equippedItem);
 }

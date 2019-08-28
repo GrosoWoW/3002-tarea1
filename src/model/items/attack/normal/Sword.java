@@ -1,4 +1,4 @@
-package model.items.normal;
+package model.items.attack.normal;
 
 import model.items.IEquipableItem;
 import model.items.attack.normal.AbstractAttack;
