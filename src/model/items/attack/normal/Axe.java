@@ -1,6 +1,7 @@
-package model.items.normal;
+package model.items.attack.normal;
 
 import model.items.IEquipableItem;
+import model.items.attack.normal.AbstractAttack;
 
 /**
  * This class represents an Axe.
@@ -10,7 +11,7 @@ import model.items.IEquipableItem;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Axe extends AbstractItem {
+public class Axe extends AbstractAttack {
 
 
   /**

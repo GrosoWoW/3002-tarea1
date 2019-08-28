@@ -1,6 +1,7 @@
-package model.items.normal;
+package model.items.attack;
 
 import model.items.IEquipableItem;
+
 import model.map.Location;
 import model.units.Fighter;
 import model.units.IUnit;
@@ -8,6 +9,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import model.items.attack.normal.AbstractAttack;
+import model.items.ITestEquipableItem;
+import model.items.normal.AbstractTestItem;
+import model.items.attack.normal.*;
+import model.items.normal.Sword;
 
 
 /**

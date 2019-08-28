@@ -1,10 +1,11 @@
-package model.items.magic;
+package model.items.attack.magic;
 
 import model.items.IEquipableItem;
-import model.items.normal.Spear;
+import model.items.attack.magic.AbstractTestBook;
 import model.items.normal.Sword;
 import model.map.Location;
 import model.units.Fighter;
+
 import model.units.IUnit;
 import model.units.Sorcerer;
 import org.junit.jupiter.api.Test;

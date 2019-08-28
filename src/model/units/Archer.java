@@ -1,6 +1,7 @@
 package model.units;
 
-import model.items.normal.Bow;
+import model.items.attack.normal.Bow;
+
 import model.items.IEquipableItem;
 import model.map.Location;
 

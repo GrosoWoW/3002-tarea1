@@ -1,4 +1,4 @@
-package model.items.magic;
+package model.items.attack.magic;
 
 import model.items.IEquipableItem;
 import model.units.IUnit;
@@ -9,7 +9,7 @@ import model.units.IUnit;
      * @author Cristobal Jaramillo
      * @since 1.0
      */
-public abstract class AbstractBook implements IEquipableItem {
+public abstract class AbstractBook implements IMagic {
 
     private final String name;
     private final int power;
@@ -64,13 +64,6 @@ public abstract class AbstractBook implements IEquipableItem {
 
     public int getMaxRange() {
         return maxRange;
-    }
-
-    public boolean isMagic() {
-        return magic;}
-
-    public boolean isAttack(){
-        return attack;
     }
 
 

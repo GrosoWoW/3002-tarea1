@@ -1,6 +1,7 @@
-package model.items.normal;
+package model.items.attack.normal;
 
 import model.items.IEquipableItem;
+import model.items.attack.normal.AbstractAttack;
 import model.units.IUnit;
 
 /**
@@ -11,7 +12,7 @@ import model.units.IUnit;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Spear extends AbstractItem {
+public class Spear extends AbstractAttack {
 
 
 

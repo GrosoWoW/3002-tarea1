@@ -1,7 +1,6 @@
-package model.items.magic;
+package model.items.attack.magic;
 
 import model.items.IEquipableItem;
-import model.items.normal.Spear;
 import model.items.normal.Sword;
 import model.map.Location;
 import model.units.Fighter;
@@ -19,10 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Cristobal Jaramillo Andrade
  * @since 1.0
  */
-class AnimaTest extends AbstractTestBook {
+class LightTest extends AbstractTestBook {
 
-    private AnimaBook anima;
-    private AnimaBook wrongAnima;
+    private LightBook light;
+    private LightBook wrongLight;
     private Sorcerer sorcerer;
 
     @Override
@@ -31,7 +30,7 @@ class AnimaTest extends AbstractTestBook {
         expectedPower = 10;
         expectedMinRange = 1;
         expectedMaxRange = 2;
-        anima = new AnimaBook(expectedName, expectedPower, expectedMinRange, expectedMaxRange);
+        light = new LightBook(expectedName, expectedPower, expectedMinRange, expectedMaxRange);
     }
 
     /**
@@ -39,7 +38,7 @@ class AnimaTest extends AbstractTestBook {
      */
     @Override
     public void setWrongRangeItem() {
-        wrongAnima = new AnimaBook("Wrong axe", 0, -1, -2);
+        wrongLight = new LightBook("Wrong light", 0, -1, -2);
     }
 
     /**
@@ -52,12 +51,12 @@ class AnimaTest extends AbstractTestBook {
 
     @Override
     public IEquipableItem getWrongTestItem() {
-        return wrongAnima;
+        return wrongLight;
     }
 
     @Override
     public IEquipableItem getTestItem() {
-        return anima;
+        return light;
     }
 
     /**
@@ -72,11 +71,10 @@ class AnimaTest extends AbstractTestBook {
     @Test
     public void damageTest(){
 
-        double dañoFuerte = getTestItem().attack(new LightBook("Light", 10, 0, 10) );
-        double dañoDebil = getTestItem().attack(new DarkBook("Dark", 10, 0, 10));
+        double dañoFuerte = getTestItem().attack(new DarkBook("Dark", 10, 0, 10) );
+        double dañoDebil = getTestItem().attack(new AnimaBook("Anima", 10, 0, 10));
         assertEquals(dañoFuerte, 10*1.5);
         assertEquals(dañoDebil, 10*1);
-
 
     }
 }

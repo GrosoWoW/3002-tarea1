@@ -1,10 +1,14 @@
 package model.units;
 
 import model.items.*;
-import model.items.magic.AnimaBook;
-import model.items.magic.DarkBook;
-import model.items.magic.LightBook;
-import model.items.normal.*;
+import model.items.attack.heal.Staff;
+import model.items.attack.magic.AnimaBook;
+import model.items.attack.magic.DarkBook;
+import model.items.attack.magic.LightBook;
+import model.items.attack.normal.Axe;
+import model.items.attack.normal.Bow;
+import model.items.attack.normal.Spear;
+import model.items.normal.Sword;
 import model.map.Field;
 import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,18 +1,19 @@
-package model.items.magic;
+package model.items.attack.magic;
 
 import model.items.IEquipableItem;
 
 /**
- *  * This class represents a LightBook of the magic type
  *
+ * This class represents a AnimaBook of the magic type
+ * This item
  *
  *
  */
 
-public class LightBook extends AbstractBook {
+public class AnimaBook extends AbstractBook {
 
     /**
-     * Creates a new LightBook
+     * Creates a new AnimaBook
      *
      * @param name
      *      the name that identifies the weapon
@@ -24,7 +25,7 @@ public class LightBook extends AbstractBook {
      *       the maximum range of the weapon
      */
 
-    public LightBook(final String name, final int power, final int minRange, final int maxRange){
+    public AnimaBook(final String name, final int power, final int minRange, final int maxRange){
 
         super(name, power, minRange, maxRange);
         this.attack = true;
@@ -33,13 +34,12 @@ public class LightBook extends AbstractBook {
     @Override
     public double attack(IEquipableItem item){
 
-        return item.counterLight(this);
-
+        return item.counterAnima(this);
 
     }
 
     @Override
-    public double counterAnima(IEquipableItem item){
+    public double counterDark(IEquipableItem item){
 
         return item.getPower()*1.5;
     }
@@ -67,6 +67,7 @@ public class LightBook extends AbstractBook {
 
         return item.getPower()*1.5;
     }
+
 
 
 

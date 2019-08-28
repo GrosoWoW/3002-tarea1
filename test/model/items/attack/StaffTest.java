@@ -1,9 +1,11 @@
-package model.items.normal;
+package model.items.attack;
 
 import model.items.IEquipableItem;
+import model.items.attack.heal.Staff;
 import model.map.Location;
 import model.units.Cleric;
 import model.units.IUnit;
+import model.items.normal.AbstractTestItem;
 
 /**
  * Test set for staffs
@@ -11,7 +13,7 @@ import model.units.IUnit;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class StaffTest extends AbstractTestItem {
+public class StaffTest extends model.items.normal.AbstractTestItem {
 
   private Staff staff;
   private Staff wrongStaff;

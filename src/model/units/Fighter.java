@@ -1,7 +1,7 @@
 package model.units;
 
-import model.items.normal.Axe;
 import model.items.IEquipableItem;
+import model.items.attack.normal.Axe;
 import model.map.Location;
 
 /**

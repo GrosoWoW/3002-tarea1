@@ -1,45 +1,47 @@
 package model.items.normal;
 
 import model.items.IEquipableItem;
+import model.items.attack.normal.AbstractAttack;
 
 /**
+ * This class represents a sword type item.
+ * <p>
+ * Swords are strong against axes and weak against spears.
+ *
  * @author Ignacio Slater Muñoz
- * @since
+ * @since 1.0
  */
-public class Bow extends AbstractItem {
+public class Sword extends AbstractAttack {
 
   /**
-   * Creates a new bow.
-   * <p>
-   * Bows are weapons that can't attack adjacent units, so it's minimum range must me greater than
-   * one.
+   * Creates a new Sword.
    *
    * @param name
-   *     the name of the bow
+   *     the name that identifies the weapon
    * @param power
-   *     the damage power of the bow
+   *     the base damage pf the weapon
    * @param minRange
-   *     the minimum range of the bow
+   *     the minimum range of the weapon
    * @param maxRange
-   *     the maximum range of the bow
+   *     the maximum range of the weapon
    */
-  public Bow(final String name, final int power, final int minRange, final int maxRange) {
+  public Sword(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
-    this.minRange = Math.max(minRange, 2);
-    this.maxRange = Math.max(maxRange, this.minRange);
     this.attack = true;
   }
+
 
   @Override
   public double attack(IEquipableItem item){
 
-    return item.counterBow(this);
+    return item.counterSword(this);
 
   }
 
-  public double counterBow(IEquipableItem item){
+  @Override
+  public double counterSpear(IEquipableItem item){
 
-    return item.getPower();
+    return item.getPower()*1.5;
   }
 
   @Override
@@ -59,7 +61,4 @@ public class Bow extends AbstractItem {
 
     return item.getPower()*1.5;
   }
-
-
-
 }

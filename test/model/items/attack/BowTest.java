@@ -1,4 +1,4 @@
-package model.items.normal;
+package model.items.attack;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -7,6 +7,9 @@ import model.map.Location;
 import model.units.Archer;
 import model.units.IUnit;
 import org.junit.jupiter.api.Test;
+import model.items.normal.AbstractTestItem;
+import model.items.attack.normal.Bow;
+
 
 /**
  * Test set for bows
@@ -14,6 +17,7 @@ import org.junit.jupiter.api.Test;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
+
 public class BowTest extends AbstractTestItem {
 
   private Bow bow;

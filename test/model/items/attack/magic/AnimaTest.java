@@ -1,7 +1,7 @@
-package model.items.magic;
+package model.items.attack.magic;
 
 import model.items.IEquipableItem;
-import model.items.normal.Spear;
+import model.items.attack.magic.AnimaTest;
 import model.items.normal.Sword;
 import model.map.Location;
 import model.units.Fighter;
@@ -19,10 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Cristobal Jaramillo Andrade
  * @since 1.0
  */
-class LightTest extends AbstractTestBook {
+class AnimaTest extends AbstractTestBook {
 
-    private LightBook light;
-    private LightBook wrongLight;
+    private AnimaBook anima;
+    private AnimaBook wrongAnima;
     private Sorcerer sorcerer;
 
     @Override
@@ -31,7 +31,7 @@ class LightTest extends AbstractTestBook {
         expectedPower = 10;
         expectedMinRange = 1;
         expectedMaxRange = 2;
-        light = new LightBook(expectedName, expectedPower, expectedMinRange, expectedMaxRange);
+        anima = new AnimaBook(expectedName, expectedPower, expectedMinRange, expectedMaxRange);
     }
 
     /**
@@ -39,7 +39,7 @@ class LightTest extends AbstractTestBook {
      */
     @Override
     public void setWrongRangeItem() {
-        wrongLight = new LightBook("Wrong light", 0, -1, -2);
+        wrongAnima = new AnimaBook("Wrong axe", 0, -1, -2);
     }
 
     /**
@@ -52,12 +52,12 @@ class LightTest extends AbstractTestBook {
 
     @Override
     public IEquipableItem getWrongTestItem() {
-        return wrongLight;
+        return wrongAnima;
     }
 
     @Override
     public IEquipableItem getTestItem() {
-        return light;
+        return anima;
     }
 
     /**
@@ -72,10 +72,11 @@ class LightTest extends AbstractTestBook {
     @Test
     public void damageTest(){
 
-        double dañoFuerte = getTestItem().attack(new DarkBook("Dark", 10, 0, 10) );
-        double dañoDebil = getTestItem().attack(new AnimaBook("Anima", 10, 0, 10));
+        double dañoFuerte = getTestItem().attack(new LightBook("Light", 10, 0, 10) );
+        double dañoDebil = getTestItem().attack(new DarkBook("Dark", 10, 0, 10));
         assertEquals(dañoFuerte, 10*1.5);
         assertEquals(dañoDebil, 10*1);
+
 
     }
 }

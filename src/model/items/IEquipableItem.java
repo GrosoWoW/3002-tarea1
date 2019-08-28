@@ -1,5 +1,6 @@
 package model.items;
 
+import model.items.attack.magic.AnimaBook;
 import model.units.IUnit;
 
 /**
@@ -46,14 +47,11 @@ public interface IEquipableItem {
    */
   int getMaxRange();
 
-  /**
-   * @return if the item is magic
-   */
-  boolean isMagic();
+  double counterAnima(IEquipableItem animaBook);
 
-  boolean isAttack();
+  double counterDark(IEquipableItem item);
 
-  double attack(IEquipableItem item);
+  double counterLight(IEquipableItem item);
 
   double counterAxe(IEquipableItem item);
 
@@ -63,11 +61,6 @@ public interface IEquipableItem {
 
   double counterBow(IEquipableItem item);
 
-  double counterAnima(IEquipableItem item);
 
-  double counterDark(IEquipableItem item);
-
-  double counterLight(IEquipableItem item);
-
-
+  double attack(IEquipableItem equippedItem);
 }

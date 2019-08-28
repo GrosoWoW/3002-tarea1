@@ -1,4 +1,4 @@
-package model.items.magic;
+package model.items.attack.magic;
 
 import model.items.IEquipableItem;
 

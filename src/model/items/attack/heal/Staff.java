@@ -1,6 +1,5 @@
-package model.items.normal;
+package model.items.attack.heal;
 
-import model.items.normal.AbstractItem;
 
 /**
  * This class represents a <i>Staff</i> type item.
@@ -10,7 +9,7 @@ import model.items.normal.AbstractItem;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Staff extends AbstractItem {
+public class Staff extends AbstractHeal {
 
   /**
    * Creates a new Staff item.

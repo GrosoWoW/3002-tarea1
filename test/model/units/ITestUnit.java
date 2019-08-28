@@ -2,7 +2,11 @@ package model.units;
 
 
 import model.items.*;
-import model.items.normal.*;
+import model.items.attack.heal.Staff;
+import model.items.attack.normal.Axe;
+import model.items.attack.normal.Bow;
+import model.items.attack.normal.Spear;
+import model.items.normal.Sword;
 import model.map.Field;
 import org.junit.jupiter.api.Test;
 
