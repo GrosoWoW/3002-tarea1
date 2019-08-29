@@ -13,7 +13,6 @@ import model.items.attack.normal.AbstractAttack;
 import model.items.ITestEquipableItem;
 import model.items.normal.AbstractTestItem;
 import model.items.attack.normal.*;
-import model.items.normal.Sword;
 
 
 /**

@@ -28,6 +28,11 @@ public class ClericTest extends AbstractTestUnit {
     return cleric;
   }
 
+  public void equipWeapon(IUnit unit){
+
+    unit.equipItem(getStaff());
+  }
+
   @Test
   @Override
   public void equipStaffTest() {

@@ -146,7 +146,7 @@ public interface IUnit {
    *      the damage that will occur
    */
 
-  void takeDamage(IUnit attacker, double damage);
+  void takeDamage( double damage);
 
   /**
    *
@@ -165,5 +165,15 @@ public interface IUnit {
   boolean canAttack(IUnit unit);
 
 
+  void heal(double heal);
 
-}
+  void healUnit(IUnit unit);
+
+  int getMaxHitPoints();
+
+  void unEquipItem();
+
+  void Damage(IUnit attacker, double damage);
+
+
+  }

@@ -3,12 +3,12 @@ package model.items.attack;
 import model.items.IEquipableItem;
 import model.items.attack.normal.Axe;
 import model.items.attack.normal.Spear;
+import model.items.attack.normal.Sword;
 import model.map.Location;
 import model.units.Hero;
 import model.units.IUnit;
 import org.junit.jupiter.api.Test;
 import model.items.normal.AbstractTestItem;
-import model.items.normal.Sword;
 
 
 

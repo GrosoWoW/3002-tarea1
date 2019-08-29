@@ -1,6 +1,8 @@
 package model.items.attack.heal;
 
 
+import model.items.IEquipableItem;
+
 /**
  * This class represents a <i>Staff</i> type item.
  * <p>

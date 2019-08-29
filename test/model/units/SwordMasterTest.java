@@ -26,6 +26,11 @@ public class SwordMasterTest extends AbstractTestUnit {
     return swordMaster;
   }
 
+  public void equipWeapon(IUnit unit){
+
+    unit.equipItem(getSword());
+  }
+
   @Override
   public void equipSwordTest() {
     assertNull(swordMaster.getEquippedItem());

@@ -120,6 +120,22 @@ public abstract class AbstractUnit implements IUnit {
 
   }
 
+  public void unEquipItem(){
+
+    if(this.getItems().size() < this.getMaxItems()){
+
+      this.addItem(this.getEquippedItem());
+      this.equippedItem = null;
+    }
+
+
+  }
+
+  public void heal(double heal){
+
+    this.currentHitPoints += heal;
+  }
+
   public boolean canAttack(IUnit unit){
 
     return (this.getEquippedItem() != null) &&
@@ -181,11 +197,11 @@ public abstract class AbstractUnit implements IUnit {
     if (this.canAttack(unit)) {
 
       double damage = this.getEquippedItem().attack(unit.getEquippedItem());
-      takeDamage(unit, damage);
+      Damage(unit, damage);
     }
   }
 
-  public void takeDamage(IUnit attacker, double damage){
+  public void Damage(IUnit attacker, double damage){
 
     this.takeDamage(damage);
     if(this.getCurrentHitPoints() <= 0){
@@ -201,7 +217,16 @@ public abstract class AbstractUnit implements IUnit {
 
   public void healUnit(IUnit unit){
 
-    double remainingLife = unit.getMaxItems() - unit.getCurrentHitPoints();
+    double remainingLife = unit.getMaxHitPoints() - unit.getCurrentHitPoints();
+
+    if(this.canAttack(unit)) {
+      if (remainingLife <= this.getEquippedItem().getPower()) {
+
+        unit.heal(remainingLife);
+      } else {
+        unit.heal(this.getEquippedItem().getPower());
+      }
+    }
 
 
   }

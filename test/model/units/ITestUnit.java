@@ -3,10 +3,11 @@ package model.units;
 
 import model.items.*;
 import model.items.attack.heal.Staff;
+import model.items.attack.magic.AnimaBook;
 import model.items.attack.normal.Axe;
 import model.items.attack.normal.Bow;
 import model.items.attack.normal.Spear;
-import model.items.normal.Sword;
+import model.items.attack.normal.Sword;
 import model.map.Field;
 import org.junit.jupiter.api.Test;
 
@@ -97,6 +98,8 @@ public interface ITestUnit {
    */
   Bow getBow();
 
+  AnimaBook getBook();
+
   /**
    * Checks if the unit moves correctly
    */
@@ -133,5 +136,10 @@ public interface ITestUnit {
 
   @Test
   void testCombat();
+
+  @Test
+  void testHeal();
+
+  void equipWeapon(IUnit unit);
 
 }

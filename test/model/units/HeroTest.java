@@ -27,6 +27,10 @@ public class HeroTest extends AbstractTestUnit {
   public IUnit getTestUnit() {
     return hero;
   }
+  public void equipWeapon(IUnit unit){
+
+    unit.equipItem(getSword());
+  }
 
   @Override
   @Test

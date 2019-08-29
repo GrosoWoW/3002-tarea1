@@ -2,7 +2,6 @@ package model.items.attack.magic;
 
 import model.items.IEquipableItem;
 import model.items.attack.magic.AbstractTestBook;
-import model.items.normal.Sword;
 import model.map.Location;
 import model.units.Fighter;
 

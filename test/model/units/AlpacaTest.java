@@ -25,6 +25,11 @@ public class AlpacaTest extends AbstractTestUnit {
     return alpaca;
   }
 
+  public void equipWeapon(IUnit unit){
+
+
+  }
+
   @Override
   @Test
   public void testFailReceived(){

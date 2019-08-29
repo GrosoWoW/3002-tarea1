@@ -37,8 +37,6 @@ public abstract class AbstractAttack implements IAttack {
         this.power = power;
         this.minRange = Math.max(minRange, 1);
         this.maxRange = Math.max(maxRange, this.minRange);
-        this.magic = false;
-        this.attack = false;
     }
 
 
@@ -71,6 +69,10 @@ public abstract class AbstractAttack implements IAttack {
     public double attack(IEquipableItem item){
 
         return 0;
+    }
+
+    public void healUnit(){
+
     }
 
     public double counterSword(IEquipableItem item){

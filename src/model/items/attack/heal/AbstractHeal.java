@@ -64,6 +64,11 @@ public abstract class AbstractHeal implements IHeal {
         return maxRange;
     }
 
+    public double attack(IEquipableItem item){
+
+        return 0;
+    }
+
     @Override
     public double counterSword(IEquipableItem item){
 
@@ -99,7 +104,6 @@ public abstract class AbstractHeal implements IHeal {
 
         return 0;
     }
-
 
     public double heal(IHeal item){
 

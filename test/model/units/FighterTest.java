@@ -28,6 +28,11 @@ public class FighterTest extends AbstractTestUnit {
     return fighter;
   }
 
+  public void equipWeapon(IUnit unit){
+
+    unit.equipItem(getAxe());
+  }
+
   /**
    * Checks if the axe is equipped correctly to the unit
    */

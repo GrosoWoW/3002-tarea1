@@ -8,11 +8,13 @@ import model.items.attack.magic.LightBook;
 import model.items.attack.normal.Axe;
 import model.items.attack.normal.Bow;
 import model.items.attack.normal.Spear;
-import model.items.normal.Sword;
+import model.items.attack.normal.Sword;
 import model.map.Field;
 import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.awt.print.Book;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,6 +34,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   protected AnimaBook anima;
   protected DarkBook dark;
   protected LightBook light;
+  protected IEquipableItem equippedItem;
 
   @Override
   public void setTargetAlpaca() {
@@ -73,14 +76,14 @@ public abstract class AbstractTestUnit implements ITestUnit {
    */
   @Override
   public void setWeapons() {
-    this.axe = new Axe("Axe", 10, 1, 2);
-    this.sword = new Sword("Sword", 10, 1, 2);
-    this.spear = new Spear("Spear", 10, 1, 2);
-    this.staff = new Staff("Staff", 10, 1, 2);
-    this.bow = new Bow("Bow", 10, 2, 3);
-    this.anima = new AnimaBook("Anima", 10,1,2);
-    this.dark = new DarkBook("Dark", 10, 1, 2);
-    this.light = new LightBook("Light", 10, 1 ,2);
+    this.axe = new Axe("Axe", 10, 0, 3);
+    this.sword = new Sword("Sword", 10, 0, 3);
+    this.spear = new Spear("Spear", 10, 0, 3);
+    this.staff = new Staff("Staff", 10, 0, 3);
+    this.bow = new Bow("Bow", 10, 0, 3);
+    this.anima = new AnimaBook("Anima", 10,0,3);
+    this.dark = new DarkBook("Dark", 10, 0, 3);
+    this.light = new LightBook("Light", 10, 0 ,3);
   }
 
   /**
@@ -188,6 +191,11 @@ public abstract class AbstractTestUnit implements ITestUnit {
     return bow;
   }
 
+  @Override
+  public AnimaBook getBook() {
+    return anima;
+  }
+
   /**
    * Checks if the unit moves correctly
    */
@@ -219,6 +227,14 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   public Alpaca getTargetAlpaca() {
     return targetAlpaca;
+  }
+
+  @Override
+  public void equipWeapon(IUnit unit){
+
+
+
+
   }
 
   @Override
@@ -313,17 +329,14 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Test
   public void testCombat(){
 
-    IUnit primero = new Hero(10,2,field.getCell(0, 0));
-    IUnit segundo = new Fighter(50, 2, field.getCell(1, 1));
-    primero.equipItem(getSpear());
+    IUnit primero = getTestUnit();
+    IUnit segundo = new Fighter(500, 2, field.getCell(1, 1));
+    equipWeapon(primero);
     segundo.equipItem(getAxe());
     primero.attackEnemy(segundo);
-    assertTrue(segundo.getLive());
+    assertNotEquals(segundo.getLive(), primero.getLive());
     assertFalse(primero.getLive());
-    assertEquals(getSpear(), primero.getEquippedItem());
     assertTrue(primero.canAttack(segundo));
-    assertEquals(50, segundo.getCurrentHitPoints(), "no");
-    assertTrue(segundo.getLive());
 
 
     IUnit tercero = new SwordMaster(50, 2, field.getCell(2, 2));
@@ -333,8 +346,27 @@ public abstract class AbstractTestUnit implements ITestUnit {
     cuarto.attackEnemy(tercero);
     assertTrue(cuarto.getLive());
     assertTrue(tercero.getLive());
+  }
 
+  @Override
+  @Test
+  public void testHeal(){
 
+    IUnit primero = getTestUnit();
+    IUnit curita = new Cleric(50, 2, field.getCell(1, 1));
+    primero.equipItem(getSpear());
+    curita.equipItem(new Staff("La mata simios", 20,0,10));
+    primero.takeDamage(30);
+    curita.healUnit(primero);
+    assertEquals(primero.getMaxHitPoints()-10, primero.getCurrentHitPoints());
+    curita.equipItem(new Staff("La mata simios 2.0", 200000,0,10));
+    curita.healUnit(primero);
+    assertEquals(primero.getMaxHitPoints(), primero.getCurrentHitPoints());
+    curita.unEquipItem();
+    curita.equipItem(new Sword("La mata simios 2.0", 10,0,10));
+    primero.takeDamage(60);
+    curita.healUnit(primero);
+    assertEquals(primero.getMaxHitPoints()-60, primero.getCurrentHitPoints());
 
   }
 

@@ -16,6 +16,11 @@ public class SorcererTest extends  AbstractTestUnit {
     @Override
     public IUnit getTestUnit() { return sorcerer;}
 
+    public void equipWeapon(IUnit unit){
+
+        unit.equipItem(getBook());
+    }
+
 
     @Test
     public void equipBookTest() {

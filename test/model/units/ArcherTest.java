@@ -30,6 +30,12 @@ public class ArcherTest extends AbstractTestUnit {
     return archer;
   }
 
+  @Override
+  public void equipWeapon(IUnit unit){
+
+    unit.equipItem(getBow());
+  }
+
   /**
    * Checks if the bow is equipped correctly to the unit
    */
