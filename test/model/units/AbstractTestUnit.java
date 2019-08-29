@@ -80,7 +80,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.sword = new Sword("Sword", 10, 0, 3);
     this.spear = new Spear("Spear", 10, 0, 3);
     this.staff = new Staff("Staff", 10, 0, 3);
-    this.bow = new Bow("Bow", 10, 0, 3);
+    this.bow = new Bow("Bow", 10, 2, 4);
     this.anima = new AnimaBook("Anima", 10,0,3);
     this.dark = new DarkBook("Dark", 10, 0, 3);
     this.light = new LightBook("Light", 10, 0 ,3);
@@ -330,12 +330,13 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public void testCombat(){
 
     IUnit primero = getTestUnit();
-    IUnit segundo = new Fighter(500, 2, field.getCell(1, 1));
+    IUnit segundo = new Fighter(1, 2, field.getCell(1, 1));
     equipWeapon(primero);
     segundo.equipItem(getAxe());
     primero.attackEnemy(segundo);
+    System.out.println(primero.getLocation().distanceTo(segundo.getLocation()));
     assertNotEquals(segundo.getLive(), primero.getLive());
-    assertFalse(primero.getLive());
+    assertTrue(primero.getLive());
     assertTrue(primero.canAttack(segundo));
 
 

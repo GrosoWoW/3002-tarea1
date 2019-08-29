@@ -120,6 +120,11 @@ public abstract class AbstractUnit implements IUnit {
 
   }
 
+  public void die(){
+
+    this.life = false;
+  }
+
   public void unEquipItem(){
 
     if(this.getItems().size() < this.getMaxItems()){
@@ -140,7 +145,7 @@ public abstract class AbstractUnit implements IUnit {
 
     return (this.getEquippedItem() != null) &&
             (this.getLocation().distanceTo(unit.getLocation()) <=this.getEquippedItem().getMaxRange()) &&
-            (this.getLocation().distanceTo(unit.getLocation()) > this.getEquippedItem().getMinRange());
+            (this.getLocation().distanceTo(unit.getLocation()) >= this.getEquippedItem().getMinRange());
   }
 
 
@@ -197,21 +202,21 @@ public abstract class AbstractUnit implements IUnit {
     if (this.canAttack(unit)) {
 
       double damage = this.getEquippedItem().attack(unit.getEquippedItem());
-      Damage(unit, damage);
+      this.Damage(unit, damage);
     }
   }
 
   public void Damage(IUnit attacker, double damage){
 
-    this.takeDamage(damage);
-    if(this.getCurrentHitPoints() <= 0){
+    attacker.takeDamage(damage);
+    if(attacker.getCurrentHitPoints() <= 0){
 
-      this.life = false;
+      attacker.die();
 
     }
     else{
 
-      this.attackEnemy(attacker);
+      this.takeDamage(this.getEquippedItem().attack(attacker.getEquippedItem()));
     }
   }
 

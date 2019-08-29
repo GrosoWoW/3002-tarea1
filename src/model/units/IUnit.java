@@ -175,5 +175,7 @@ public interface IUnit {
 
   void Damage(IUnit attacker, double damage);
 
+  void die();
+
 
   }

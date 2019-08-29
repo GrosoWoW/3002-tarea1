@@ -33,8 +33,8 @@ public class SpearTest extends AbstractTestItem {
   public void setTestItem() {
     expectedName = "Javelin";
     expectedPower = 10;
-    expectedMinRange = 1;
-    expectedMaxRange = 3;
+    expectedMinRange = 0;
+    expectedMaxRange = 30;
     javelin = new Spear(expectedName, expectedPower, expectedMinRange, expectedMaxRange);
   }
 

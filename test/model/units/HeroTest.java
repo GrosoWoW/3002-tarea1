@@ -2,6 +2,7 @@ package model.units;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +30,7 @@ public class HeroTest extends AbstractTestUnit {
   }
   public void equipWeapon(IUnit unit){
 
-    unit.equipItem(getSword());
+    unit.equipItem(getSpear());
   }
 
   @Override
@@ -39,4 +40,23 @@ public class HeroTest extends AbstractTestUnit {
     hero.equipItem(spear);
     assertEquals(spear, hero.getEquippedItem());
   }
-}
+
+  @Override
+  @Test
+  public void testCombat(){
+
+    IUnit primero = getTestUnit();
+    equipWeapon(primero);
+    IUnit segundo = new Hero(1, 2, field.getCell(1, 0));
+    equipWeapon(segundo);
+    primero.attackEnemy(segundo);
+    System.out.println(primero.getLocation().distanceTo(segundo.getLocation()));
+    assertFalse(segundo.getLive());
+    }
+
+
+
+
+
+
+  }
