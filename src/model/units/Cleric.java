@@ -36,10 +36,11 @@ public class Cleric extends AbstractUnit {
    *     the item to equip
    */
   @Override
-  public void equipItem(final IEquipableItem item) {
-    if (item instanceof Staff) {
-      equippedItem = item;
-    }
+  public void equipStaff(IEquipableItem item) {
+
+    this.setEquippedItem(item);
+    item.setOwner(this);
+
   }
 
 }

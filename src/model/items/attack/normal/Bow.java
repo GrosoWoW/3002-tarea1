@@ -2,6 +2,9 @@ package model.items.attack.normal;
 
 import model.items.IEquipableItem;
 import model.items.attack.normal.AbstractAttack;
+import model.units.IUnit;
+
+import java.util.List;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -28,7 +31,6 @@ public class Bow extends AbstractAttack {
     super(name, power, minRange, maxRange);
     this.minRange = Math.max(minRange, 2);
     this.maxRange = Math.max(maxRange, this.minRange);
-    this.attack = true;
   }
 
   @Override
@@ -59,6 +61,13 @@ public class Bow extends AbstractAttack {
   public double counterLight(IEquipableItem item){
 
     return item.getPower()*1.5;
+  }
+
+  @Override
+  public void equipItem(IUnit unit){
+
+    unit.equipBow(this);
+
   }
 
 

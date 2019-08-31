@@ -123,7 +123,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   public void checkEquippedItem(IEquipableItem item) {
     assertNull(getTestUnit().getEquippedItem());
-    getTestUnit().equipItem(item);
+    item.equipItem(getTestUnit());
     assertNull(getTestUnit().getEquippedItem());
   }
 
@@ -232,9 +232,6 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   public void equipWeapon(IUnit unit){
 
-
-
-
   }
 
   @Override
@@ -250,8 +247,6 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertTrue(unit2.getItems().contains(getAxe()));
     assertFalse(unit1.getItems().contains(getAxe()));
 
-
-
   }
 
   @Override
@@ -264,7 +259,6 @@ public abstract class AbstractTestUnit implements ITestUnit {
     unit2.addItem(getSword());
     unit1.trade(unit2, getAxe(), getSword());
     assertFalse(unit1.getItems().contains(getSword()));
-
 
   }
 
@@ -283,17 +277,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertTrue(segundo.getItems().contains(item));
     assertFalse(primero.getItems().contains(item));
 
-
-
     }
 
-  @Override
-  @Test
-
-  public void testFailGift(){
-
-
-  }
 
   @Override
   @Test
@@ -322,7 +307,6 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertTrue(segundo.getItems().contains(getStaff()));
     assertFalse(primero.getItems().contains(getStaff()));
 
-
   }
 
   @Override
@@ -332,9 +316,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     IUnit primero = getTestUnit();
     IUnit segundo = new Fighter(1, 2, field.getCell(1, 1));
     equipWeapon(primero);
-    segundo.equipItem(getAxe());
+    getAxe().equipItem(segundo);
     primero.attackEnemy(segundo);
-    System.out.println(primero.getLocation().distanceTo(segundo.getLocation()));
     assertNotEquals(segundo.getLive(), primero.getLive());
     assertTrue(primero.getLive());
     assertTrue(primero.canAttack(segundo));
@@ -342,11 +325,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
     IUnit tercero = new SwordMaster(50, 2, field.getCell(2, 2));
     IUnit cuarto = new Hero(50, 2, field.getCell(0, 0));
-    tercero.equipItem(getSword());
-    cuarto.equipItem(getSpear());
+    getSword().equipItem(tercero);
+    getSpear().equipItem(cuarto);
     cuarto.attackEnemy(tercero);
     assertTrue(cuarto.getLive());
     assertTrue(tercero.getLive());
+
   }
 
   @Override
@@ -355,20 +339,30 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
     IUnit primero = getTestUnit();
     IUnit curita = new Cleric(50, 2, field.getCell(1, 1));
-    primero.equipItem(getSpear());
-    curita.equipItem(new Staff("La mata simios", 20,0,10));
+    getSpear().equipItem(primero);
+    IEquipableItem item = new Staff("La mata simios", 20,0,10);
+    item.equipItem(curita);
     primero.takeDamage(30);
     curita.healUnit(primero);
     assertEquals(primero.getMaxHitPoints()-10, primero.getCurrentHitPoints());
-    curita.equipItem(new Staff("La mata simios 2.0", 200000,0,10));
+    IEquipableItem item1 = new Staff("La mata simios 2.0", 200000,0,10);
+    item1.equipItem(curita);
     curita.healUnit(primero);
     assertEquals(primero.getMaxHitPoints(), primero.getCurrentHitPoints());
     curita.unEquipItem();
-    curita.equipItem(new Sword("La mata simios 2.0", 10,0,10));
+    IEquipableItem item2 = new Sword("La mata simios 2.0", 10,0,10);
+    item2.equipItem(curita);
     primero.takeDamage(60);
     curita.healUnit(primero);
     assertEquals(primero.getMaxHitPoints()-60, primero.getCurrentHitPoints());
 
+  }
+
+  @Test
+  @Override
+  public void testInventory(){
+
+    IUnit unidad = getTestUnit();
   }
 
 

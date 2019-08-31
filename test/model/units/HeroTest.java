@@ -30,14 +30,14 @@ public class HeroTest extends AbstractTestUnit {
   }
   public void equipWeapon(IUnit unit){
 
-    unit.equipItem(getSpear());
+    getSpear().equipItem(unit);
   }
 
   @Override
   @Test
   public void equipSpearTest() {
     assertNull(hero.getEquippedItem());
-    hero.equipItem(spear);
+    spear.equipItem(hero);
     assertEquals(spear, hero.getEquippedItem());
   }
 
@@ -50,9 +50,16 @@ public class HeroTest extends AbstractTestUnit {
     IUnit segundo = new Hero(1, 2, field.getCell(1, 0));
     equipWeapon(segundo);
     primero.attackEnemy(segundo);
-    System.out.println(primero.getLocation().distanceTo(segundo.getLocation()));
     assertFalse(segundo.getLive());
+
+    IUnit unidad = getTestUnit();
+    equipWeapon(unidad);
+    assertEquals(getSpear().getPower()*1.5, unidad.getEquippedItem().attack(getSword()));
+    assertEquals(getSpear().getPower() - 20, unidad.getEquippedItem().attack(getAxe()));
+    assertEquals(getSpear().getPower(), unidad.getEquippedItem().attack(getStaff()));
     }
+
+
 
 
 

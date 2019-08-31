@@ -40,11 +40,6 @@ public abstract class AbstractAttack implements IAttack {
     }
 
 
-    public void equipTo(final IUnit unit) {
-        unit.setEquippedItem(this);
-        owner = unit;
-    }
-
     public IUnit getOwner() {
         return owner;
     }
@@ -71,9 +66,6 @@ public abstract class AbstractAttack implements IAttack {
         return 0;
     }
 
-    public void healUnit(){
-
-    }
 
     public double counterSword(IEquipableItem item){
 
@@ -108,6 +100,16 @@ public abstract class AbstractAttack implements IAttack {
     public double counterLight(IEquipableItem item){
 
         return item.getPower();
+    }
+
+    public double counterStaff(IEquipableItem item){
+
+        return item.getPower();
+    }
+
+    public void setOwner(IUnit unit){
+
+        this.owner = unit;
     }
 
 

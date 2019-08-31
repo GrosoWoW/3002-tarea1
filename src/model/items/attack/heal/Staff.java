@@ -2,6 +2,9 @@ package model.items.attack.heal;
 
 
 import model.items.IEquipableItem;
+import model.units.IUnit;
+
+import java.util.List;
 
 /**
  * This class represents a <i>Staff</i> type item.
@@ -27,7 +30,24 @@ public class Staff extends AbstractHeal {
    */
   public Staff(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
-    this.attack = false;
+
+  }
+
+  public double attack(IEquipableItem item){
+
+    return 0;
+
+  }
+
+  public double counterStaff(IEquipableItem item){
+
+    return item.getPower();
+  }
+
+  @Override
+  public void equipItem(IUnit unit){
+
+    unit.equipStaff(this);
 
   }
 

@@ -34,8 +34,7 @@ public abstract class AbstractHeal implements IHeal {
         this.power = power;
         this.minRange = Math.max(minRange, 1);
         this.maxRange = Math.max(maxRange, this.minRange);
-        this.magic = false;
-        this.attack = false;
+
     }
 
 
@@ -64,6 +63,7 @@ public abstract class AbstractHeal implements IHeal {
         return maxRange;
     }
 
+
     public double attack(IEquipableItem item){
 
         return 0;
@@ -72,42 +72,46 @@ public abstract class AbstractHeal implements IHeal {
     @Override
     public double counterSword(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
     @Override
     public double counterAxe(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
     @Override
     public double counterSpear(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
     @Override
     public double counterBow(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
     @Override
     public double counterAnima(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
     @Override
     public double counterDark(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
     @Override
     public double counterLight(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
 
-    public double heal(IHeal item){
+    public double getHeal(){
 
-        return item.getPower();
+        return this.getPower();
+    }
+    public void setOwner(IUnit unit){
+
+        this.owner = unit;
     }
 
 }

@@ -2,6 +2,9 @@ package model.items.attack.normal;
 
 import model.items.IEquipableItem;
 import model.items.attack.normal.AbstractAttack;
+import model.units.IUnit;
+
+import java.util.List;
 
 /**
  * This class represents a sword type item.
@@ -27,7 +30,6 @@ public class Sword extends AbstractAttack {
    */
   public Sword(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
-    this.attack = true;
   }
 
 
@@ -42,6 +44,14 @@ public class Sword extends AbstractAttack {
   public double counterSpear(IEquipableItem item){
 
     return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterAxe(IEquipableItem item){
+
+    return item.getPower() - 20;
+
+
   }
 
   @Override
@@ -61,4 +71,13 @@ public class Sword extends AbstractAttack {
 
     return item.getPower()*1.5;
   }
+
+  @Override
+  public void equipItem(IUnit unit){
+
+    unit.equipSword(this);
+
+  }
+
+
 }

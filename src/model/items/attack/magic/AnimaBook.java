@@ -1,6 +1,9 @@
 package model.items.attack.magic;
 
 import model.items.IEquipableItem;
+import model.units.IUnit;
+
+import java.util.List;
 
 /**
  *
@@ -28,7 +31,6 @@ public class AnimaBook extends AbstractBook {
     public AnimaBook(final String name, final int power, final int minRange, final int maxRange){
 
         super(name, power, minRange, maxRange);
-        this.attack = true;
     }
 
     @Override
@@ -36,6 +38,12 @@ public class AnimaBook extends AbstractBook {
 
         return item.counterAnima(this);
 
+    }
+
+    @Override
+    public double counterLight(IEquipableItem item){
+
+        return item.getPower() - 20;
     }
 
     @Override
@@ -67,6 +75,15 @@ public class AnimaBook extends AbstractBook {
 
         return item.getPower()*1.5;
     }
+
+    @Override
+    public void equipItem(IUnit unit){
+
+        unit.equipAnima(this);
+
+
+    }
+
 
 
 

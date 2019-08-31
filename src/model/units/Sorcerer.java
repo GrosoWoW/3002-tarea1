@@ -26,10 +26,27 @@ public class Sorcerer extends AbstractUnit {
      */
 
     @Override
-    public void equipItem(final IEquipableItem item){
-        if(item instanceof AbstractBook){
-            equippedItem = item;
-        }
+    public void equipAnima(IEquipableItem item) {
+
+        this.setEquippedItem(item);
+        item.setOwner(this);
+
+    }
+
+    @Override
+    public void equipDark(IEquipableItem item) {
+
+        this.setEquippedItem(item);
+        item.setOwner(this);
+
+    }
+
+    @Override
+    public void equipLight(IEquipableItem item){
+
+        this.setEquippedItem(item);
+        item.setOwner(this);
+
     }
 
 

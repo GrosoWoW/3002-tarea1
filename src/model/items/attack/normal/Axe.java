@@ -2,6 +2,9 @@ package model.items.attack.normal;
 
 import model.items.IEquipableItem;
 import model.items.attack.normal.AbstractAttack;
+import model.units.IUnit;
+
+import java.util.List;
 
 /**
  * This class represents an Axe.
@@ -27,9 +30,7 @@ public class Axe extends AbstractAttack {
    *     the maximum range of the axe
    */
   public Axe(final String name, final int power, final int minRange, final int maxRange) {
-    super(name, power, minRange, maxRange);
-    this.attack = true;
-  }
+    super(name, power, minRange, maxRange); }
 
   @Override
   public double attack(IEquipableItem item){
@@ -42,6 +43,12 @@ public class Axe extends AbstractAttack {
   public double counterSword(IEquipableItem item){
 
     return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterSpear(IEquipableItem item){
+
+    return item.getPower() - 20;
   }
 
   @Override
@@ -61,5 +68,13 @@ public class Axe extends AbstractAttack {
 
     return item.getPower()*1.5;
   }
+  @Override
+  public void equipItem(IUnit unit){
+
+    unit.equipAxe(this);
+
+
+  }
+
 
 }

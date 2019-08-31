@@ -110,7 +110,7 @@ public abstract class AbstractTestBook implements ITestEquipableItem {
     public void equippedToTest() {
         assertNull(getTestItem().getOwner());
         IUnit unit = getTestUnit();
-        getTestItem().equipTo(unit);
+        getTestItem().equipItem(unit);
         assertEquals(unit, getTestItem().getOwner());
     }
 

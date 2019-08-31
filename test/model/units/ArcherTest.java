@@ -33,7 +33,7 @@ public class ArcherTest extends AbstractTestUnit {
   @Override
   public void equipWeapon(IUnit unit){
 
-    unit.equipItem(getBow());
+    getBow().equipItem(unit);
   }
 
   /**
@@ -43,17 +43,28 @@ public class ArcherTest extends AbstractTestUnit {
   @Override
   public void equipBowTest() {
     assertNull(getTestUnit().getEquippedItem());
-    getTestUnit().equipItem(getBow());
+    getBow().equipItem(getTestUnit());
     assertEquals(getBow(), getTestUnit().getEquippedItem());
 
 
-    getTestUnit().equipItem(getAxe());
+    getAxe().equipItem(getTestUnit());
+
     assertNotEquals(getTestUnit().getEquippedItem(), getAxe());
-    getTestUnit().equipItem(getSword());
+    getSword().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getSword());
-    getTestUnit().equipItem(getStaff());
+    getStaff().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getStaff());
 
+  }
 
+  @Test
+  @Override
+  public void testCombat(){
+
+    IUnit unidad = getTestUnit();
+    equipWeapon(unidad);
+    assertEquals(getAxe().getPower(), unidad.getEquippedItem().attack(getSpear()));
+    assertEquals(getAxe().getPower(), unidad.getEquippedItem().attack(getSword()));
+    assertEquals(getAxe().getPower(), unidad.getEquippedItem().attack(getStaff()));
   }
 }

@@ -7,7 +7,6 @@ import model.map.Location;
 import model.units.Archer;
 import model.units.IUnit;
 import org.junit.jupiter.api.Test;
-import model.items.normal.AbstractTestItem;
 import model.items.attack.normal.Bow;
 
 

@@ -1,4 +1,4 @@
-package model.items.normal;
+package model.items.attack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -110,7 +110,7 @@ public abstract class AbstractTestItem implements ITestEquipableItem {
   public void equippedToTest() {
     assertNull(getTestItem().getOwner());
     IUnit unit = getTestUnit();
-    getTestItem().equipTo(unit);
+    getTestItem().equipItem(unit);
     assertEquals(unit, getTestItem().getOwner());
   }
 

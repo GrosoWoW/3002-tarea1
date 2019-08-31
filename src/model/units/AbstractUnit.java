@@ -119,6 +119,22 @@ public abstract class AbstractUnit implements IUnit {
     this.currentHitPoints -= damage;
 
   }
+  
+  public void equipAxe(IEquipableItem axe){ }
+
+  public void equipSpear(IEquipableItem item){}
+
+  public void equipBow(IEquipableItem item){}
+
+  public void equipSword(IEquipableItem item){}
+
+  public void equipLight(IEquipableItem item){}
+
+  public void equipDark(IEquipableItem item){}
+
+  public void equipAnima(IEquipableItem item){}
+
+  public void equipStaff(IEquipableItem item){}
 
   public void die(){
 
@@ -210,9 +226,7 @@ public abstract class AbstractUnit implements IUnit {
 
     attacker.takeDamage(damage);
     if(attacker.getCurrentHitPoints() <= 0){
-
       attacker.die();
-
     }
     else{
 

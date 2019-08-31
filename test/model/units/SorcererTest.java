@@ -18,7 +18,8 @@ public class SorcererTest extends  AbstractTestUnit {
 
     public void equipWeapon(IUnit unit){
 
-        unit.equipItem(getBook());
+
+        getBook().equipItem(unit);
     }
 
 
@@ -26,7 +27,7 @@ public class SorcererTest extends  AbstractTestUnit {
     public void equipBookTest() {
 
         assertNull(sorcerer.getEquippedItem());
-        sorcerer.equipItem(anima);
+        anima.equipItem(sorcerer);
         assertEquals(anima, sorcerer.getEquippedItem());
     }
 

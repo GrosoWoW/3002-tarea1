@@ -3,6 +3,8 @@ package model.items;
 import model.items.attack.magic.AnimaBook;
 import model.units.IUnit;
 
+import java.util.List;
+
 /**
  * This interface represents the <i>weapons</i> that the units of the game can use.
  * <p>
@@ -14,13 +16,6 @@ import model.units.IUnit;
  */
 public interface IEquipableItem {
 
-  /**
-   * Equips this item to a unit.
-   *
-   * @param unit
-   *     the unit that will be quipped with the item
-   */
-  void equipTo(IUnit unit);
 
   /**
    * @return the unit that has currently equipped this item
@@ -61,6 +56,12 @@ public interface IEquipableItem {
 
   double counterBow(IEquipableItem item);
 
-
   double attack(IEquipableItem equippedItem);
+
+  double counterStaff(IEquipableItem item);
+
+  void equipItem(IUnit unit);
+
+  void setOwner(IUnit unit);
+
 }

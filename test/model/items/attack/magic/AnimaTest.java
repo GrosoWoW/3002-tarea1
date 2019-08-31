@@ -74,7 +74,7 @@ class AnimaTest extends AbstractTestBook {
         double dañoFuerte = getTestItem().attack(new LightBook("Light", 10, 0, 10) );
         double dañoDebil = getTestItem().attack(new DarkBook("Dark", 10, 0, 10));
         assertEquals(dañoFuerte, 10*1.5);
-        assertEquals(dañoDebil, 10*1);
+        assertEquals(dañoDebil, 10*1 - 20);
 
 
     }

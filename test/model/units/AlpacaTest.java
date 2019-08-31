@@ -56,8 +56,5 @@ public class AlpacaTest extends AbstractTestUnit {
     primero.attackEnemy(segundo);
     assertTrue(segundo.getLive());
 
-
-
-
   }
 }

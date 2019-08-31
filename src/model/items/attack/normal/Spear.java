@@ -4,6 +4,8 @@ import model.items.IEquipableItem;
 import model.items.attack.normal.AbstractAttack;
 import model.units.IUnit;
 
+import java.util.List;
+
 /**
  * This class represents a <i>spear</i>.
  * <p>
@@ -30,13 +32,8 @@ public class Spear extends AbstractAttack {
    */
   public Spear(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
-    this.attack = true;
   }
 
-  @Override
-  public void equipTo(IUnit unit) {
-    super.equipTo(unit);
-  }
 
   @Override
   public double attack(IEquipableItem item){
@@ -49,6 +46,12 @@ public class Spear extends AbstractAttack {
   public double counterAxe(IEquipableItem item){
 
     return item.getPower()*1.5;
+  }
+
+  @Override
+  public double counterSword(IEquipableItem item){
+
+    return item.getPower() -20;
   }
 
   @Override
@@ -68,6 +71,13 @@ public class Spear extends AbstractAttack {
 
     return item.getPower()*1.5;
   }
+  @Override
+  public void equipItem(IUnit unit){
+
+    unit.equipSpear(this);
+
+  }
+
 
 
 }

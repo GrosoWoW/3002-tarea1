@@ -2,6 +2,11 @@ package model.units;
 
 import java.util.List;
 import model.items.IEquipableItem;
+import model.items.attack.heal.Staff;
+import model.items.attack.magic.AnimaBook;
+import model.items.attack.magic.DarkBook;
+import model.items.attack.magic.LightBook;
+import model.items.attack.normal.Axe;
 import model.map.Location;
 
 /**
@@ -21,7 +26,7 @@ public interface IUnit {
    * @param item
    *     the item to equip
    */
-  void equipItem(IEquipableItem item);
+
 
   /**
    * @return hit points of the unit
@@ -177,5 +182,20 @@ public interface IUnit {
 
   void die();
 
+  void equipAxe(IEquipableItem axe);
 
-  }
+  void equipSpear(IEquipableItem item);
+
+  void equipBow(IEquipableItem item);
+
+  void equipSword(IEquipableItem item);
+
+  void equipLight(IEquipableItem item);
+
+  void equipDark(IEquipableItem item);
+
+  void equipAnima(IEquipableItem item);
+
+  void equipStaff(IEquipableItem item);
+
+}

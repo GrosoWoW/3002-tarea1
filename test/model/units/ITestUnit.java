@@ -126,9 +126,6 @@ public interface ITestUnit {
   void testGift();
 
   @Test
-  void testFailGift();
-
-  @Test
   void testReceived();
 
   @Test
@@ -141,5 +138,7 @@ public interface ITestUnit {
   void testHeal();
 
   void equipWeapon(IUnit unit);
+
+  void testInventory();
 
 }

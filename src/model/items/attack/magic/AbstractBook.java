@@ -105,4 +105,13 @@ public abstract class AbstractBook implements IMagic {
 
         return item.getPower();
     }
+
+    public double counterStaff(IEquipableItem item){
+
+        return item.getPower();
+    }
+    public void setOwner(IUnit unit){
+
+        this.owner = unit;
+    }
 }

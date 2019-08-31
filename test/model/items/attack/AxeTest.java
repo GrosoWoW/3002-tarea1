@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import model.items.attack.normal.AbstractAttack;
 import model.items.ITestEquipableItem;
-import model.items.normal.AbstractTestItem;
 import model.items.attack.normal.*;
 
 
@@ -77,7 +76,7 @@ class AxeTest extends AbstractTestItem {
     double dañoFuerte = getTestItem().attack(new Spear("Spear", 10, 0, 10) );
     double dañoDebil = getTestItem().attack(new Sword("Sword", 10, 0, 10));
     assertEquals(dañoFuerte, 10*1.5);
-    assertEquals(dañoDebil, 10*1);
+    assertEquals(dañoDebil, 10*1 - 20);
 
 
   }

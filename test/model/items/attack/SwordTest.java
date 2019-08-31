@@ -8,7 +8,6 @@ import model.map.Location;
 import model.units.IUnit;
 import model.units.SwordMaster;
 import org.junit.jupiter.api.Test;
-import model.items.normal.AbstractTestItem;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -80,7 +79,7 @@ public class SwordTest extends AbstractTestItem {
     double dañoFuerte = getTestItem().attack(new Axe("Axe", 10, 0, 10) );
     double dañoDebil = getTestItem().attack(new Spear("Spear", 10, 0, 10));
     assertEquals(dañoFuerte, 10*1.5);
-    assertEquals(dañoDebil, 10*1);
+    assertEquals(dañoDebil, 10*1 - 20);
 
 
   }

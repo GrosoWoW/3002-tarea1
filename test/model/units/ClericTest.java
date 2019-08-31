@@ -30,24 +30,24 @@ public class ClericTest extends AbstractTestUnit {
 
   public void equipWeapon(IUnit unit) {
 
-    unit.equipItem(getStaff());
+
+    getStaff().equipItem(unit);
   }
 
   @Test
   @Override
   public void equipStaffTest() {
     assertNull(getTestUnit().getEquippedItem());
-    getTestUnit().equipItem(getStaff());
+    getStaff().equipItem(getTestUnit());
     assertEquals(getStaff(), getTestUnit().getEquippedItem());
 
-
-    getTestUnit().equipItem(getBow());
+    getBow().equipItem(getTestUnit());
     assertNotEquals(getBow(), getTestUnit().getEquippedItem());
-    getTestUnit().equipItem(getAxe());
+    getAxe().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getAxe());
-    getTestUnit().equipItem(getSword());
+    getSword().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getSword());
-    getTestUnit().equipItem(getSpear());
+    getSpear().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getSpear());
   }
 

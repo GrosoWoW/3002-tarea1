@@ -8,7 +8,6 @@ import model.map.Location;
 import model.units.Hero;
 import model.units.IUnit;
 import org.junit.jupiter.api.Test;
-import model.items.normal.AbstractTestItem;
 
 
 
@@ -33,7 +32,7 @@ public class SpearTest extends AbstractTestItem {
   public void setTestItem() {
     expectedName = "Javelin";
     expectedPower = 10;
-    expectedMinRange = 0;
+    expectedMinRange = 1;
     expectedMaxRange = 30;
     javelin = new Spear(expectedName, expectedPower, expectedMinRange, expectedMaxRange);
   }
@@ -83,7 +82,7 @@ public class SpearTest extends AbstractTestItem {
     double dañoFuerte = getTestItem().attack(new Sword("Sword", 10, 0, 10) );
     double dañoDebil = getTestItem().attack(new Axe("Axe", 10, 0, 10));
     assertEquals(dañoFuerte, 10*1.5);
-    assertEquals(dañoDebil, 10*1);
+    assertEquals(dañoDebil, -10);
 
 
   }
