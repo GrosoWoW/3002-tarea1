@@ -1,6 +1,5 @@
 package model.items.attack.heal;
 
-
 import model.items.IEquipableItem;
 import model.units.IUnit;
 
@@ -36,7 +35,6 @@ public abstract class AbstractHeal implements IHeal {
         this.maxRange = Math.max(maxRange, this.minRange);
 
     }
-
 
     public IUnit getOwner() {
         return owner;

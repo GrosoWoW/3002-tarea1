@@ -7,10 +7,7 @@ import model.units.Fighter;
 import model.units.IUnit;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import model.items.attack.normal.AbstractAttack;
-import model.items.ITestEquipableItem;
+
 import model.items.attack.normal.*;
 
 

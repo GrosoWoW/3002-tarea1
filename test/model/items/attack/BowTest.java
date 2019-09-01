@@ -3,8 +3,6 @@ package model.items.attack;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import model.items.IEquipableItem;
-import model.items.attack.magic.AnimaBook;
-import model.items.attack.normal.Axe;
 import model.map.Location;
 import model.units.Archer;
 import model.units.IUnit;

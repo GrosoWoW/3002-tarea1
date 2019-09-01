@@ -1,10 +1,7 @@
 package model.items.attack.heal;
 
-
 import model.items.IEquipableItem;
 import model.units.IUnit;
-
-import java.util.List;
 
 /**
  * This class represents a <i>Staff</i> type item.

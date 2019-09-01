@@ -1,21 +1,15 @@
 package model.items.attack.magic;
 
 import model.items.IEquipableItem;
-import model.items.attack.magic.AbstractTestBook;
-import model.items.attack.normal.Axe;
 import model.map.Location;
-import model.units.Fighter;
-
 import model.units.IUnit;
 import model.units.Sorcerer;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
- * Test set for Axes
+ * Test set for DarkBook
  *
  * @author Cristobal Jaramillo Andrade
  * @since 1.0

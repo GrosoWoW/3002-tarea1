@@ -1,14 +1,11 @@
 package model.items.attack.normal;
 
 import model.items.IEquipableItem;
-import model.items.attack.normal.AbstractAttack;
 import model.units.IUnit;
-
-import java.util.List;
 
 /**
  * @author Ignacio Slater Muñoz
- * @since
+ * @since 1.0
  */
 public class Bow extends AbstractAttack {
 

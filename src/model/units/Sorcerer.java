@@ -1,7 +1,6 @@
 package model.units;
 
 import model.items.IEquipableItem;
-import model.items.attack.magic.AbstractBook;
 import model.map.Location;
 
 /**

@@ -1,23 +1,16 @@
 package model.items.attack.magic;
 
 import model.items.IEquipableItem;
-import model.items.attack.heal.Staff;
-import model.items.attack.normal.Axe;
-import model.items.attack.normal.Bow;
-import model.items.attack.normal.Spear;
-import model.items.attack.normal.Sword;
 import model.map.Location;
-import model.units.Fighter;
 import model.units.IUnit;
 import model.units.Sorcerer;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 
 /**
- * Test set for Axes
+ * Test set for LightBook
  *
  * @author Cristobal Jaramillo Andrade
  * @since 1.0

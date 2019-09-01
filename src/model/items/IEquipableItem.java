@@ -1,9 +1,6 @@
 package model.items;
 
-import model.items.attack.magic.AnimaBook;
 import model.units.IUnit;
-
-import java.util.List;
 
 /**
  * This interface represents the <i>weapons</i> that the units of the game can use.
@@ -42,26 +39,79 @@ public interface IEquipableItem {
    */
   int getMaxRange();
 
-  double counterAnima(IEquipableItem animaBook);
+  /**
+   * @param item
+   *       equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
+  double counterAnima(IEquipableItem item);
 
+  /**
+   * @param item
+   *       equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
   double counterDark(IEquipableItem item);
 
+  /**
+   * @param item
+   *       equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
   double counterLight(IEquipableItem item);
 
+  /**
+   * @param item
+   *      equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
   double counterAxe(IEquipableItem item);
 
+  /**
+   * @param item
+   *      equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
   double counterSpear(IEquipableItem item);
 
+  /**
+   * @param item
+   *      equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
   double counterSword(IEquipableItem item);
 
+  /**
+   * @param item
+   *      equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
   double counterBow(IEquipableItem item);
 
+  /**
+   * @param item
+   *      equipped by the attacker
+   * @return how much damage it should generate depending on its strengths and weaknesses of the item
+   */
   double counterStaff(IEquipableItem item);
 
+  /**
+   * @param equippedItem
+   *      equipped by the enemy
+   * @return damage depending on the weapon equipped by the enemy
+   */
   double attack(IEquipableItem equippedItem);
 
+  /**
+   * @param unit
+   *      to which the item is equated
+   */
   void equipItem(IUnit unit);
 
+  /**
+   * @param unit
+   *      to be assigned as the owner of the weapon
+   */
   void setOwner(IUnit unit);
 
 }

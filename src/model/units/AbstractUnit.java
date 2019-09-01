@@ -147,7 +147,6 @@ public abstract class AbstractUnit implements IUnit {
   public void unEquipItem(){
 
     this.equippedItem = null;
-
   }
 
   public void heal(double heal){
@@ -157,12 +156,9 @@ public abstract class AbstractUnit implements IUnit {
 
   public double check(double num){
 
-    if(num < 0){
-      return 0;
-    }
-    else{
-      return num;
-    }
+    if(num < 0){ return 0;}
+
+    else{ return num; }
   }
 
   public boolean canAttack(IUnit unit){
@@ -193,7 +189,6 @@ public abstract class AbstractUnit implements IUnit {
         unit.addItem(delivered);
         delivered.setOwner(unit);
         received.setOwner(this);
-
       }
     }
   }
@@ -207,7 +202,6 @@ public abstract class AbstractUnit implements IUnit {
         this.removeItem(gift);
         unit.addItem(gift);
         gift.setOwner(unit);
-
       }
     }
   }
@@ -252,17 +246,15 @@ public abstract class AbstractUnit implements IUnit {
   public void healUnit(IUnit unit){
 
     double remainingLife = unit.getMaxHitPoints() - unit.getCurrentHitPoints();
-
     if(this.canAttack(unit)) {
       if (remainingLife <= this.getEquippedItem().getPower()) {
 
         unit.heal(remainingLife);
-      } else {
+      }
+      else {
         unit.heal(this.getEquippedItem().getPower());
       }
     }
-
-
   }
 
 

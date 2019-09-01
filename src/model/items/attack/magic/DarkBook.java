@@ -3,8 +3,6 @@ package model.items.attack.magic;
 import model.items.IEquipableItem;
 import model.units.IUnit;
 
-import java.util.List;
-
 /**
  *  * This class represents a DarkBook of the magic type
  *

@@ -1,10 +1,7 @@
 package model.items.attack.normal;
 
 import model.items.IEquipableItem;
-import model.items.attack.normal.AbstractAttack;
 import model.units.IUnit;
-
-import java.util.List;
 
 /**
  * This class represents an Axe.

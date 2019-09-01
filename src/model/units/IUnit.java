@@ -2,11 +2,6 @@ package model.units;
 
 import java.util.List;
 import model.items.IEquipableItem;
-import model.items.attack.heal.Staff;
-import model.items.attack.magic.AnimaBook;
-import model.items.attack.magic.DarkBook;
-import model.items.attack.magic.LightBook;
-import model.items.attack.normal.Axe;
 import model.map.Location;
 
 /**
@@ -19,14 +14,6 @@ import model.map.Location;
  * @since 1.0
  */
 public interface IUnit {
-
-  /**
-   * Sets the currently equipped item of this unit.
-   *
-   * @param item
-   *     the item to equip
-   */
-
 
   /**
    * @return hit points of the unit
@@ -145,8 +132,6 @@ public interface IUnit {
   /**
    * allow one unit to attack another
    *
-   * @param attacker
-   *      the unit that will cause damage
    * @param damage
    *      the damage that will occur
    */
@@ -169,33 +154,100 @@ public interface IUnit {
 
   boolean canAttack(IUnit unit);
 
-
+  /**
+   * increases the life of a unit
+   *
+   * @param heal
+   *       amount of life to go up
+   */
   void heal(double heal);
 
+  /**
+   * allows a unit to heal
+   *
+   * @param unit
+   *       to be healed
+   */
   void healUnit(IUnit unit);
 
+  /**
+   *
+   * @return maximum unit life
+   */
   int getMaxHitPoints();
 
+  /**
+   * allows you to unpack an item
+   */
   void unEquipItem();
 
+  /**
+   * perform combat actions
+   *
+   * @param attacker unit that will be attacked
+   * @param damage damage the unit will receive
+   */
   void Damage(IUnit attacker, double damage);
 
+  /**
+   * assign the unit as dead
+   */
   void die();
 
-  void equipAxe(IEquipableItem axe);
+  /**
+   * assign an axe as equipped
+   *
+   * @param item that will try to equip
+   */
+  void equipAxe(IEquipableItem item);
 
+  /**
+   * assign an spear as equipped
+   *
+   * @param item that will try to equip
+   */
   void equipSpear(IEquipableItem item);
 
+  /**
+   * assign an bow as equipped
+   *
+   * @param item that will try to equip
+   */
   void equipBow(IEquipableItem item);
 
+  /**
+   * assign an sword as equipped
+   *
+   * @param item that will try to equip
+   */
   void equipSword(IEquipableItem item);
 
+  /**
+   * assign an lightbook as equipped
+   *
+   * @param item that will try to equip
+   */
   void equipLight(IEquipableItem item);
 
+  /**
+   * assign an darkbook as equipped
+   *
+   * @param item that will try to equip
+   */
   void equipDark(IEquipableItem item);
 
+  /**
+   * assign an animabook as equipped
+   *
+   * @param item that will try to equip
+   */
   void equipAnima(IEquipableItem item);
 
+  /**
+   * assign an staff as equipped
+   *
+   * @param item that will try to equip
+   */
   void equipStaff(IEquipableItem item);
 
 }

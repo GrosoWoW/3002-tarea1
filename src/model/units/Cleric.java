@@ -1,11 +1,7 @@
 package model.units;
 
-import jdk.jfr.StackTrace;
 import model.items.IEquipableItem;
-import model.items.attack.heal.Staff;
 import model.map.Location;
-
-import java.lang.annotation.Target;
 
 /**
  * This class represents a cleric type unit. A cleric can only use staff type weapons, which means

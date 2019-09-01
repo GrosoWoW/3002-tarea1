@@ -1,10 +1,7 @@
 package model.items.attack.magic;
 
 import model.items.IEquipableItem;
-import model.items.attack.magic.AbstractBook;
 import model.units.IUnit;
-
-import java.util.List;
 
 /**
  *  * This class represents a LightBook of the magic type

@@ -2,8 +2,6 @@ package model.items.attack;
 
 import model.items.IEquipableItem;
 import model.items.attack.heal.Staff;
-import model.items.attack.magic.AnimaBook;
-import model.items.attack.normal.Axe;
 import model.map.Location;
 import model.units.Cleric;
 import model.units.IUnit;
