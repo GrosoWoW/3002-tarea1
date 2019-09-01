@@ -100,7 +100,10 @@ public abstract class AbstractUnit implements IUnit {
 
   public void addItem(IEquipableItem item){
 
-    items.add(item);
+    if(this.getItems().size() < this.getMaxItems()) {
+
+      items.add(item);
+    }
   }
 
   public void removeItem(IEquipableItem item){
@@ -143,18 +146,23 @@ public abstract class AbstractUnit implements IUnit {
 
   public void unEquipItem(){
 
-    if(this.getItems().size() < this.getMaxItems()){
-
-      this.addItem(this.getEquippedItem());
-      this.equippedItem = null;
-    }
-
+    this.equippedItem = null;
 
   }
 
   public void heal(double heal){
 
     this.currentHitPoints += heal;
+  }
+
+  public double check(double num){
+
+    if(num < 0){
+      return 0;
+    }
+    else{
+      return num;
+    }
   }
 
   public boolean canAttack(IUnit unit){
@@ -183,6 +191,8 @@ public abstract class AbstractUnit implements IUnit {
         unit.removeItem(received);
         this.addItem(received);
         unit.addItem(delivered);
+        delivered.setOwner(unit);
+        received.setOwner(this);
 
       }
     }
@@ -196,6 +206,7 @@ public abstract class AbstractUnit implements IUnit {
 
         this.removeItem(gift);
         unit.addItem(gift);
+        gift.setOwner(unit);
 
       }
     }
@@ -209,6 +220,7 @@ public abstract class AbstractUnit implements IUnit {
 
           this.addItem(received);
           unit.removeItem(received);
+          received.setOwner(this);
         }
     }
   }
@@ -218,6 +230,7 @@ public abstract class AbstractUnit implements IUnit {
     if (this.canAttack(unit)) {
 
       double damage = this.getEquippedItem().attack(unit.getEquippedItem());
+      damage = check(damage);
       this.Damage(unit, damage);
     }
   }
@@ -228,9 +241,11 @@ public abstract class AbstractUnit implements IUnit {
     if(attacker.getCurrentHitPoints() <= 0){
       attacker.die();
     }
-    else{
+    else if(attacker.canAttack(this)){
 
-      this.takeDamage(this.getEquippedItem().attack(attacker.getEquippedItem()));
+      double dano = attacker.getEquippedItem().attack(this.getEquippedItem());
+      dano = check(dano);
+      this.takeDamage(dano);
     }
   }
 

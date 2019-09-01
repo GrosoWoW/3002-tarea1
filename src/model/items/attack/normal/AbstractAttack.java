@@ -60,13 +60,6 @@ public abstract class AbstractAttack implements IAttack {
         return maxRange;
     }
 
-
-    public double attack(IEquipableItem item){
-
-        return 0;
-    }
-
-
     public double counterSword(IEquipableItem item){
 
         return item.getPower();
@@ -89,23 +82,24 @@ public abstract class AbstractAttack implements IAttack {
 
     public double counterAnima(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
     public double counterDark(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
     public double counterLight(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
     public double counterStaff(IEquipableItem item){
 
-        return item.getPower();
+        return 0;
     }
+
 
     public void setOwner(IUnit unit){
 

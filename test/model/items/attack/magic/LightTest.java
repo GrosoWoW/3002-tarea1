@@ -1,6 +1,11 @@
 package model.items.attack.magic;
 
 import model.items.IEquipableItem;
+import model.items.attack.heal.Staff;
+import model.items.attack.normal.Axe;
+import model.items.attack.normal.Bow;
+import model.items.attack.normal.Spear;
+import model.items.attack.normal.Sword;
 import model.map.Location;
 import model.units.Fighter;
 import model.units.IUnit;
@@ -70,10 +75,26 @@ class LightTest extends AbstractTestBook {
     @Test
     public void damageTest(){
 
-        double dañoFuerte = getTestItem().attack(new DarkBook("Dark", 10, 0, 10) );
-        double dañoDebil = getTestItem().attack(new AnimaBook("Anima", 10, 0, 10));
-        assertEquals(dañoFuerte, 10*1.5);
-        assertEquals(dañoDebil, 10*1 - 20);
+        double StrongDamage = getTestItem().attack(getDark());
+        double WeakDamage = getTestItem().attack(getAnima());
+        double AgainstLight = getTestItem().attack(getLight());
+        double AgainstAxe = getTestItem().attack(getAxe());
+        double AgainstSpear = getTestItem().attack(getSpear());
+        double AgainstSword = getTestItem().attack(getSword());
+        double AgainstBow = getTestItem().attack(getBow());
+        double AgainstStaff = getTestItem().attack(getStaff());
+
+
+
+        assertEquals(StrongDamage, getTestItem().getPower()*1.5);
+        assertEquals(WeakDamage, getTestItem().getPower() - 20);
+        assertEquals(AgainstLight, getTestItem().getPower());
+        assertEquals(AgainstAxe, getTestItem().getPower()*1.5);
+        assertEquals(AgainstSpear, getTestItem().getPower()*1.5);
+        assertEquals(AgainstSword, getTestItem().getPower()*1.5);
+        assertEquals(AgainstBow, getTestItem().getPower()*1.5);
+        assertEquals(AgainstStaff, getTestItem().getPower()*1.5);
+
 
     }
 }

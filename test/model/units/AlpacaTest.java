@@ -57,4 +57,21 @@ public class AlpacaTest extends AbstractTestUnit {
     assertTrue(segundo.getLive());
 
   }
+  @Override
+  @Test
+  public void testInventory() {
+
+    IUnit alpaca1 = getTargetAlpaca();
+    alpaca1.addItem(getAxe());
+    alpaca1.addItem(getSpear());
+    alpaca1.addItem(getSword());
+    alpaca1.addItem(getAnima());
+    alpaca1.addItem(getStaff());
+    assertTrue(alpaca1.getItems().contains(getAxe()));
+    assertTrue(alpaca1.getItems().contains(getSpear()));
+    assertTrue(alpaca1.getItems().contains(getSword()));
+    assertTrue(alpaca1.getItems().contains(getAnima()));
+    assertTrue(alpaca1.getItems().contains(getStaff()));
+  }
+
 }

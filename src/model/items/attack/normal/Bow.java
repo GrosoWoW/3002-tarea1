@@ -45,17 +45,6 @@ public class Bow extends AbstractAttack {
     return item.getPower();
   }
 
-  @Override
-  public double counterAnima(IEquipableItem item){
-
-    return item.getPower()*1.5;
-  }
-
-  @Override
-  public double counterDark(IEquipableItem item){
-
-    return item.getPower()*1.5;
-  }
 
   @Override
   public double counterLight(IEquipableItem item){

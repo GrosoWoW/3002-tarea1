@@ -49,6 +49,12 @@ public class ClericTest extends AbstractTestUnit {
     assertNotEquals(getTestUnit().getEquippedItem(), getSword());
     getSpear().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getSpear());
+    getAnima().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getAnima());
+    getDark().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getDark());
+    getLight().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getLight());
   }
 
   @Test

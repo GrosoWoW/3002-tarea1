@@ -5,6 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import model.items.IEquipableItem;
+import model.items.attack.heal.Staff;
+import model.items.attack.magic.AnimaBook;
+import model.items.attack.magic.DarkBook;
+import model.items.attack.magic.LightBook;
+import model.items.attack.normal.Axe;
+import model.items.attack.normal.Bow;
+import model.items.attack.normal.Spear;
+import model.items.attack.normal.Sword;
 import model.units.IUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -89,4 +97,20 @@ public interface ITestEquipableItem{
     IUnit getTestUnit();
 
     void damageTest();
+
+    Axe getAxe();
+
+    Bow getBow();
+
+    Spear getSpear();
+
+    Staff getStaff();
+
+    Sword getSword();
+
+    AnimaBook getAnima();
+
+    DarkBook getDark();
+
+    LightBook getLight();
 }

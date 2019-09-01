@@ -1,10 +1,9 @@
 package model.units;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -28,6 +27,7 @@ public class HeroTest extends AbstractTestUnit {
   public IUnit getTestUnit() {
     return hero;
   }
+
   public void equipWeapon(IUnit unit){
 
     getSpear().equipItem(unit);
@@ -36,9 +36,23 @@ public class HeroTest extends AbstractTestUnit {
   @Override
   @Test
   public void equipSpearTest() {
-    assertNull(hero.getEquippedItem());
-    spear.equipItem(hero);
-    assertEquals(spear, hero.getEquippedItem());
+    assertNull(getTestUnit().getEquippedItem());
+    getSpear().equipItem(getTestUnit());
+    assertEquals(getSpear(), getTestUnit().getEquippedItem());
+
+
+    getAxe().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getAxe());
+    getSword().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getSword());
+    getStaff().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getStaff());
+    getAnima().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getAnima());
+    getDark().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getDark());
+    getLight().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getLight());
   }
 
   @Override

@@ -192,9 +192,15 @@ public abstract class AbstractTestUnit implements ITestUnit {
   }
 
   @Override
-  public AnimaBook getBook() {
+  public AnimaBook getAnima() {
     return anima;
   }
+
+  @Override
+  public DarkBook getDark() {return dark;}
+
+  @Override
+  public LightBook getLight(){ return light;}
 
   /**
    * Checks if the unit moves correctly
@@ -246,6 +252,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertTrue(unit1.getItems().contains(getSpear()));
     assertTrue(unit2.getItems().contains(getAxe()));
     assertFalse(unit1.getItems().contains(getAxe()));
+    assertEquals(getSpear().getOwner(), unit1);
+    assertEquals(getAxe().getOwner(), unit2);
 
   }
 
@@ -276,6 +284,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertNotEquals(primero.getItems(), segundo.getItems());
     assertTrue(segundo.getItems().contains(item));
     assertFalse(primero.getItems().contains(item));
+    assertEquals(item.getOwner(), segundo);
+
 
     }
 
@@ -291,6 +301,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     segundo.receive(primero, item);
     assertTrue(segundo.getItems().contains(item));
     assertFalse(primero.getItems().contains(item));
+    assertEquals(item.getOwner(), segundo);
+    assertNotEquals(item.getPower(), primero);
   }
 
   @Override
@@ -323,10 +335,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertTrue(primero.canAttack(segundo));
 
 
-    IUnit tercero = new SwordMaster(50, 2, field.getCell(2, 2));
-    IUnit cuarto = new Hero(50, 2, field.getCell(0, 0));
+    IUnit tercero = new SwordMaster(50, 2, field.getCell(0, 0));
+    IUnit cuarto = new Hero(50, 2, field.getCell(1, 0));
     getSword().equipItem(tercero);
+    assertEquals(tercero.getEquippedItem(), getSword());
     getSpear().equipItem(cuarto);
+    assertEquals(cuarto.getEquippedItem(), getSpear());
     cuarto.attackEnemy(tercero);
     assertTrue(cuarto.getLive());
     assertTrue(tercero.getLive());
@@ -362,7 +376,17 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   public void testInventory(){
 
+
     IUnit unidad = getTestUnit();
+    unidad.addItem(getSword());
+    unidad.addItem(getAxe());
+    unidad.addItem(getSpear());
+    unidad.addItem(getAnima());
+    assertTrue(unidad.getItems().contains(getSword()));
+    assertTrue(unidad.getItems().contains(getAxe()));
+    assertTrue(unidad.getItems().contains(getSpear()));
+    assertFalse(unidad.getItems().contains(getAnima()));
+
   }
 
 

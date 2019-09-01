@@ -2,9 +2,14 @@ package model.items.attack;
 
 import model.items.IEquipableItem;
 import model.items.attack.heal.Staff;
+import model.items.attack.magic.AnimaBook;
+import model.items.attack.normal.Axe;
 import model.map.Location;
 import model.units.Cleric;
 import model.units.IUnit;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * Test set for staffs
@@ -66,4 +71,33 @@ public class StaffTest extends AbstractTestItem {
   public IUnit getTestUnit() {
     return cleric;
   }
+
+
+  @Override
+  @Test
+  public void damageTest(){
+
+    double AgainstSpear = getTestItem().attack(getSpear());
+    double AgainstSword = getTestItem().attack(getSword());
+    double AgainstLight = getTestItem().attack(getLight());
+    double AgainstDark = getTestItem().attack(getDark());
+    double AgainstAnima = getTestItem().attack(getAnima());
+    double AgainstAxe = getTestItem().attack(getAxe());
+    double AgainstBow = getTestItem().attack(getBow());
+    double AgainstStaff = getTestItem().attack(getStaff());
+
+
+
+    assertEquals(AgainstSword,0);
+    assertEquals(AgainstSpear, 0);
+    assertEquals(AgainstLight, 0);
+    assertEquals(AgainstAxe, 0);
+    assertEquals(AgainstAnima, 0);
+    assertEquals(AgainstDark, 0);
+    assertEquals(AgainstBow, 0);
+    assertEquals(AgainstStaff, 0);
+
+
+  }
+
 }

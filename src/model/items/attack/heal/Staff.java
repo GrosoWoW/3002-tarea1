@@ -35,14 +35,10 @@ public class Staff extends AbstractHeal {
 
   public double attack(IEquipableItem item){
 
-    return 0;
+    return item.counterStaff(this);
 
   }
 
-  public double counterStaff(IEquipableItem item){
-
-    return item.getPower();
-  }
 
   @Override
   public void equipItem(IUnit unit){

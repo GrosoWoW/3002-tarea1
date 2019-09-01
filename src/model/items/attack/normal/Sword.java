@@ -55,24 +55,6 @@ public class Sword extends AbstractAttack {
   }
 
   @Override
-  public double counterAnima(IEquipableItem item){
-
-    return item.getPower()*1.5;
-  }
-
-  @Override
-  public double counterDark(IEquipableItem item){
-
-    return item.getPower()*1.5;
-  }
-
-  @Override
-  public double counterLight(IEquipableItem item){
-
-    return item.getPower()*1.5;
-  }
-
-  @Override
   public void equipItem(IUnit unit){
 
     unit.equipSword(this);

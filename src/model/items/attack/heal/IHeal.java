@@ -4,7 +4,5 @@ import model.items.IEquipableItem;
 
 interface IHeal extends IEquipableItem {
 
-    double getHeal();
-
 
 }

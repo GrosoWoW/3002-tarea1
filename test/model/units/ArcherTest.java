@@ -48,15 +48,20 @@ public class ArcherTest extends AbstractTestUnit {
 
 
     getAxe().equipItem(getTestUnit());
-
     assertNotEquals(getTestUnit().getEquippedItem(), getAxe());
     getSword().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getSword());
     getStaff().equipItem(getTestUnit());
     assertNotEquals(getTestUnit().getEquippedItem(), getStaff());
+    getAnima().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getAnima());
+    getDark().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getDark());
+    getLight().equipItem(getTestUnit());
+    assertNotEquals(getTestUnit().getEquippedItem(), getLight());
+
 
   }
-
   @Test
   @Override
   public void testCombat(){

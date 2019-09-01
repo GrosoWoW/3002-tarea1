@@ -3,11 +3,15 @@ package model.items.attack;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import model.items.IEquipableItem;
+import model.items.attack.magic.AnimaBook;
+import model.items.attack.normal.Axe;
 import model.map.Location;
 import model.units.Archer;
 import model.units.IUnit;
 import org.junit.jupiter.api.Test;
 import model.items.attack.normal.Bow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 
 /**
@@ -85,6 +89,26 @@ public class BowTest extends AbstractTestItem {
   @Override
   @Test
   public void damageTest(){
+
+    double AgainstSpear = getTestItem().attack(getSpear());
+    double AgainstSword = getTestItem().attack(getSword());
+    double AgainstLight = getTestItem().attack(getLight());
+    double AgainstDark = getTestItem().attack(getDark());
+    double AgainstAnima = getTestItem().attack(getAnima());
+    double AgainstAxe = getTestItem().attack(getAxe());
+    double AgainstBow = getTestItem().attack(getBow());
+    double AgainstStaff = getTestItem().attack(getStaff());
+
+
+
+    assertEquals(AgainstSword, getTestItem().getPower());
+    assertEquals(AgainstSpear, getTestItem().getPower());
+    assertEquals(AgainstLight, getTestItem().getPower()*1.5);
+    assertEquals(AgainstAxe, getTestItem().getPower());
+    assertEquals(AgainstAnima, getTestItem().getPower()*1.5);
+    assertEquals(AgainstDark, getTestItem().getPower()*1.5);
+    assertEquals(AgainstBow, getTestItem().getPower());
+    assertEquals(AgainstStaff, getTestItem().getPower());
 
 
   }

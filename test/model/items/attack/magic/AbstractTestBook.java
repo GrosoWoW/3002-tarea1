@@ -6,6 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import model.items.IEquipableItem;
 import model.items.ITestEquipableItem;
+import model.items.attack.heal.Staff;
+import model.items.attack.normal.Axe;
+import model.items.attack.normal.Bow;
+import model.items.attack.normal.Spear;
+import model.items.attack.normal.Sword;
 import model.units.IUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -58,6 +63,43 @@ public abstract class AbstractTestBook implements ITestEquipableItem {
     }
 
     public abstract IEquipableItem getWrongTestItem();
+
+    public Axe getAxe(){
+
+        return new Axe("axe", 10,0,10);
+    }
+    public Bow getBow(){
+
+        return new Bow("bow", 10,0,10);
+    }
+    public Spear getSpear(){
+
+        return new Spear("spear", 10,0,10);
+
+    }
+    public Staff getStaff(){
+
+        return new Staff("staff", 10,0,10);
+    }
+    public Sword getSword(){
+
+        return new Sword("sword", 10,0,10);
+
+    }
+    public AnimaBook getAnima(){
+
+        return new AnimaBook("Anima", 10, 0, 10);
+
+    }
+    public LightBook getLight(){
+
+        return new LightBook("light", 10, 0, 10);
+
+    }
+    public DarkBook getDark(){
+        return new DarkBook("Dark", 10, 0, 10);
+
+    }
 
     /**
      * Tests that the constructor for the tested item works properly

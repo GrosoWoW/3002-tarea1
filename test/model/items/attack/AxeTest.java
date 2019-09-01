@@ -73,10 +73,25 @@ class AxeTest extends AbstractTestItem {
   @Test
   public void damageTest(){
 
-    double dañoFuerte = getTestItem().attack(new Spear("Spear", 10, 0, 10) );
-    double dañoDebil = getTestItem().attack(new Sword("Sword", 10, 0, 10));
-    assertEquals(dañoFuerte, 10*1.5);
-    assertEquals(dañoDebil, 10*1 - 20);
+    double StrongDamage = getTestItem().attack(getSpear());
+    double WeakDamage = getTestItem().attack(getSword());
+    double AgainstLight = getTestItem().attack(getLight());
+    double AgainstDark = getTestItem().attack(getDark());
+    double AgainstAnima = getTestItem().attack(getAnima());
+    double AgainstAxe = getTestItem().attack(getAxe());
+    double AgainstBow = getTestItem().attack(getBow());
+    double AgainstStaff = getTestItem().attack(getStaff());
+
+
+
+    assertEquals(StrongDamage, getTestItem().getPower()*1.5);
+    assertEquals(WeakDamage, getTestItem().getPower() - 20);
+    assertEquals(AgainstLight, getTestItem().getPower()*1.5);
+    assertEquals(AgainstAxe, getTestItem().getPower());
+    assertEquals(AgainstAnima, getTestItem().getPower()*1.5);
+    assertEquals(AgainstDark, getTestItem().getPower()*1.5);
+    assertEquals(AgainstBow, getTestItem().getPower());
+    assertEquals(AgainstStaff, getTestItem().getPower());
 
 
   }

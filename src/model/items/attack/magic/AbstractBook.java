@@ -37,14 +37,8 @@ public abstract class AbstractBook implements IMagic {
         this.power = power;
         this.minRange = Math.max(minRange, 1);
         this.maxRange = Math.max(maxRange, this.minRange);
-        this.magic = true;
     }
 
-
-    public void equipTo(final IUnit unit) {
-        unit.setEquippedItem(this);
-        owner = unit;
-    }
 
     public IUnit getOwner() {
         return owner;
@@ -66,11 +60,6 @@ public abstract class AbstractBook implements IMagic {
         return maxRange;
     }
 
-
-    public double attack(IEquipableItem item){
-        return 0;
-    }
-
     public double counterAnima(IEquipableItem item){
 
         return item.getPower();
@@ -88,28 +77,29 @@ public abstract class AbstractBook implements IMagic {
 
     public double counterSword(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
     public double counterAxe(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
     public double counterSpear(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
     public double counterBow(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
     public double counterStaff(IEquipableItem item){
 
-        return item.getPower();
+        return 0;
     }
+
     public void setOwner(IUnit unit){
 
         this.owner = unit;

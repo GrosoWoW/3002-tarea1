@@ -52,29 +52,6 @@ public class AnimaBook extends AbstractBook {
         return item.getPower()*1.5;
     }
 
-    @Override
-    public double counterAxe(IEquipableItem item){
-
-        return item.getPower()*1.5;
-    }
-
-    @Override
-    public double counterBow(IEquipableItem item){
-
-        return item.getPower()*1.5;
-    }
-
-    @Override
-    public double counterSpear(IEquipableItem item){
-
-        return item.getPower()*1.5;
-    }
-
-    @Override
-    public double counterSword(IEquipableItem item){
-
-        return item.getPower()*1.5;
-    }
 
     @Override
     public void equipItem(IUnit unit){

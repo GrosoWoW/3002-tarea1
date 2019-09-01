@@ -56,9 +56,9 @@ public interface IEquipableItem {
 
   double counterBow(IEquipableItem item);
 
-  double attack(IEquipableItem equippedItem);
-
   double counterStaff(IEquipableItem item);
+
+  double attack(IEquipableItem equippedItem);
 
   void equipItem(IUnit unit);
 

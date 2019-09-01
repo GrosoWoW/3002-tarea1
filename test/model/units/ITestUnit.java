@@ -4,6 +4,8 @@ package model.units;
 import model.items.*;
 import model.items.attack.heal.Staff;
 import model.items.attack.magic.AnimaBook;
+import model.items.attack.magic.DarkBook;
+import model.items.attack.magic.LightBook;
 import model.items.attack.normal.Axe;
 import model.items.attack.normal.Bow;
 import model.items.attack.normal.Spear;
@@ -98,7 +100,11 @@ public interface ITestUnit {
    */
   Bow getBow();
 
-  AnimaBook getBook();
+  AnimaBook getAnima();
+
+  DarkBook getDark();
+
+  LightBook getLight();
 
   /**
    * Checks if the unit moves correctly

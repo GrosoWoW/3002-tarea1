@@ -38,11 +38,6 @@ public abstract class AbstractHeal implements IHeal {
     }
 
 
-    public void equipTo(final IUnit unit) {
-        unit.setEquippedItem(this);
-        owner = unit;
-    }
-
     public IUnit getOwner() {
         return owner;
     }
@@ -64,10 +59,6 @@ public abstract class AbstractHeal implements IHeal {
     }
 
 
-    public double attack(IEquipableItem item){
-
-        return 0;
-    }
 
     @Override
     public double counterSword(IEquipableItem item){
@@ -92,23 +83,25 @@ public abstract class AbstractHeal implements IHeal {
     @Override
     public double counterAnima(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
     @Override
     public double counterDark(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
     @Override
     public double counterLight(IEquipableItem item){
 
-        return item.getPower();
+        return item.getPower()*1.5;
     }
 
-    public double getHeal(){
+    @Override
+    public double counterStaff(IEquipableItem item){
 
-        return this.getPower();
+        return 0;
     }
+
     public void setOwner(IUnit unit){
 
         this.owner = unit;
