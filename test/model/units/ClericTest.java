@@ -30,7 +30,6 @@ public class ClericTest extends AbstractTestUnit {
 
   public void equipWeapon(IUnit unit) {
 
-
     getStaff().equipItem(unit);
   }
 

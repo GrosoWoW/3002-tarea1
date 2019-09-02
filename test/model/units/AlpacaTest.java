@@ -52,6 +52,8 @@ public class AlpacaTest extends AbstractTestUnit {
   public void testCombat(){
 
     IUnit primero = getTargetAlpaca();
+    primero.addItem(getAxe());
+    getAxe().equipItem(primero);
     IUnit segundo = new Alpaca(1, 2, field.getCell(0, 0));
     primero.attackEnemy(segundo);
     assertTrue(segundo.getLive());

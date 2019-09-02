@@ -13,16 +13,20 @@ import model.map.Location;
 
 public class Sorcerer extends AbstractUnit {
 
+    /**
+     * Creates a new Unit.
+     *
+     * @param hitPoints
+     *     the maximum amount of damage a unit can sustain
+     * @param movement
+     *     the number of panels a unit can move
+     */
+
     public Sorcerer(final int hitPoints, final int movement, final Location location,
                     IEquipableItem... items){
         super(hitPoints, movement, location,3, items);
     }
 
-    /**
-     *
-     * @param item n
-     *      the item to equip
-     */
 
     @Override
     public void equipAnima(IEquipableItem item) {
