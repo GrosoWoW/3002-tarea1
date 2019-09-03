@@ -2,7 +2,17 @@ package model.items.attack.heal;
 
 import model.items.IEquipableItem;
 
+/**
+ * This interface represents the <i>weapons</i> that the units of the game can use.
+ * <p>
+ * The signature for all the common methods of the weapons are defined here. Every weapon have a
+ * base damage and is strong or weak against other type of weapons.
+ *
+ * @author Cristobal Jaramillo Andrade
+ */
+
 interface IHeal extends IEquipableItem {
 
+    double attack(IEquipableItem item);
 
 }

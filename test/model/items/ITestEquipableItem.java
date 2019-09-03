@@ -1,10 +1,7 @@
 package model.items;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import model.items.IEquipableItem;
+
 import model.items.attack.heal.Staff;
 import model.items.attack.magic.AnimaBook;
 import model.items.attack.magic.DarkBook;
@@ -14,7 +11,6 @@ import model.items.attack.normal.Bow;
 import model.items.attack.normal.Spear;
 import model.items.attack.normal.Sword;
 import model.units.IUnit;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -96,21 +92,57 @@ public interface ITestEquipableItem{
      */
     IUnit getTestUnit();
 
+    /**
+     * Proof that the damage is correct with respect to weapons
+     */
+
     void damageTest();
+
+    /**
+     * @return an Axe
+     */
 
     Axe getAxe();
 
+    /**
+     * @return an Bow
+     */
+
     Bow getBow();
+
+    /**
+     * @return an Spear
+     */
 
     Spear getSpear();
 
+    /**
+     * @return an Staff
+     */
+
     Staff getStaff();
+
+    /** an Sword
+     * @return
+     */
 
     Sword getSword();
 
+    /**
+     * @return an AnimaBook
+     */
+
     AnimaBook getAnima();
 
+    /**
+     * @return an DarkBook
+     */
+
     DarkBook getDark();
+
+    /**
+     * @return an LightBook
+     */
 
     LightBook getLight();
 }

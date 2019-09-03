@@ -6,7 +6,7 @@ import model.units.IUnit;
 /**
  *
  * This class represents a AnimaBook of the magic type
- * This item
+ *
  *
  *
  */

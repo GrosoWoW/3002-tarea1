@@ -122,29 +122,68 @@ public interface ITestUnit {
    */
   Alpaca getTargetAlpaca();
 
+  /**
+   * Verify that the exchange is correct
+   */
+
   @Test
   void testTrade();
+
+  /**
+   * verify that bugs are not produced
+   */
 
   @Test
   void testFailTrade();
 
+  /**
+   * verify that the gift is well produced
+   */
+
   @Test
   void testGift();
+
+  /**
+   * verify that the item is received correctly
+   */
 
   @Test
   void testReceived();
 
+  /**
+   * verify that there are no errors in receiving an object
+   */
+
   @Test
   void testFailReceived();
+
+  /**
+   * check that the combat occurs correctly
+   */
 
   @Test
   void testCombat();
 
+  /**
+   * verify that the healing is correct
+   */
+
   @Test
   void testHeal();
 
+  /**
+   *
+   * @param unit
+   *      to which the weapon is equated
+   */
+
   void equipWeapon(IUnit unit);
 
+  /**
+   * verify that the inventory works correctly
+   */
+
+  @Test
   void testInventory();
 
 }
