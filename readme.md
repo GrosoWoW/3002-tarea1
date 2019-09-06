@@ -52,9 +52,29 @@ El diseño se basa principalmente en la metodologias del Doble Dispatch y overri
 parametro, otra unidad a la cual se atacara, esta se encarga de mandar un mensaje al arma equipada del atacante sobre el metodo 
 attack, este metodo se encuentra en los items capaces de atacar. Cada arma posee un metodo propio de attack por medio de Overriding, esta funcion attack cumple la tarea de realizar el Doble Dispatch, pues hace que el arma del enemigo mande un mensaje con el metodo counter (existen distintos counter en cada clase de las armas de modo que se pueda reconocer facilmente cual arma es debil contra el objeto y viceversa) y de esta forma calcular cuanto daño corresponde hacer en el ataque. Una vez calculado el daño se llama al metodo Damage, el cual se encarga de ver que sucedera una vez realizado el ataque. takeDamage es un metodo de la clase Abstract Unit, el cual se encarga de quitarle la vida a una unidad (en este caso al que recibio el golpe). Luego se verificara que la unidad este viva o no y si no lo es, se procede a un contrataque, calculando el daño y quitandoselo a la unidad correspondiente. La funcion check se encarga de verificar que el daño sea positivo, de lo contrario el trunca en 0.
 
-La funcion counter realizada el Doble Dispatch en el sentido que, cuando una unidad realiza un ataque, no sabe cual es el arma del enemigo, es por esto que el metodo se encarga de que el arma del enemigo reciba el mensaje sobre el metodo counter, metodo que se encuentra en su respectiva clase, y de esta manera calcular el daño por medio de un Overriding
+La funcion counter realizada el Doble Dispatch en el sentido que, cuando una unidad realiza un ataque, no sabe cual es el arma del enemigo, es por esto que el metodo se encarga de que el arma del enemigo reciba el mensaje sobre el metodo counter, metodo que se encuentra en su respectiva clase, y de esta manera calcular el daño por medio de un Overriding.
 
-_   _
+Veamos un ejemplo de como se calcularia el daño cuando un libro de Anima golpea a un libro de Light, veamos que para calcular el daño se ejecutaria anima.attack(light):
+
+```
+    @Override
+    public double attack(IEquipableItem item){
+
+        return item.counterAnima(this);
+
+    }
+```
+Aqui item seria Light, es decir retornaria el metodo counterAnima donde el metodo lookup empezaria en la clase del libro Light:
+
+
+```
+ @Override
+    public double counterAnima(IEquipableItem item){
+
+        return item.getPower()*1.5;
+    }
+```
+Podemos ver que retornaria el poder del item, en este caso Anima multiplicado por 1.5 pues es fuerte contra Light. Es importante señalar que los metodos correspondientes para todos los items se encuentran en la clase Abstracta, luego se hace un overriding en cada clase para ir viendo caso a caso.
 
 ## Implementación del sistema de Intercambio
 
@@ -76,7 +96,7 @@ Los supuestos son los siguiente:
 
 - No pueden haber dos unidades en la misma posición, es decir, las unidades pueden estar a 1 de distancia como minimo.
 - No tener arma equipada significa que el parametro equippedItem es null.
-- El mapa esta bien programado (no fue corregido nada en el codigo)
+- El mapa esta bien programado (no fue corregido nada en el codigo).
 
 
 
