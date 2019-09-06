@@ -123,7 +123,7 @@ public abstract class AbstractUnit implements IUnit {
 
   }
   
-  public void equipAxe(IEquipableItem axe){ }
+  public void equipAxe(IEquipableItem item){ }
 
   public void equipSpear(IEquipableItem item){}
 
@@ -142,6 +142,14 @@ public abstract class AbstractUnit implements IUnit {
   public void die(){
 
     this.life = false;
+  }
+
+  public void unEquipAItem(IEquipableItem item){
+
+    if(this.getEquippedItem() == item) {
+
+      this.equippedItem = null;
+    }
   }
 
   public void unEquipItem(){
@@ -183,6 +191,8 @@ public abstract class AbstractUnit implements IUnit {
 
       if(this.getItems().contains(delivered) && unit.getItems().contains(received)){
 
+        this.unEquipAItem(delivered);
+        unit.unEquipAItem(received);
         this.removeItem(delivered);
         unit.removeItem(received);
         this.addItem(received);
@@ -199,6 +209,7 @@ public abstract class AbstractUnit implements IUnit {
 
       if(unit.getItems().size() < unit.getMaxItems()){
 
+        this.unEquipAItem(gift);
         this.removeItem(gift);
         unit.addItem(gift);
         gift.setOwner(unit);
@@ -212,6 +223,7 @@ public abstract class AbstractUnit implements IUnit {
 
         if(this.getItems().size() < this.getMaxItems()){
 
+          unit.unEquipAItem(received);
           this.addItem(received);
           unit.removeItem(received);
           received.setOwner(this);

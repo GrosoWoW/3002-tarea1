@@ -186,4 +186,7 @@ public interface ITestUnit {
   @Test
   void testInventory();
 
+  @Test
+  void testEquippedAndTrade();
+
 }

@@ -28,6 +28,7 @@ public class SorcererTest extends  AbstractTestUnit {
 
     public void equipWeapon(IUnit unit){
 
+        unit.addItem(getAnima());
         getAnima().equipItem(unit);
     }
 
@@ -56,6 +57,18 @@ public class SorcererTest extends  AbstractTestUnit {
         getBow().equipItem(getTestUnit());
         assertNotEquals(getTestUnit().getEquippedItem(), getBow());
 
+    }
+
+    @Test
+    @Override
+    public void testEquippedAndTrade(){
+
+        IUnit unidad = getTestUnit();
+        IUnit alpaca = getTargetAlpaca();
+        equipWeapon(unidad);
+        assertEquals(unidad.getEquippedItem(), getAnima());
+        unidad.giveAway(alpaca, getAnima());
+        assertNotEquals(unidad.getEquippedItem(), getAnima());
     }
 
 

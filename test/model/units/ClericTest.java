@@ -30,6 +30,7 @@ public class ClericTest extends AbstractTestUnit {
 
   public void equipWeapon(IUnit unit) {
 
+    unit.addItem(getStaff());
     getStaff().equipItem(unit);
   }
 
@@ -64,5 +65,17 @@ public class ClericTest extends AbstractTestUnit {
     IUnit segundo = new Cleric(1, 2, field.getCell(0, 0));
     primero.attackEnemy(segundo);
     assertTrue(segundo.getLive());
+  }
+
+  @Test
+  @Override
+  public void testEquippedAndTrade(){
+
+    IUnit unidad = getTestUnit();
+    IUnit alpaca = getTargetAlpaca();
+    equipWeapon(unidad);
+    assertEquals(unidad.getEquippedItem(), getStaff());
+    unidad.giveAway(alpaca, getStaff());
+    assertNotEquals(unidad.getEquippedItem(), getStaff());
   }
 }

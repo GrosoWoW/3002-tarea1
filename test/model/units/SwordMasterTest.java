@@ -30,6 +30,7 @@ public class SwordMasterTest extends AbstractTestUnit {
 
   public void equipWeapon(IUnit unit){
 
+    unit.addItem(getSword());
     getSword().equipItem(unit);
   }
 
@@ -63,5 +64,17 @@ public class SwordMasterTest extends AbstractTestUnit {
     assertEquals(getSword().getPower()*1.5, unidad.getEquippedItem().attack(getAxe()));
     assertEquals(getSword().getPower() - 20, unidad.getEquippedItem().attack(getSpear()));
     assertEquals(getSword().getPower(), unidad.getEquippedItem().attack(getStaff()));
+  }
+
+  @Test
+  @Override
+  public void testEquippedAndTrade(){
+
+    IUnit unidad = getTestUnit();
+    IUnit alpaca = getTargetAlpaca();
+    equipWeapon(unidad);
+    assertEquals(unidad.getEquippedItem(), getSword());
+    unidad.giveAway(alpaca, getSword());
+    assertNotEquals(unidad.getEquippedItem(), getSword());
   }
 }

@@ -253,6 +253,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     assertEquals(getSpear().getOwner(), unit1);
     assertEquals(getAxe().getOwner(), unit2);
 
+
+
   }
 
   @Override
@@ -387,7 +389,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
   }
 
+  @Test
+  @Override
+  public void testEquippedAndTrade(){
 
+
+  }
 
   }
 

@@ -30,7 +30,7 @@ public class FighterTest extends AbstractTestUnit {
 
   public void equipWeapon(IUnit unit){
 
-
+    unit.addItem(getAxe());
     getAxe().equipItem(unit);
   }
 
@@ -69,5 +69,17 @@ public class FighterTest extends AbstractTestUnit {
     assertEquals(getAxe().getPower() - 20, unidad.getEquippedItem().attack(getSword()));
     assertEquals(getAxe().getPower(), unidad.getEquippedItem().attack(getStaff()));
 
+  }
+
+  @Test
+  @Override
+  public void testEquippedAndTrade(){
+
+    IUnit unidad = getTestUnit();
+    IUnit alpaca = getTargetAlpaca();
+    equipWeapon(unidad);
+    assertEquals(unidad.getEquippedItem(), getAxe());
+    unidad.giveAway(alpaca, getAxe());
+    assertNotEquals(unidad.getEquippedItem(), getAxe());
   }
 }

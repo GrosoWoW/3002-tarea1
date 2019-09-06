@@ -11,7 +11,7 @@ import model.units.IUnit;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Spear extends AbstractAttack {
+public class  Spear extends AbstractAttack {
 
   /**
    * Creates a new Axe item

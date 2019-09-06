@@ -30,6 +30,7 @@ public class HeroTest extends AbstractTestUnit {
 
   public void equipWeapon(IUnit unit){
 
+    unit.addItem(getSpear());
     getSpear().equipItem(unit);
   }
 
@@ -72,12 +73,16 @@ public class HeroTest extends AbstractTestUnit {
     assertEquals(getSpear().getPower() - 20, unidad.getEquippedItem().attack(getAxe()));
     assertEquals(getSpear().getPower(), unidad.getEquippedItem().attack(getStaff()));
     }
+  @Test
+  @Override
+  public void testEquippedAndTrade(){
 
-
-
-
-
-
-
+    IUnit unidad = getTestUnit();
+    IUnit alpaca = getTargetAlpaca();
+    equipWeapon(unidad);
+    assertEquals(unidad.getEquippedItem(), getSpear());
+    unidad.giveAway(alpaca, getSpear());
+    assertNotEquals(unidad.getEquippedItem(), getSpear());
+  }
 
   }

@@ -181,6 +181,15 @@ public interface IUnit {
    */
   void unEquipItem();
 
+
+  /**
+   * allow you to unpack an item
+   * @param item
+   *      the item that will be unpacked
+   */
+
+  void unEquipAItem(IEquipableItem item);
+
   /**
    * perform combat actions
    *
