@@ -64,6 +64,8 @@ El metodo trade recibe a la unidad con la que se realizara el intercambio, y los
 
 ## Cambios al programa inicial
 
+Uno de los cambios principales al programa inicial es el sistema de equipar un arma una cierta unidad, al comienzo este se realizaba con un if y un instanceof que verificaba que el arma correspondiera a la unidad. El cambio se basa en Doble Dispatch
+
 ## Detalles de implementación
 
 
@@ -75,9 +77,11 @@ Los supuestos son los siguiente:
 - No pueden haber dos unidades en la misma posición, es decir, las unidades pueden estar a 1 de distancia como minimo.
 - No tener arma equipada significa que el parametro equippedItem es null.
 - El mapa esta bien programado (no fue corregido nada en el codigo)
-- 
+
 
 
 ### Como ejecutarlo
+
+Para ejecutar el programa existen una serie de test que ponen a prueba casos bordes y que el programa funcione correctamente en los distintos metodos, para el combate se verifica que ambas unidades golpen, que cambien de estado a muerto si esto ocurre, etc. Por otro lado tambien existen test que verifican los daños que producen las armas dependiendo a quien se ataque. Tambien se testean que las armas se equipen a las unidades correspondientes y no ocurran equivocaciones.
 
 ### Patrones de diseño
