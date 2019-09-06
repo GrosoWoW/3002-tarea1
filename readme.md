@@ -97,7 +97,7 @@ El metodo trade recibe a la unidad con la que se realizara el intercambio, y los
 
 Los pasos del programa se verian en el siguiente esquema:
 
-<img src="https://previews.dropbox.com/p/thumb/AAj5p-lzigy0jOz5ZGPZpGikef1RF-ymxwkDSRK1Bjmhtx3EyXXeQFIbl9VzMRh_7nm3JWYzyh6A-H5yTh6RZ8xZRCoEW38GXBt-xuWhbJ3cXY7RXat8sFlT8nW8HAveSMtx3ti59EY5AnSvioLiZ32K-lBoyKl-54IBs8BZwXBP0q9_sc47ME_HDX2hinGgAlOjfpfbFpmiIBHz5HiQIzNC7TN0fL_udlsAEyfMRo3Bcyzw5J0GPYg8fgmnpb1BKGM9s3Kxx8_8GSiUVcxSlKuIRCO0mi3FMdINTyOG56bjcXWjtirerjM9wTYCofpDgsloisFxWVS6_kUzJhJzq8Cj/p.png?fv_content=true&size_mode=5" />
+<img src="https://ibb.co/ryF2RZc" />
 
 La parte importante en el codigo se muesta en el siguiente codigo, donde delivered es el item que se entregara y received el que se recibira, this y unit son las unidades participantes, el metodo unEquipAItem desequipara el item en caso de tenerlo equipado (para evitar cualquier error), el metodo add y remove item se encargan de eliminar o agregar el item correspondiente y finalmente se configura el owner de manera que se intercambien.
 ```
@@ -137,5 +137,11 @@ Para ejecutar el programa existen una serie de test que ponen a prueba casos bor
 
 #### Test de intercambio
 
-En estos test principalmente se toman dos unidades (que por lo general era una getUnitTest() y una alpaca de prueba. Luego se agregaban distintos items a las unidades y se llamaba el metodo de trade, al finaliza se hacian test para probar que los items estuvieran en los inventarios correctos, que los owners fueran intercambiados. Por otro lado tambien se testearon intercambios con inventario lleno (esto para el caso de regalar o recibir un item, pues en el intercambio no es necesario).
+En estos test principalmente se toman dos unidades (que por lo general era una getUnitTest() y una alpaca de prueba. Luego se agregaban distintos items a las unidades y se llamaba el metodo de trade, al finalizar se hacen test para probar que los items estuvieran en los inventarios correctos, que los owners fueran intercambiados. Por otro lado tambien se testearon intercambios con inventario lleno (esto para el caso de regalar o recibir un item, pues en el intercambio no es necesario).
+
+#### Test de Combate
+
+#### Test de equipación
+
+
 
