@@ -32,12 +32,25 @@ _A su vez estas interfaces extienden a la interface que representa a todos los i
 
 La implementación de los libros magicos (light, dark y anima) se basaron en las clases LightBook, DarkBook y AnimaBook, estas
 son hijas de la clase abstracta AbstractBook, la cual a su vez implementa la interfaz IMagic, la idea principal de esta,
-es que contengan todos los parametros necesarios que deba poseer un tipo de libro magico (daño, counters, etc). Las armas se dividieron en 3 paquetes contenidos en items, cada paquete contiene un tipo de item (magico, fisico y de curación.
+es que contengan todos los parametros necesarios que deba poseer un tipo de libro magico (daño, counters, etc). Las armas se dividieron en 3 paquetes contenidos en items, cada paquete contiene un tipo de item (magico, fisico y de curación).
+
+A continuacion se presenta el UML de las armas magicas:
+
+<img src="https://i.ibb.co/y0SMHxW/Package-magic.png" />
 
 ## Implementación del Sorcerer
 
 La implementación del Sorcerer es muy parecida a las demas unidades, pues poseen parametros similares a las demas unidades, una
 de las unicas diferencias que presenta son el tipo de armas que puede equipar, estas son las Armas Magicas(libros), esta unidad recibe los parametros de hitPoints, movement, location, maxItems, List items y a su vez implementa la interfaz de IUnit.
+
+El constructor del sorcerer recibe los hitPoints, el movimiento, la locacion inicial y la lista de items, este realiza un super hacia la clase abstracta de Abstract Unit, el constructor se ve de la siguiente manera:
+
+```
+    public Sorcerer(final int hitPoints, final int movement, final Location location,
+                    IEquipableItem... items){
+        super(hitPoints, movement, location,3, items);
+    }
+```
 
 
 ## Implementación del sistema de combate
@@ -102,5 +115,7 @@ Los supuestos son los siguiente:
 Para ejecutar el programa existen una serie de test que ponen a prueba casos bordes y que el programa funcione correctamente en los distintos metodos, para el combate se verifica que ambas unidades golpen, que cambien de estado a muerto si esto ocurre, etc. Por otro lado tambien existen test que verifican los daños que producen las armas dependiendo a quien se ataque. Tambien se testean que las armas se equipen a las unidades correspondientes y no ocurran equivocaciones.
 
 ### Explicación de los test
+
+
 
 ### Patrones de diseño
