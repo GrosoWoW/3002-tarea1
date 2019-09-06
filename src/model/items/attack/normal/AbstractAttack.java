@@ -11,13 +11,13 @@ import model.units.IUnit;
  */
 public abstract class AbstractAttack implements IAttack {
 
-    private final String name;
-    private final double power;
+    private String name;
+    private double power;
     protected int maxRange;
     protected int minRange;
     private IUnit owner;
-    protected boolean magic;
-    protected boolean attack;
+    private boolean magic;
+    private boolean attack;
 
 
     /**
@@ -32,7 +32,7 @@ public abstract class AbstractAttack implements IAttack {
      * @param maxRange
      *     the maximum range of the item
      */
-    public AbstractAttack(final String name, final int power, final int minRange, final int maxRange) {
+    public AbstractAttack(final String name, int power, int minRange, int maxRange) {
         this.name = name;
         this.power = power;
         this.minRange = Math.max(minRange, 1);

@@ -25,7 +25,7 @@ public class Staff extends AbstractHeal {
    * @param maxRange
    *     the maximum range of the staff
    */
-  public Staff(final String name, final int power, final int minRange, final int maxRange) {
+  public Staff(final String name, int power, int minRange, int maxRange) {
     super(name, power, minRange, maxRange);
 
   }

@@ -25,7 +25,7 @@ public class Sword extends AbstractAttack {
    * @param maxRange
    *     the maximum range of the weapon
    */
-  public Sword(final String name, final int power, final int minRange, final int maxRange) {
+  public Sword(final String name, int power, int minRange, int maxRange) {
     super(name, power, minRange, maxRange);
   }
 

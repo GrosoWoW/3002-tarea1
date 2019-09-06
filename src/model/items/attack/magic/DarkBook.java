@@ -25,7 +25,7 @@ public class DarkBook extends AbstractBook {
      *       the maximum range of the weapon
      */
 
-    public DarkBook(final String name, final int power, final int minRange, final int maxRange){
+    public DarkBook(final String name, int power, int minRange, int maxRange){
 
         super(name, power, minRange, maxRange);
     }

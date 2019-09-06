@@ -11,13 +11,12 @@ import model.units.IUnit;
      */
 public abstract class AbstractBook implements IMagic {
 
-    private final String name;
-    private final int power;
-    protected int maxRange;
-    protected int minRange;
+    private String name;
+    private int power;
+    private int maxRange;
+    private int minRange;
     private IUnit owner;
-    protected boolean magic;
-    protected boolean attack;
+
 
 
     /**

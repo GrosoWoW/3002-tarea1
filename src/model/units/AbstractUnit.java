@@ -20,11 +20,11 @@ import model.map.Location;
  */
 public abstract class AbstractUnit implements IUnit {
 
-  protected final List<IEquipableItem> items = new ArrayList<>();
-  protected double currentHitPoints;
+  private List<IEquipableItem> items = new ArrayList<>();
+  private double currentHitPoints;
   private final int maxHitPoints;
   private final int movement;
-  protected IEquipableItem equippedItem;
+  private IEquipableItem equippedItem;
   private Location location;
   int maxItems;
   boolean life;

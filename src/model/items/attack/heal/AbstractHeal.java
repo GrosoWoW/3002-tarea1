@@ -7,13 +7,11 @@ public abstract class AbstractHeal implements IHeal {
 
 
 
-    private final String name;
-    private final double power;
-    protected int maxRange;
-    protected int minRange;
+    private String name;
+    private double power;
+    private int maxRange;
+    private int minRange;
     private IUnit owner;
-    protected boolean magic;
-    protected boolean attack;
 
 
     /**

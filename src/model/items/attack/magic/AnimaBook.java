@@ -26,7 +26,7 @@ public class AnimaBook extends AbstractBook {
      *       the maximum range of the weapon
      */
 
-    public AnimaBook(final String name, final int power, final int minRange, final int maxRange){
+    public AnimaBook(final String name, int power, int minRange, int maxRange){
 
         super(name, power, minRange, maxRange);
     }
