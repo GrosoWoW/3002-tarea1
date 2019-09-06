@@ -97,7 +97,7 @@ El metodo trade recibe a la unidad con la que se realizara el intercambio, y los
 
 Los pasos del programa se verian en el siguiente esquema:
 
-<img src="https://ibb.co/ryF2RZc" />
+<img src="http://img.fenixzone.net/i/62CbnyV.png" />
 
 La parte importante en el codigo se muesta en el siguiente codigo, donde delivered es el item que se entregara y received el que se recibira, this y unit son las unidades participantes, el metodo unEquipAItem desequipara el item en caso de tenerlo equipado (para evitar cualquier error), el metodo add y remove item se encargan de eliminar o agregar el item correspondiente y finalmente se configura el owner de manera que se intercambien.
 ```
