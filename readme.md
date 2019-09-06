@@ -95,9 +95,28 @@ El sistema de intercambios se dividio en tres casos, de manera de darle mas flex
 
 El metodo trade recibe a la unidad con la que se realizara el intercambio, y los dos items que se intercambiaran. Primero verifica que todas las condiciones se cumplan, es decir, que esten a distancia 1 y que las unidades contengan los items que desean intercambiar, sigue quitar los elementos de la lista de ambos personajes y agregar los cambios a esta, luego se procede a nombrar como dueños de los items a quien corresponda.
 
+Los pasos del programa se verian en el siguiente esquema:
+
+<img src="https://previews.dropbox.com/p/thumb/AAj5p-lzigy0jOz5ZGPZpGikef1RF-ymxwkDSRK1Bjmhtx3EyXXeQFIbl9VzMRh_7nm3JWYzyh6A-H5yTh6RZ8xZRCoEW38GXBt-xuWhbJ3cXY7RXat8sFlT8nW8HAveSMtx3ti59EY5AnSvioLiZ32K-lBoyKl-54IBs8BZwXBP0q9_sc47ME_HDX2hinGgAlOjfpfbFpmiIBHz5HiQIzNC7TN0fL_udlsAEyfMRo3Bcyzw5J0GPYg8fgmnpb1BKGM9s3Kxx8_8GSiUVcxSlKuIRCO0mi3FMdINTyOG56bjcXWjtirerjM9wTYCofpDgsloisFxWVS6_kUzJhJzq8Cj/p.png?fv_content=true&size_mode=5" />
+
+La parte importante en el codigo se muesta en el siguiente codigo, donde delivered es el item que se entregara y received el que se recibira, this y unit son las unidades participantes, el metodo unEquipAItem desequipara el item en caso de tenerlo equipado (para evitar cualquier error), el metodo add y remove item se encargan de eliminar o agregar el item correspondiente y finalmente se configura el owner de manera que se intercambien.
+```
+        this.unEquipAItem(delivered);
+        unit.unEquipAItem(received);
+        this.removeItem(delivered);
+        unit.removeItem(received);
+        this.addItem(received);
+        unit.addItem(delivered);
+        delivered.setOwner(unit);
+        received.setOwner(this);
+ ```
+
+
 ## Cambios al programa inicial
 
 Uno de los cambios principales al programa inicial es el sistema de equipar un arma una cierta unidad, al comienzo este se realizaba con un if y un instanceof que verificaba que el arma correspondiera a la unidad. El cambio se basa en Doble Dispatch, en donde el arma recibe el mensaje de equipar el arma, luego la unidad recibira el mensaje para equipar cierta arma, de esta forma cada clase de unidades tendra un overriding de el metodo Equipar cierta arma y asi el equipar no producira errores y sera mucho más ampliada.
+
+Se corrigieron algunos errores de tipeo, como por ejemplo equiparse a una unidad, o overridings donde no debian ir, etc. 
 
 
 ### Supuestos realizados
@@ -116,6 +135,7 @@ Para ejecutar el programa existen una serie de test que ponen a prueba casos bor
 
 ### Explicación de los test
 
+#### Test de intercambio
 
+En estos test principalmente se toman dos unidades (que por lo general era una getUnitTest() y una alpaca de prueba. Luego se agregaban distintos items a las unidades y se llamaba el metodo de trade, al finaliza se hacian test para probar que los items estuvieran en los inventarios correctos, que los owners fueran intercambiados. Por otro lado tambien se testearon intercambios con inventario lleno (esto para el caso de regalar o recibir un item, pues en el intercambio no es necesario).
 
-### Patrones de diseño
