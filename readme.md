@@ -10,11 +10,11 @@ _Explicación del sistema de implementación de las interfaces._
 
 ### Creacion de interfaces y clases abstractas en los items
 
-_Una de las principales ideas de esta tarea fue la implementación de diversas interfaces, para cada una de las entidades que 
+Una de las principales ideas de esta tarea fue la implementación de diversas interfaces, para cada una de las entidades que 
 participan en el codigo. Los item los podemos ver en tres tipos: armas fisicas, armas magicas y armas de curación, por ahora
 poseen atributos muy parecidos, pero no actuan de la misma manera, a su vez estas interfaces son implementadas por cada clase 
 abstracta(fisica, magica y de curación). Por otro lado las unidades implementan la misma interface y clase abstracta Unit, pues 
-todas actuan de la misma manera._
+todas actuan de la misma manera.
 
 | Interfaces    | Tipos de Armas |
 | ------------- | -------------  |
@@ -32,7 +32,7 @@ _A su vez estas interfaces extienden a la interface que representa a todos los i
 
 La implementación de los libros magicos (light, dark y anima) se basaron en las clases LightBook, DarkBook y AnimaBook, estas
 son hijas de la clase abstracta AbstractBook, la cual a su vez implementa la interfaz IMagic, la idea principal de esta,
-es que contengan todos los parametros necesarios que deba poseer un tipo de libro magico (daño, counters, etc).
+es que contengan todos los parametros necesarios que deba poseer un tipo de libro magico (daño, counters, etc). Las armas se dividieron en 3 paquetes contenidos en items, cada paquete contiene un tipo de item (magico, fisico y de curación.
 
 ## Implementación del Sorcerer
 
@@ -60,7 +60,7 @@ _   _
 
 El sistema de intercambios se dividio en tres casos, de manera de darle mas flexividad al metodo de trade, uno es un intermcambio donde las dos unidades intercambian 1 item, otro donde una unidad regala un item y otro donde una unidad recibe un item. Se decidio este diseño para hacer màs comoda las dos situaciones y no estar trabajando con items nulos (en el caso de los dos ultimos).
 
-El metodo trade recibe a la unidad con la que se realizara el intercambio, y lod dos items que se intercambiaran. Primero verifica que todas las condiciones se cumplan, es decir, que esten a distancia 1 y que las unidades contengan los items que desean intercambiar, sigue quitar los elementos de la lista de ambos personajes y agregar los cambios a esta, luego se procede a nombrar como dueños de los items a quien corresponda. Los 
+El metodo trade recibe a la unidad con la que se realizara el intercambio, y los dos items que se intercambiaran. Primero verifica que todas las condiciones se cumplan, es decir, que esten a distancia 1 y que las unidades contengan los items que desean intercambiar, sigue quitar los elementos de la lista de ambos personajes y agregar los cambios a esta, luego se procede a nombrar como dueños de los items a quien corresponda.
 
 ## Cambios al programa inicial
 
@@ -70,6 +70,12 @@ El metodo trade recibe a la unidad con la que se realizara el intercambio, y lod
 
 ### Supuestos realizados
 
+Los supuestos son los siguiente:
+
+- No pueden haber dos unidades en la misma posición, es decir, las unidades pueden estar a 1 de distancia como minimo.
+- No tener arma equipada significa que el parametro equippedItem es null.
+- El mapa esta bien programado (no fue corregido nada en el codigo)
+- 
 
 
 ### Como ejecutarlo
