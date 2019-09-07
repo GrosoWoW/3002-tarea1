@@ -70,6 +70,15 @@ public class StaffTest extends AbstractTestItem {
     return cleric;
   }
 
+  @Test
+  @Override
+  public void constructorTest() {
+    assertEquals(getExpectedName(), getTestItem().getName());
+    assertEquals(getExpectedBasePower(), -getTestItem().getPower());
+    assertEquals(getExpectedMinRange(), getTestItem().getMinRange());
+    assertEquals(getExpectedMaxRange(), getTestItem().getMaxRange());
+  }
+
 
   @Override
   @Test
@@ -86,14 +95,14 @@ public class StaffTest extends AbstractTestItem {
 
 
 
-    assertEquals(AgainstSword,0);
-    assertEquals(AgainstSpear, 0);
-    assertEquals(AgainstLight, 0);
-    assertEquals(AgainstAxe, 0);
-    assertEquals(AgainstAnima, 0);
-    assertEquals(AgainstDark, 0);
-    assertEquals(AgainstBow, 0);
-    assertEquals(AgainstStaff, 0);
+    assertEquals(AgainstSword,getTestItem().getPower());
+    assertEquals(AgainstSpear, getTestItem().getPower());
+    assertEquals(AgainstLight, getTestItem().getPower());
+    assertEquals(AgainstAxe, getTestItem().getPower());
+    assertEquals(AgainstAnima, getTestItem().getPower());
+    assertEquals(AgainstDark, getTestItem().getPower());
+    assertEquals(AgainstBow, getTestItem().getPower());
+    assertEquals(AgainstStaff, getTestItem().getPower());
 
 
   }

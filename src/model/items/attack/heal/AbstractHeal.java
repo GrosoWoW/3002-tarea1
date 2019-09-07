@@ -43,7 +43,7 @@ public abstract class AbstractHeal implements IHeal {
     }
 
     public double getPower() {
-        return power;
+        return -power;
     }
 
     public int getMinRange() {
@@ -95,12 +95,17 @@ public abstract class AbstractHeal implements IHeal {
     @Override
     public double counterStaff(IEquipableItem item){
 
-        return 0;
+        return item.getPower();
     }
 
     public void setOwner(IUnit unit){
 
         this.owner = unit;
     }
+    public boolean weaponOfAttack(){
+        return false;
+    }
+
+    public double getHeal(){ return -power;}
 
 }

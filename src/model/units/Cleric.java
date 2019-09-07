@@ -34,9 +34,12 @@ public class Cleric extends AbstractUnit {
   @Override
   public void equipStaff(IEquipableItem item) {
 
-    this.setEquippedItem(item);
-    item.setOwner(this);
+    if (this.getItems().contains(item)) {
 
+      this.setEquippedItem(item);
+      item.setOwner(this);
+
+    }
   }
 
 }

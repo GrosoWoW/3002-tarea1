@@ -189,4 +189,7 @@ public interface ITestUnit {
   @Test
   void testEquippedAndTrade();
 
+  @Test
+  void testEquip();
+
 }

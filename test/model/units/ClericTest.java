@@ -2,6 +2,8 @@ package model.units;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.function.IntUnaryOperator;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -38,6 +40,7 @@ public class ClericTest extends AbstractTestUnit {
   @Override
   public void equipStaffTest() {
     assertNull(getTestUnit().getEquippedItem());
+    getTestUnit().addItem(getStaff());
     getStaff().equipItem(getTestUnit());
     assertEquals(getStaff(), getTestUnit().getEquippedItem());
 
@@ -77,5 +80,20 @@ public class ClericTest extends AbstractTestUnit {
     assertEquals(unidad.getEquippedItem(), getStaff());
     unidad.giveAway(alpaca, getStaff());
     assertNotEquals(unidad.getEquippedItem(), getStaff());
+  }
+
+  @Test
+  @Override
+  public void testEquip(){
+
+    IUnit unit = getTestUnit();
+    getStaff().equipItem(unit);
+    assertFalse(unit.getItems().contains(getStaff()));
+    assertNotEquals(unit.getEquippedItem(), getStaff());
+    unit.addItem(getStaff());
+    getStaff().equipItem(unit);
+    assertTrue(unit.getItems().contains(getStaff()));
+    assertEquals(unit.getEquippedItem(), getStaff());
+
   }
 }

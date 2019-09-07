@@ -38,6 +38,7 @@ public class HeroTest extends AbstractTestUnit {
   @Test
   public void equipSpearTest() {
     assertNull(getTestUnit().getEquippedItem());
+    getTestUnit().addItem(getSpear());
     getSpear().equipItem(getTestUnit());
     assertEquals(getSpear(), getTestUnit().getEquippedItem());
 
@@ -83,6 +84,21 @@ public class HeroTest extends AbstractTestUnit {
     assertEquals(unidad.getEquippedItem(), getSpear());
     unidad.giveAway(alpaca, getSpear());
     assertNotEquals(unidad.getEquippedItem(), getSpear());
+  }
+
+  @Test
+  @Override
+  public void testEquip(){
+
+    IUnit unit = getTestUnit();
+    getSpear().equipItem(unit);
+    assertFalse(unit.getItems().contains(getSpear()));
+    assertNotEquals(unit.getEquippedItem(), getSpear());
+    unit.addItem(getSpear());
+    getSpear().equipItem(unit);
+    assertTrue(unit.getItems().contains(getSpear()));
+    assertEquals(unit.getEquippedItem(), getSpear());
+
   }
 
   }

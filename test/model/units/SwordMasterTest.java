@@ -77,4 +77,19 @@ public class SwordMasterTest extends AbstractTestUnit {
     unidad.giveAway(alpaca, getSword());
     assertNotEquals(unidad.getEquippedItem(), getSword());
   }
+
+  @Test
+  @Override
+  public void testEquip(){
+
+    IUnit unit = getTestUnit();
+    getSword().equipItem(unit);
+    assertFalse(unit.getItems().contains(getSword()));
+    assertNotEquals(unit.getEquippedItem(), getSword());
+    unit.addItem(getSword());
+    getSword().equipItem(unit);
+    assertTrue(unit.getItems().contains(getSword()));
+    assertEquals(unit.getEquippedItem(), getSword());
+
+  }
 }

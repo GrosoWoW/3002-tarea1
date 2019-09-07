@@ -328,6 +328,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
     IUnit primero = getTestUnit();
     IUnit segundo = new Fighter(1, 2, field.getCell(1, 1));
     equipWeapon(primero);
+    segundo.addItem(getAxe());
     getAxe().equipItem(segundo);
     primero.attackEnemy(segundo);
     assertNotEquals(segundo.getLive(), primero.getLive());
@@ -337,8 +338,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
     IUnit tercero = new SwordMaster(50, 2, field.getCell(0, 0));
     IUnit cuarto = new Hero(50, 2, field.getCell(1, 0));
+    tercero.addItem(getSword());
     getSword().equipItem(tercero);
     assertEquals(tercero.getEquippedItem(), getSword());
+    cuarto.addItem(getSpear());
     getSpear().equipItem(cuarto);
     assertEquals(cuarto.getEquippedItem(), getSpear());
     cuarto.attackEnemy(tercero);
@@ -349,25 +352,28 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
   @Override
   @Test
-  public void testHeal(){
+  public void testHeal() {
 
     IUnit primero = getTestUnit();
     IUnit curita = new Cleric(50, 2, field.getCell(1, 1));
-    getSpear().equipItem(primero);
-    IEquipableItem item = new Staff("La mata simios", 20,0,10);
+    equipWeapon(primero);
+    IEquipableItem item = new Staff("staff", 20, 0, 10);
+    curita.addItem(item);
     item.equipItem(curita);
     primero.takeDamage(30);
-    curita.healUnit(primero);
+    curita.attackEnemy(primero);
     assertEquals(primero.getMaxHitPoints()-10, primero.getCurrentHitPoints());
-    IEquipableItem item1 = new Staff("La mata simios 2.0", 200000,0,10);
+    IEquipableItem item1 = new Staff("staff", 200000,0,10);
+    curita.addItem(item1);
     item1.equipItem(curita);
-    curita.healUnit(primero);
+    curita.attackEnemy(primero);
     assertEquals(primero.getMaxHitPoints(), primero.getCurrentHitPoints());
     curita.unEquipItem();
-    IEquipableItem item2 = new Sword("La mata simios 2.0", 10,0,10);
+    IEquipableItem item2 = new Sword("staff", 10,0,10);
+    curita.addItem(item2);
     item2.equipItem(curita);
     primero.takeDamage(60);
-    curita.healUnit(primero);
+    curita.attackEnemy(primero);
     assertEquals(primero.getMaxHitPoints()-60, primero.getCurrentHitPoints());
 
   }

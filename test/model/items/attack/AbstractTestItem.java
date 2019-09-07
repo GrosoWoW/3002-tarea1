@@ -155,6 +155,7 @@ public abstract class AbstractTestItem implements ITestEquipableItem {
   public void equippedToTest() {
     assertNull(getTestItem().getOwner());
     IUnit unit = getTestUnit();
+    unit.addItem(getTestItem());
     getTestItem().equipItem(unit);
     assertEquals(unit, getTestItem().getOwner());
   }

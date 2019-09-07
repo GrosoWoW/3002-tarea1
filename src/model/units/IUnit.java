@@ -163,14 +163,6 @@ public interface IUnit {
   void heal(double heal);
 
   /**
-   * allows a unit to heal
-   *
-   * @param unit
-   *       to be healed
-   */
-  void healUnit(IUnit unit);
-
-  /**
    *
    * @return maximum unit life
    */
@@ -258,5 +250,6 @@ public interface IUnit {
    * @param item that will try to equip
    */
   void equipStaff(IEquipableItem item);
+
 
 }

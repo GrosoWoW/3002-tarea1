@@ -44,7 +44,9 @@ public class ArcherTest extends AbstractTestUnit {
   @Override
   public void equipBowTest() {
     assertNull(getTestUnit().getEquippedItem());
+    getTestUnit().addItem(getBow());
     getBow().equipItem(getTestUnit());
+
     assertEquals(getBow(), getTestUnit().getEquippedItem());
 
 
@@ -84,5 +86,20 @@ public class ArcherTest extends AbstractTestUnit {
     assertEquals(unidad.getEquippedItem(), getBow());
     unidad.giveAway(alpaca, getBow());
     assertNotEquals(unidad.getEquippedItem(), getBow());
+  }
+
+  @Test
+  @Override
+  public void testEquip(){
+
+    IUnit unit = getTestUnit();
+    getBow().equipItem(unit);
+    assertFalse(unit.getItems().contains(getBow()));
+    assertNotEquals(unit.getEquippedItem(), getBow());
+    unit.addItem(getBow());
+    getBow().equipItem(unit);
+    assertTrue(unit.getItems().contains(getBow()));
+    assertEquals(unit.getEquippedItem(), getBow());
+
   }
 }

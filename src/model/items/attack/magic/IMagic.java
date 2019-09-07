@@ -16,4 +16,5 @@ public interface IMagic extends IEquipableItem{
     double attack(IEquipableItem item);
 
 
+
 }

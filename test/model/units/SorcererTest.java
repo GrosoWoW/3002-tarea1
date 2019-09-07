@@ -36,11 +36,14 @@ public class SorcererTest extends  AbstractTestUnit {
     @Test
     public void equipBookTest() {
         assertNull(getTestUnit().getEquippedItem());
+        getTestUnit().addItem(getAnima());
         getAnima().equipItem(getTestUnit());
         assertEquals(getAnima(), getTestUnit().getEquippedItem());
+        getTestUnit().addItem(getLight());
         getLight().equipItem(getTestUnit());
         assertEquals(getLight(), getTestUnit().getEquippedItem());
         assertNotEquals(getAnima(), getTestUnit().getEquippedItem());
+        getTestUnit().addItem(getDark());
         getDark().equipItem(getTestUnit());
         assertEquals(getDark(), getTestUnit().getEquippedItem());
 
@@ -69,6 +72,21 @@ public class SorcererTest extends  AbstractTestUnit {
         assertEquals(unidad.getEquippedItem(), getAnima());
         unidad.giveAway(alpaca, getAnima());
         assertNotEquals(unidad.getEquippedItem(), getAnima());
+    }
+
+    @Test
+    @Override
+    public void testEquip(){
+
+        IUnit unit = getTestUnit();
+        getAnima().equipItem(unit);
+        assertFalse(unit.getItems().contains(getAnima()));
+        assertNotEquals(unit.getEquippedItem(), getAnima());
+        unit.addItem(getAnima());
+        getAnima().equipItem(unit);
+        assertTrue(unit.getItems().contains(getAnima()));
+        assertEquals(unit.getEquippedItem(), getAnima());
+
     }
 
 

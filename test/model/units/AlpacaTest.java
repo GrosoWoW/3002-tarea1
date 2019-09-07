@@ -2,8 +2,8 @@ package model.units;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test set for the alpaca unit
@@ -74,6 +74,13 @@ public class AlpacaTest extends AbstractTestUnit {
     assertTrue(alpaca1.getItems().contains(getSword()));
     assertTrue(alpaca1.getItems().contains(getAnima()));
     assertTrue(alpaca1.getItems().contains(getStaff()));
+  }
+
+  @Test
+  @Override
+  public void testEquip(){
+
+
   }
 
 }

@@ -15,4 +15,7 @@ interface IHeal extends IEquipableItem {
 
     double attack(IEquipableItem item);
 
+    double getHeal();
+
+
 }

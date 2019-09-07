@@ -41,6 +41,7 @@ public class FighterTest extends AbstractTestUnit {
   @Override
   public void equipAxeTest() {
     assertNull(getTestUnit().getEquippedItem());
+    getTestUnit().addItem(getAxe());
     getAxe().equipItem(getTestUnit());
     assertEquals(getAxe(), getTestUnit().getEquippedItem());
 
@@ -81,5 +82,20 @@ public class FighterTest extends AbstractTestUnit {
     assertEquals(unidad.getEquippedItem(), getAxe());
     unidad.giveAway(alpaca, getAxe());
     assertNotEquals(unidad.getEquippedItem(), getAxe());
+  }
+
+  @Test
+  @Override
+  public void testEquip(){
+
+    IUnit unit = getTestUnit();
+    getAxe().equipItem(unit);
+    assertFalse(unit.getItems().contains(getAxe()));
+    assertNotEquals(unit.getEquippedItem(), getAxe());
+    unit.addItem(getAxe());
+    getAxe().equipItem(unit);
+    assertTrue(unit.getItems().contains(getAxe()));
+    assertEquals(unit.getEquippedItem(), getAxe());
+
   }
 }

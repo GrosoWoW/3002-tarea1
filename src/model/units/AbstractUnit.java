@@ -162,11 +162,19 @@ public abstract class AbstractUnit implements IUnit {
     this.currentHitPoints += heal;
   }
 
-  public double check(double num){
+  public double check(double num, double vidaMaxima, double vidaActual) {
 
-    if(num < 0){ return 0;}
+    if (num <= 0) {
 
-    else{ return num; }
+      if (num <= 0 && this.getEquippedItem().weaponOfAttack()) {
+        return 0;
+      } else if (vidaActual - num >= vidaMaxima && !this.getEquippedItem().weaponOfAttack()) {
+        return -(vidaMaxima - vidaActual);
+      } else {
+        return num;
+      }
+    }
+    else{ return  num;}
   }
 
   public boolean canAttack(IUnit unit){
@@ -235,8 +243,16 @@ public abstract class AbstractUnit implements IUnit {
 
     if (this.canAttack(unit)) {
 
-      double damage = this.getEquippedItem().attack(unit.getEquippedItem());
-      damage = check(damage);
+      double damage = 0;
+      if (unit.getEquippedItem() == null) {
+        damage = this.getEquippedItem().getPower();
+
+      }
+      else {
+        damage = this.getEquippedItem().attack(unit.getEquippedItem());
+
+      }
+      damage = check(damage, unit.getMaxHitPoints(), unit.getCurrentHitPoints());
       this.Damage(unit, damage);
     }
   }
@@ -244,30 +260,19 @@ public abstract class AbstractUnit implements IUnit {
   public void Damage(IUnit attacker, double damage){
 
     attacker.takeDamage(damage);
-    if(attacker.getCurrentHitPoints() <= 0){
-      attacker.die();
-    }
-    else if(attacker.canAttack(this)){
+    if(attacker.getEquippedItem() == null) {}
+    else{
+      if (attacker.getEquippedItem().weaponOfAttack()) {
+        if (attacker.getCurrentHitPoints() <= 0) {
+          attacker.die();
+        } else if (attacker.canAttack(this)) {
 
-      double dano = attacker.getEquippedItem().attack(this.getEquippedItem());
-      dano = check(dano);
-      this.takeDamage(dano);
-    }
-  }
-
-  public void healUnit(IUnit unit){
-
-    double remainingLife = unit.getMaxHitPoints() - unit.getCurrentHitPoints();
-    if(this.canAttack(unit)) {
-      if (remainingLife <= this.getEquippedItem().getPower()) {
-
-        unit.heal(remainingLife);
-      }
-      else {
-        unit.heal(this.getEquippedItem().getPower());
+          double dano = attacker.getEquippedItem().attack(this.getEquippedItem());
+          dano = check(dano, this.getMaxHitPoints(), this.getCurrentHitPoints());
+          this.takeDamage(dano);
+        }
       }
     }
   }
-
 
 }

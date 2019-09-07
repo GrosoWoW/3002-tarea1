@@ -35,8 +35,11 @@ public class Fighter extends AbstractUnit {
   @Override
   public void equipAxe(IEquipableItem item) {
 
-    this.setEquippedItem(item);
-    item.setOwner(this);
+    if (this.getItems().contains(item)) {
 
+      this.setEquippedItem(item);
+      item.setOwner(this);
+
+    }
   }
 }
