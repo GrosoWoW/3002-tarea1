@@ -40,7 +40,7 @@ public class LightBook extends AbstractBook {
     @Override
     public double counterDark(IEquipableItem item){
 
-        return item.getPower() - 20;
+        return Math.max(item.getPower() - 20, 0);
     }
 
     @Override

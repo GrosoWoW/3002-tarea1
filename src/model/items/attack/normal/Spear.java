@@ -45,7 +45,7 @@ public class  Spear extends AbstractAttack {
   @Override
   public double counterSword(IEquipableItem item){
 
-    return item.getPower() -20;
+    return Math.max(item.getPower() - 20, 0);
   }
 
 

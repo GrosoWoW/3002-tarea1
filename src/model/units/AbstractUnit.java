@@ -165,10 +165,7 @@ public abstract class AbstractUnit implements IUnit {
   public double check(double num, double vidaMaxima, double vidaActual) {
 
     if (num <= 0) {
-
-      if (num <= 0 && this.getEquippedItem().weaponOfAttack()) {
-        return 0;
-      } else if (vidaActual - num >= vidaMaxima && !this.getEquippedItem().weaponOfAttack()) {
+      if (vidaActual - num >= vidaMaxima) {
         return -(vidaMaxima - vidaActual);
       } else {
         return num;
@@ -262,16 +259,14 @@ public abstract class AbstractUnit implements IUnit {
     attacker.takeDamage(damage);
     if(attacker.getEquippedItem() == null) {}
     else{
-      if (attacker.getEquippedItem().weaponOfAttack()) {
-        if (attacker.getCurrentHitPoints() <= 0) {
-          attacker.die();
-        } else if (attacker.canAttack(this)) {
+      if (attacker.getCurrentHitPoints() <= 0) {
+        attacker.die();
+      } else if (attacker.canAttack(this) && damage > 0) {
 
-          double dano = attacker.getEquippedItem().attack(this.getEquippedItem());
-          dano = check(dano, this.getMaxHitPoints(), this.getCurrentHitPoints());
-          this.takeDamage(dano);
+        double dano = attacker.getEquippedItem().attack(this.getEquippedItem());
+        dano = check(dano, this.getMaxHitPoints(), this.getCurrentHitPoints());
+        this.takeDamage(dano);
         }
-      }
     }
   }
 

@@ -89,7 +89,7 @@ public class SpearTest extends AbstractTestItem {
 
 
     assertEquals(StrongDamage, getTestItem().getPower()*1.5);
-    assertEquals(WeakDamage, getTestItem().getPower() - 20);
+    assertEquals(WeakDamage, Math.max(getTestItem().getPower() - 20, 0));
     assertEquals(AgainstLight, getTestItem().getPower()*1.5);
     assertEquals(AgainstSpear, getTestItem().getPower());
     assertEquals(AgainstAnima, getTestItem().getPower()*1.5);

@@ -106,9 +106,6 @@ public abstract class AbstractAttack implements IAttack {
         this.owner = unit;
     }
 
-    public boolean weaponOfAttack(){
-        return true;
-    }
 
 
 

@@ -114,6 +114,4 @@ public interface IEquipableItem {
    */
   void setOwner(IUnit unit);
 
-  boolean weaponOfAttack();
-
 }

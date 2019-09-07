@@ -87,7 +87,7 @@ public class SwordTest extends AbstractTestItem {
 
 
     assertEquals(StrongDamage, getTestItem().getPower()*1.5);
-    assertEquals(WeakDamage, getTestItem().getPower() - 20);
+    assertEquals(WeakDamage, Math.max(getTestItem().getPower() - 20, 0));
     assertEquals(AgainstLight, getTestItem().getPower()*1.5);
     assertEquals(AgainstSword, getTestItem().getPower());
     assertEquals(AgainstAnima, getTestItem().getPower()*1.5);

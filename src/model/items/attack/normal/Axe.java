@@ -45,7 +45,7 @@ public class Axe extends AbstractAttack {
   @Override
   public double counterSpear(IEquipableItem item){
 
-    return item.getPower() - 20;
+    return Math.max(item.getPower() - 20, 0);
   }
 
 

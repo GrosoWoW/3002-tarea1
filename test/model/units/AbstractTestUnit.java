@@ -360,8 +360,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
     IEquipableItem item = new Staff("staff", 20, 0, 10);
     curita.addItem(item);
     item.equipItem(curita);
+    assertEquals(curita.getCurrentHitPoints(), curita.getMaxHitPoints());
     primero.takeDamage(30);
     curita.attackEnemy(primero);
+    assertEquals(curita.getCurrentHitPoints(), curita.getMaxHitPoints());
     assertEquals(primero.getMaxHitPoints()-10, primero.getCurrentHitPoints());
     IEquipableItem item1 = new Staff("staff", 200000,0,10);
     curita.addItem(item1);

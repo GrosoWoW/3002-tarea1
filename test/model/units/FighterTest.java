@@ -67,7 +67,7 @@ public class FighterTest extends AbstractTestUnit {
     IUnit unidad = getTestUnit();
     equipWeapon(unidad);
     assertEquals(getAxe().getPower()*1.5, unidad.getEquippedItem().attack(getSpear()));
-    assertEquals(getAxe().getPower() - 20, unidad.getEquippedItem().attack(getSword()));
+    assertEquals(Math.max(getAxe().getPower() - 20, 0), unidad.getEquippedItem().attack(getSword()));
     assertEquals(getAxe().getPower(), unidad.getEquippedItem().attack(getStaff()));
 
   }

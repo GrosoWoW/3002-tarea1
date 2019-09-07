@@ -41,7 +41,7 @@ public class AnimaBook extends AbstractBook {
     @Override
     public double counterLight(IEquipableItem item){
 
-        return item.getPower() - 20;
+        return Math.max(item.getPower() - 20, 0);
     }
 
     @Override

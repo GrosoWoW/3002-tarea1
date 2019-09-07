@@ -45,7 +45,7 @@ public class Sword extends AbstractAttack {
   @Override
   public double counterAxe(IEquipableItem item){
 
-    return item.getPower() - 20;
+    return Math.max(item.getPower() - 20, 0);
   }
 
   @Override

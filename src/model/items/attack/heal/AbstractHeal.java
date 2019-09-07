@@ -102,9 +102,6 @@ public abstract class AbstractHeal implements IHeal {
 
         this.owner = unit;
     }
-    public boolean weaponOfAttack(){
-        return false;
-    }
 
     public double getHeal(){ return -power;}
 

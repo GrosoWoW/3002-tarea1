@@ -79,7 +79,7 @@ class DarkTest extends AbstractTestBook {
 
 
         assertEquals(StrongDamage, getTestItem().getPower()*1.5);
-        assertEquals(WeakDamage, getTestItem().getPower() - 20);
+        assertEquals(WeakDamage, Math.max(getTestItem().getPower() - 20, 0));
         assertEquals(AgainstDark, getTestItem().getPower());
         assertEquals(AgainstAxe, getTestItem().getPower()*1.5);
         assertEquals(AgainstSpear, getTestItem().getPower()*1.5);

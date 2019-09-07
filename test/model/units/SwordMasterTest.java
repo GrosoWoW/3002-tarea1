@@ -62,7 +62,7 @@ public class SwordMasterTest extends AbstractTestUnit {
     IUnit unidad = getTestUnit();
     equipWeapon(unidad);
     assertEquals(getSword().getPower()*1.5, unidad.getEquippedItem().attack(getAxe()));
-    assertEquals(getSword().getPower() - 20, unidad.getEquippedItem().attack(getSpear()));
+    assertEquals(Math.max(getSword().getPower() - 20, 0), unidad.getEquippedItem().attack(getSpear()));
     assertEquals(getSword().getPower(), unidad.getEquippedItem().attack(getStaff()));
   }
 

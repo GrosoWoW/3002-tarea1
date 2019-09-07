@@ -39,7 +39,7 @@ public class DarkBook extends AbstractBook {
     @Override
     public double counterAnima(IEquipableItem item){
 
-        return item.getPower() - 20;
+        return Math.max(item.getPower() - 20, 0);
     }
 
     @Override

@@ -71,7 +71,7 @@ public class HeroTest extends AbstractTestUnit {
     IUnit unidad = getTestUnit();
     equipWeapon(unidad);
     assertEquals(getSpear().getPower()*1.5, unidad.getEquippedItem().attack(getSword()));
-    assertEquals(getSpear().getPower() - 20, unidad.getEquippedItem().attack(getAxe()));
+    assertEquals(Math.max(getSpear().getPower() - 20, 0), unidad.getEquippedItem().attack(getAxe()));
     assertEquals(getSpear().getPower(), unidad.getEquippedItem().attack(getStaff()));
     }
   @Test

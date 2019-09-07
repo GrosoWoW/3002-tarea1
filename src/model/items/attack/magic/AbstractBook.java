@@ -104,7 +104,4 @@ public abstract class AbstractBook implements IMagic {
         this.owner = unit;
     }
 
-    public boolean weaponOfAttack(){
-        return true;
-    }
 }
