@@ -89,6 +89,8 @@ Aqui item seria Light, es decir retornaria el metodo counterAnima donde el metod
 ```
 Podemos ver que retornaria el poder del item, en este caso Anima multiplicado por 1.5 pues es fuerte contra Light. Es importante señalar que los metodos correspondientes para todos los items se encuentran en la clase Abstracta, luego se hace un overriding en cada clase para ir viendo caso a caso.
 
+Es importante ver que existe un metodo llamado check, que se encarga de verificar que si una unidad golpea y su daño es disminuido, no inflija daño negativo, esto provacaria errores de curación. Por otro lado para evitar que un clerico el sanar reciba un contraataque, existe un verificador, tal que el daño inflinjido sea negativo (en ese caso no recibira un contraataque).
+
 ## Implementación del sistema de Intercambio
 
 El sistema de intercambios se dividio en tres casos, de manera de darle mas flexividad al metodo de trade, uno es un intermcambio donde las dos unidades intercambian 1 item, otro donde una unidad regala un item y otro donde una unidad recibe un item. Se decidio este diseño para hacer màs comoda las dos situaciones y no estar trabajando con items nulos (en el caso de los dos ultimos).
@@ -141,7 +143,10 @@ En estos test principalmente se toman dos unidades (que por lo general era una g
 
 #### Test de Combate
 
+Estos test se centran principalmente en medir el daño que debe inflingir cada unidad hacia cada tipo de arma (se toman todos los casos para evitar errores), de esta manera se verifica que los golpes contra fuertes y debiles se produscan normalmente, tambien se testea que no se pueda golpear con daño negativo(solo el clerigo puede hacer eso pero es más una curación). Por otro lado se ponen casos bordes como pegar a unidades sin armas o pegar sin una arma (tambien que la alpaca intente golpear).
+
 #### Test de equipación
 
+Estos se centran en intentear equipar armas que las unidades no pueden equiparse (como que el clerigo se equipe un Hacha por ejemplo) o tambien que la llama se intente equipar un item. Por otro lado se crearon test que verifican que para tener equipada un arma, esta debe estar primero en el inventario.
 
 
