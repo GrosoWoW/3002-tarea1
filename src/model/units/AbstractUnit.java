@@ -157,11 +157,6 @@ public abstract class AbstractUnit implements IUnit {
     this.equippedItem = null;
   }
 
-  public void heal(double heal){
-
-    this.currentHitPoints += heal;
-  }
-
   public double check(double num, double vidaMaxima, double vidaActual) {
 
     if (num <= 0) {

@@ -80,6 +80,36 @@ public class AlpacaTest extends AbstractTestUnit {
   @Override
   public void testEquip(){
 
+    IUnit unit = getTestUnit();
+    unit.addItem(getAxe());
+    unit.addItem(getStaff());
+    unit.addItem(getAnima());
+    unit.addItem(getSword());
+    unit.addItem(getBow());
+    unit.addItem(getDark());
+    unit.addItem(getLight());
+    unit.addItem(getSpear());
+    getAxe().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getAxe());
+    getStaff().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getStaff());
+    getAnima().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getAnima());
+    getSword().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getSword());
+    getBow().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getBow());
+    getLight().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getLight());
+    getDark().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getDark());
+    getSpear().equipItem(unit);
+    assertNotEquals(unit.getEquippedItem(), getSpear());
+
+
+
+
+
 
   }
 

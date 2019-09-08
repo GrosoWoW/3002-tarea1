@@ -186,8 +186,16 @@ public interface ITestUnit {
   @Test
   void testInventory();
 
+  /**
+   * verify that traded items are no longer equipped
+   */
+
   @Test
   void testEquippedAndTrade();
+
+  /**
+   * verify that the equipped items are in the inventory and have no errors
+   */
 
   @Test
   void testEquip();

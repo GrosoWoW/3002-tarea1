@@ -13,6 +13,13 @@ import model.items.IEquipableItem;
 
 interface IAttack extends IEquipableItem {
 
+
+    /**
+     *
+     * @param item
+     *        to attack
+     * @return the damage that the unit will receive
+     */
     double attack(IEquipableItem item);
 
 }

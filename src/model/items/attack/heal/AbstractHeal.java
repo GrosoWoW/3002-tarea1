@@ -103,6 +103,6 @@ public abstract class AbstractHeal implements IHeal {
         this.owner = unit;
     }
 
-    public double getHeal(){ return -power;}
+    public double getHeal(){ return power;}
 
 }

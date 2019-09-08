@@ -155,14 +155,6 @@ public interface IUnit {
   boolean canAttack(IUnit unit);
 
   /**
-   * increases the life of a unit
-   *
-   * @param heal
-   *       amount of life to go up
-   */
-  void heal(double heal);
-
-  /**
    *
    * @return maximum unit life
    */

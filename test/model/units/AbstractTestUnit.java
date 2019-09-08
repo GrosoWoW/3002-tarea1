@@ -1,6 +1,7 @@
 package model.units;
 
 import model.items.*;
+import model.items.attack.heal.IHeal;
 import model.items.attack.heal.Staff;
 import model.items.attack.magic.AnimaBook;
 import model.items.attack.magic.DarkBook;
@@ -357,9 +358,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
     IUnit primero = getTestUnit();
     IUnit curita = new Cleric(50, 2, field.getCell(1, 1));
     equipWeapon(primero);
-    IEquipableItem item = new Staff("staff", 20, 0, 10);
+    IHeal item = new Staff("staff", 20, 0, 10);
     curita.addItem(item);
     item.equipItem(curita);
+    assertEquals(item.getHeal(), 20);
     assertEquals(curita.getCurrentHitPoints(), curita.getMaxHitPoints());
     primero.takeDamage(30);
     curita.attackEnemy(primero);
